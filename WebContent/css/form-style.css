@@ -1,0 +1,68 @@
+.container-main{
+	overflow-y: auto;
+}
+.online-test{
+	margin-left: 30px;
+	float: left;
+	width: calc(100% - 180px)
+}
+.questions{
+	list-style-type: none;
+	padding: 0;
+	float: left;
+	width: 100%;
+}
+.question{
+	margin: 10px;
+}
+.questionLabel
+{
+	background: #fbe4c3;
+	padding: 10px 15px;
+	font-weight: 700;
+	font-size: 16px;
+	display: block;
+	clear: both;
+}
+.answerSet{
+	padding-left: 30px;
+}
+.answerSet span{
+	float: left;
+	width: 175px;
+	padding: 10px 0;
+}
+.submit{
+	text-align: center;
+	margin-bottom: 20px;
+}
+.indexer{
+	width: 150px;
+    float: right;
+    position: fixed;
+    margin-top: 30px;
+    display: inline-grid;
+}
+#time{
+	float: left;
+    margin: auto;
+    margin-bottom: 10px;
+}
+.question-index{
+    list-style: none;
+    width: 70%;
+    margin: auto;
+}
+.question-index > .question-num{
+	width: 14px;
+	text-align: center;
+}
+.exam-list{
+	width: 80%;
+	margin: auto;
+	margin-top: 40px;
+}
+.exams{
+	width: auto;
+	margin: 0 20px;
+}
