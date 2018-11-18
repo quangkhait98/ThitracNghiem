@@ -22,7 +22,7 @@ import model.nguoidung;
 @WebServlet("/AddQuestion")
 public class AddQuestion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	cauhoif chf= new cauhoif();
     public AddQuestion() {
         super();
         // TODO Auto-generated constructor stub
@@ -103,20 +103,31 @@ public class AddQuestion extends HttpServlet {
 		request.setAttribute("dapan3", dapan3);
 		request.setAttribute("dapan4", dapan4);
 		if(err.length()==0)
-		{
-			cauhoif chf = new cauhoif();
-			
-			//	chf.themcauhoi(cauhoi, chonloai, dapan1, dapan2, dapan3, dapan4, chonmon, dapandung);
+		{   
+			model.cauhoi ch = new model.cauhoi();
+			ch.setNoidung(cauhoi);
+			ch.setLoaicauhoi(chonloai);
+			ch.setDapan1(dapan1);
+			ch.setDapan2(dapan2);
+			ch.setDapan3(dapan3);
+			ch.setDapan4(dapan4);
+			ch.setMamon(chonmon);
+			ch.setDapandung(dapandung);
+			int dem =chf.themcauhoi(ch);
+			if(dem>0)
+			{
 				err="thêm câu hỏi thành công";
-			
-				
-				
-			
+			}
+			else
+			{
+				err="thêm câu hỏi thất bại";
+			}
+			request.setAttribute("err", err);
 		}else
 		{
-			err="thêm câu hỏi thất bại";
 			request.setAttribute("err", err);
 		}
+		this.doGet(request, response);
 	}
 
 }
