@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
 <html>
 <head lang = "vi">
@@ -18,55 +20,11 @@
 </head>
 <body>		
 	<div class="canvas">
-		<div class="header">
-			<div class="cover-header">
-				<div class="software-name">
-					<h3>LUYỆN THI TRẮC NGHIỆM</h3>
-				</div>
-				<div class="logo-inline"></div>
-				
-				<div class="toggle-info">
-					<img id="toggle-img" src="images/user-icon-logout.png" alt="">
-					<span class="user-name">Hải Nguyễn</span>
-					<div class="info">
-						<div class="myinfo item-info">
-							<span>Thông tin cá nhân</span>
-						</div>
-						<div class="logout item-info">
-							<i class="fas fa-sign-out-alt"></i><span>Đăng xuất</span>
-						</div>
-					</div>
-				</div>				
-			</div>		
-		</div>
+		<t:header>
+		</t:header>		
 		<div class="body">
-			<div class="sidebar">
-				<div class="sidebar-header">
-					<p>MENU</p>
-				</div>
-				<div class="sidebar-menu">
-					<ul>
-						<li class="sidebar-feature">
-							<a href="find-friend.html">
-								<i class="fas fa-book-open"></i>
-								<span>Xem các bài kiểm tra</span>
-							</a>
-						</li>
-						<li class="sidebar-feature">
-							<a href="mainframe.html">
-								<i class="fas fa-star-half-alt"></i>
-								<span>Xem điểm kiểm tra</span>
-							</a>
-						</li>
-						<li class="sidebar-feature">
-							<a href="friend-list.html">
-								<i class="fas fa-info"></i>
-								<span>Thông tin cá nhân</span>
-							</a>
-						</li>
-					</ul>
-				</div>
-			</div>
+			<t:sidebar>
+			</t:sidebar>
 			<div class="container-main">
 				<div id="accordion" class="exam-list">
 					<div class="card">

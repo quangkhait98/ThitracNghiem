@@ -31,7 +31,6 @@ public class nguoidungf {
 	public nguoidung getTaiKhoan(String manguoidung) {
 		Connection connection = MySQLConnUtils.getMySQLConnection();
        
-
         try {
         	Statement state = connection.createStatement();
         	 String sql = "select * from nguoidung where MaNguoiDung='" + manguoidung + "'";
@@ -40,6 +39,7 @@ public class nguoidungf {
             	nguoidung nd = new nguoidung();
                 nd.setManguoidung(rs.getString("MaNguoiDung"));
                 nd.setQuyen(rs.getString("Quyen"));
+                nd.setTenNguoiDung(rs.getString("tenNguoiDung"));
                 return nd;
             }
         } catch (SQLException ex) {

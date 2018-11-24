@@ -27,7 +27,7 @@ public class dangnhapservlet extends HttpServlet {
 		HttpSession ses = request.getSession(false);
 		if(ses != null)
 		{
-			nguoidung nd =(nguoidung) ses.getAttribute("login");
+			nguoidung nd = (nguoidung)ses.getAttribute("login");
 			if(nd!=null)
 			{
 				String quyen = nd.getQuyen();
@@ -79,15 +79,15 @@ public class dangnhapservlet extends HttpServlet {
             if (err.length() == 0) {
             	nguoidung nd = new nguoidung();
             	nd.setManguoidung(manguoidung);
-            	nd.setMatkhau(matkhau);
                 String t = nguoidungf.getTaiKhoan(manguoidung).getQuyen();
                 nd.setQuyen(t);
+                nd.setTenNguoiDung(nguoidungf.getTaiKhoan(manguoidung).getTenNguoiDung());
                 HttpSession session = request.getSession();
                 response.setContentType("text/html;charset=utf-8");
                 session.setAttribute("login", nd);
-                if (t == "student") {
-                	
-                    url = "";
+                if (t.equals("student"))
+                {                	
+                   url = "/student-exam.jsp";
                 }
                 if (t == "questionmanager") {
                    
@@ -100,6 +100,7 @@ public class dangnhapservlet extends HttpServlet {
                 if (t == "classmanager") {
                     url = "";
                 }
+                request.setAttribute("user", nd);
 
             } else {
                 url = "/login.jsp";

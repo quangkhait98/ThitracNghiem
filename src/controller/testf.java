@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import function.cauhoif;
 import function.monhocf;
+import function.nguoidungf;
 import model.monhoc;
 import model.nguoidung;
 
@@ -30,7 +31,8 @@ public class testf extends HttpServlet {
     
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	cauhoif.getquestionsFromExcel();
+	nguoidungf nguoidungf = new nguoidungf();
+	nguoidungf.kiemTraDangNhap("aaa", "aaaa");
 	} 
 
 

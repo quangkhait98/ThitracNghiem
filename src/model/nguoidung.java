@@ -5,8 +5,15 @@ public class nguoidung {
 	 private String manguoidung;
 	 private String matkhau;
 	 private String quyen;
+	 private String tenNguoiDung;
 	 
-	 public nguoidung()
+	 public String getTenNguoiDung() {
+		return tenNguoiDung;
+	}
+	public void setTenNguoiDung(String tenNguoiDung) {
+		this.tenNguoiDung = tenNguoiDung;
+	}
+	public nguoidung()
 	 {
 	 
 	 }
@@ -28,11 +35,12 @@ public class nguoidung {
 	public void setQuyen(String quyen) {
 		this.quyen = quyen;
 	}
-	public nguoidung (String manguoidung,String matkhau,String quyen)
+	public nguoidung (String manguoidung,String matkhau,String quyen, String tenNguoiDung)
 	 {
 		 this.manguoidung=manguoidung;
 		 this.matkhau=matkhau;
 		 this.quyen=quyen;
+		 this.tenNguoiDung = tenNguoiDung;
 	 }
 	
 }
