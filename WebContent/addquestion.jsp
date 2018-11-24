@@ -17,40 +17,6 @@
 	<link rel="stylesheet" type="text/css" href="css/addquestion.css">
 	<script src="js/mainframe.js"></script>
 	<script type="text/javascript">
-        $(document).ready(function(){          
-                $('#add').click(function(){
-                        var monhoc = $('#chonmon').val();
-                        var loai = $('#chonloai').val();
-                        $.ajax({
-                                type: "POST",
-                                url : "",
-                                data: {monhoc: monhoc,loai : loai},
-                                success: function(responseText){
-                                }
-                        });
-                });
-        });
-        
-        /* $(document).ready(function(){          
-            $('#addquestion').click(function(){
-                    var monhoc = $('#chonmon').val();
-                    var loai = $('#chonloai').val();
-                    var cauhoi = $('#cauhoi').val();
-                    var dapan1 = $('#dapan1').val();
-                    var dapan2 = $('#dapan2').val();
-                    var dapan3 = $('#dapan3').val();
-                    var dapan4 = $('#dapan4').val();
-                    var dapandung = $('#dapandung').val();
-                    $.ajax({
-                            type: "POST",
-                            url : "testf",
-                            data: {cauhoi:cauhoi,monhoc: monhoc,loai : loai,
-                            	dapan1:dapan1,dapan2:dapan2,dapan3:dapan3,dapan4:dapan4,dapandung:dapandung},
-                            success: function(responseText){
-                            }
-                    });
-            });
-    }); */
 </script>
 </head>
 <body>	
@@ -115,7 +81,7 @@ if(request.getAttribute("err")!=null)
 				<div class="row main col-sm-12">
 					<div class="col-sm-2"></div>
 					<div class="col-sm-8 ">
-						<form action="testf" method="POST" >
+						<form action="AddQuestion" method="POST" >
 							<div class="row">
 								<div class="col-50">
 								<label >Chọn môn</label><br>
@@ -178,14 +144,13 @@ if(request.getAttribute("err")!=null)
 				 <div class="row main col-sm-12">
 				 	<div class="col-sm-1"></div>
 					<div class="col-sm-10 ">
-						<form method="post" enctype="multipart/form-data"
-						action="">
+						<form action="AddQuestionFromExcel" method="POST" enctype="multipart/form-data" >
 							<div class="row">
 								<div class="col-sm-4" >
 									<input type="file" name="fileexcel" style="margin-top: 7px;">
 								</div>
 								<div class="col-sm-8" >
-									<button type="button" name="addexcel" class="btn btn-info btn-block" id="add" >Thêm</button>
+									<button type="submit" name="addexcel" class="btn btn-info btn-block" id="add" >Thêm</button>
 								</div>
 							</div>
 						</form>

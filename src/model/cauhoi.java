@@ -2,7 +2,7 @@ package model;
 
 public class cauhoi {
 		
-		private String macauhoi;
+		private int macauhoi;
 		private String noidung;
 		private String loaicauhoi;
 		private String dapan1;
@@ -21,7 +21,7 @@ public class cauhoi {
 		{
 			
 		}
-		public cauhoi(String macauhoi, String noidung, String loaicauhoi, String dapan1,String dapan2,String dapan3,String dapan4,String mamon,int dapandung)
+		public cauhoi(int macauhoi, String noidung, String loaicauhoi, String dapan1,String dapan2,String dapan3,String dapan4,String mamon,int dapandung)
 		{
 			this.macauhoi=macauhoi;
 			this.noidung=noidung;
@@ -33,10 +33,10 @@ public class cauhoi {
 			this.mamon=mamon;
 			this.dapandung=dapandung;
 		}
-		public String getMacauhoi() {
+		public int getMacauhoi() {
 			return macauhoi;
 		}
-		public void setMacauhoi(String macauhoi) {
+		public void setMacauhoi(int macauhoi) {
 			this.macauhoi = macauhoi;
 		}
 		public String getNoidung() {

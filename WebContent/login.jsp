@@ -13,13 +13,11 @@
 	<script src="js/popper.min.js"></script>
 	<script src="js/bootstrap.bundle.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-
 	<link rel="stylesheet" href="css/login.css">
     <title>Login</title>
 </head>
 <body>
 <%
-
 String err="";
 if(request.getAttribute("err")!=null)
 {

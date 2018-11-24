@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,6 +22,7 @@ import model.nguoidung;
 
 
 @WebServlet("/AddQuestionFromExcel")
+@MultipartConfig
 public class AddQuestionFromExcel extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        cauhoif chf = new cauhoif();
@@ -68,50 +70,47 @@ public class AddQuestionFromExcel extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*	request.setCharacterEncoding("utf-8");
-			Part excelpart = request.getPart("fileexcel");
-			StringBuilder err = new StringBuilder("");
-			boolean error = false;
-			if(excelpart==null)
+		request.setCharacterEncoding("utf-8");
+		Part excelpart = request.getPart("fileexcel");
+		StringBuilder err = new StringBuilder("");
+		boolean error = false;
+		if(excelpart==null)
+		{
+			error = true;
+			err.append("không nhận được file excel");
+		}
+		if(!error)
+		{
+			try(InputStream excelInp = excelpart.getInputStream();)
 			{
-				error = true;
-				err.append("không nhận được file excel");
-			}
-			if(!error)
-			{
-				try(InputStream excelInp = excelpart.getInputStream();)
+				
+				List<cauhoi> questions = chf.getquestionsFromExcel(excelInp);
+				if(questions !=  null)
 				{
-					String chonmon = request.getParameter("monhoc");
-					String chonloai= request.getParameter("loai");
-					System.out.println(chonmon);
-					System.out.println(chonloai);
-					List<cauhoi> questions = chf.getquestionsFromExcel(excelInp);
-					if(questions !=  null)
+					int leng = questions.size();
+					if(leng >0)
 					{
-						int leng = questions.size();
-						if(leng >0)
+						if(chf.addquestionfromexcel(questions))
 						{
-							if(chf.addquestionfromexcel(questions, chonmon, chonloai))
-							{
-								request.setAttribute("thongbao", String.format("đã thêm %d câu hỏi", leng));
-							}
-							else {
-								err.append("> Thêm các câu hỏi thất bại.<br />");
-								request.setAttribute("err", err);
-							}
+							request.setAttribute("thongbao", String.format("đã thêm %d câu hỏi", leng));
 						}
-					} else {
-						err.append("> Không lấy được các câu hỏi trong file Excel.<br />");
-						request.setAttribute("err", err);
+						else {
+							err.append("> Thêm các câu hỏi thất bại.<br />");
+							request.setAttribute("err", err);
+						}
 					}
-				}
-				catch (Exception e) {
-					// TODO: handle exception
+				} else {
+					err.append("> Không lấy được các câu hỏi trong file Excel.<br />");
+					request.setAttribute("err", err);
 				}
 			}
-			else {
-				request.setAttribute("err", err);
+			catch (Exception e) {
+				// TODO: handle exception
+			}
+		}
+		else {
+			request.setAttribute("err", err);
+}
 	}
-	}*/
-	}
+	
 }
