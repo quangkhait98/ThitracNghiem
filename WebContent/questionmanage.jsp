@@ -1,4 +1,7 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="model.monhoc"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head lang = "vi">
@@ -13,8 +16,11 @@
 	<link rel="stylesheet" href="fontawesome/fontawesome-free-5.3.1-web/css/all.min.css">
 	
 	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/jquery321.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/questionmanage.css">
 	<script src="js/mainframe.js"></script>
+	<script src="jsf/viewquestion.js"></script>
+	
 </head>
 <body>		
 	<div class="canvas">
@@ -71,27 +77,27 @@
 				<div class="row filter-search">
 		  			<div class="col-sm-3">
 						<label >Chọn môn</label><br>
-						<select class="form-control">
-							<option>Toán</option>
-							<option>Văn</option>
-							<option>Anh</option>
-						</select>
+								<select class="form-control" name="chonmon" id="chonmon" style="width: 90%" required>									
+										<c:forEach items="${chonmon}" var="item">
+											<option value="${item.mamon}">${item.tenmon}</option>
+										</c:forEach>						
+								</select>
 					</div>
 					<div class="col-sm-3">
 						<label>Chọn loại </label><br>
-						<select class="form-control">
-							<option>1</option>
-							<option>2</option>
-							<option>3</option>
-						</select>
+								<select class="form-control" name="chonloai" id="chonloai" style="width: 90%" required>
+									<option value="kho">Khó</option>
+									<option value="trungbinh">Trung Bình</option>
+									<option value="de">Dễ</option>
+								</select>
 					</div>
 					<div class="col-sm-30">
 						<label>Nhập câu hỏi: </label><br>
-						<input type="text" name="" style="height: 39px;width: 350px;"
+						<input type="text" name="search" id="search" style="height: 39px;width: 350px;"
 						class="form-control">
 					</div>
 					<div class="col-sm-3">
-						<button type="button" class="btn btn-info search" style="width: 250px;margin-left: 40px;">Tìm kiếm</button>
+						<button type="button" id="searchBut" style="width: 250px;margin-left: 40px;">tim kiem</button>
 					</div>
 		  		</div>
 				<div class="card">
@@ -102,127 +108,29 @@
 						    		<i class="fa fa-plus fa-2x" aria-hidden="true"></i>
 						        </a>
 						    </span>
-
-					        <table class="table table-bordered table-responsive-md table-striped text-center">
+							
+					        <table id="question_table" class="table table-bordered table-responsive-md table-striped text-center">
+					        <caption id="question_table_cap">Trang 1</caption>
+					        <thead>
 						        <tr>
 						          <th class="text-center">STT</th>
 						          <th class="text-center">Mã câu hỏi</th>
 						          <th class="text-center">Nội dung</th>
-						          <th class="text-center">Đáp án</th>
-						          <th class="text-center">Thời gian thêm</th>
+						          <th class="text-center">Đáp án</th>						       
 						          <th class="text-center">Chức năng</th>
 						        </tr>
-
-						        <tr>
-						          <td class="pt-1-half" contenteditable="false">1</td>
-						          <td class="pt-2-half" contenteditable="false">CH1</td>
-						          <td class="pt-2-half" contenteditable="false">Each of us must take ______ for our own actions</td>
-						          <td class="pt-1-half" contenteditable="false">Responsibility</td>
-						          <td class="pt-2-half" contenteditable="false">20/7/2018</td>
-						          <td>
-						          	  <span class="table-edit"><button type="button" class="btn btn-primary btn-rounded btn-sm my-0">Sửa</button></span>
-						           	  <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">Xóa</button></span>
-						          </td>
-						        </tr>
-
-						        <tr>
-						          <td class="pt-1-half" contenteditable="false">2</td>
-						          <td class="pt-2-half" contenteditable="false">CH2</td>
-						          <td class="pt-2-half" contenteditable="false">Each of us must take ______ for our own actions</td>
-						          <td class="pt-1-half" contenteditable="false">Responsibility</td>
-						          <td class="pt-2-half" contenteditable="false">20/7/2018</td>
-						          <td>
-						          	  <span class="table-edit"><button type="button" class="btn btn-primary btn-rounded btn-sm my-0">Sửa</button></span>
-						           	  <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">Xóa</button></span>
-						          </td>
-						        </tr>
-
-						        <tr>
-						          <td class="pt-1-half" contenteditable="false">3</td>
-						          <td class="pt-2-half" contenteditable="false">CH3</td>
-						          <td class="pt-2-half" contenteditable="false">Each of us must take ______ for our own actions</td>
-						          <td class="pt-1-half" contenteditable="false">Responsibility</td>
-						          <td class="pt-2-half" contenteditable="false">20/7/2018</td>
-						          <td>
-						          	  <span class="table-edit"><button type="button" class="btn btn-primary btn-rounded btn-sm my-0">Sửa</button></span>
-						           	  <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">Xóa</button></span>
-						          </td>
-						        </tr>
-
-						        <tr>
-						          <td class="pt-1-half" contenteditable="false">4</td>
-						          <td class="pt-2-half" contenteditable="false">CH4</td>
-						          <td class="pt-2-half" contenteditable="false">Each of us must take ______ for our own actions</td>
-						          <td class="pt-1-half" contenteditable="false">Responsibility</td>
-						          <td class="pt-2-half" contenteditable="false">20/7/2018</td>
-						          <td>
-						          	  <span class="table-edit"><button type="button" class="btn btn-primary btn-rounded btn-sm my-0">Sửa</button></span>
-						           	  <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">Xóa</button></span>
-						          </td>
-						        </tr>
-
-						        <tr>
-						          <td class="pt-1-half" contenteditable="false">5</td>
-						          <td class="pt-2-half" contenteditable="false">CH5</td>
-						          <td class="pt-2-half" contenteditable="false">Each of us must take ______ for our own actions</td>
-						          <td class="pt-1-half" contenteditable="false">Responsibility</td>
-						          <td class="pt-2-half" contenteditable="false">20/7/2018</td>
-						          <td>
-						          	  <span class="table-edit"><button type="button" class="btn btn-primary btn-rounded btn-sm my-0">Sửa</button></span>
-						           	  <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">Xóa</button></span>
-						          </td>
-						        </tr>
-
-						        <tr>
-						          <td class="pt-1-half" contenteditable="false">6</td>
-						          <td class="pt-2-half" contenteditable="false">CH6</td>
-						          <td class="pt-2-half" contenteditable="false">Each of us must take ______ for our own actions</td>
-						          <td class="pt-1-half" contenteditable="false">Responsibility</td>
-						          <td class="pt-2-half" contenteditable="false">20/7/2018</td>
-						          <td>
-						          	  <span class="table-edit"><button type="button" class="btn btn-primary btn-rounded btn-sm my-0">Sửa</button></span>
-						           	  <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">Xóa</button></span>
-						          </td>
-						        </tr>
-
-						        <tr>
-						          <td class="pt-1-half" contenteditable="false">7</td>
-						          <td class="pt-2-half" contenteditable="false">CH7</td>
-						          <td class="pt-2-half" contenteditable="false">Each of us must take ______ for our own actions</td>
-						          <td class="pt-1-half" contenteditable="false">Responsibility</td>
-						          <td class="pt-2-half" contenteditable="false">20/7/2018</td>
-						          <td>
-						          	  <span class="table-edit"><button type="button" class="btn btn-primary btn-rounded btn-sm my-0">Sửa</button></span>
-						           	  <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">Xóa</button></span>
-						          </td>
-						        </tr>
-
-						        <tr>
-						          <td class="pt-1-half" contenteditable="false">8</td>
-						          <td class="pt-2-half" contenteditable="false">CH8</td>
-						          <td class="pt-2-half" contenteditable="false">Each of us must take ______ for our own actions</td>
-						          <td class="pt-1-half" contenteditable="false">Responsibility</td>
-						          <td class="pt-2-half" contenteditable="false">20/7/2018</td>
-						          <td>
-						          	  <span class="table-edit"><button type="button" class="btn btn-primary btn-rounded btn-sm my-0">Sửa</button></span>
-						           	  <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">Xóa</button></span>
-						          </td>
-						        </tr>
-	       
+						        </thead>
+								<tbody>							
+								</tbody>
 					      </table>
 					    </div>
 					    
 				  	</div>
 				</div>
-				<nav class="pagination-bot" aria-label="Page navigation example">
-				  <ul class="pagination">
-				    <li class="page-item"><a class="page-link" href="#">Trước</a></li>
-				    <li class="page-item"><a class="page-link" href="#">1</a></li>
-				    <li class="page-item"><a class="page-link" href="#">2</a></li>
-				    <li class="page-item"><a class="page-link" href="#">3</a></li>
-				    <li class="page-item"><a class="page-link" href="#">Sau</a></li>
-				  </ul>
-				</nav>
+				<div class="col-sm-3" >
+				<button type="button" id="backBut" style="width: 50px;margin-left: 40px;">A</button>		
+				<button type="button" id="forwardBut" style="width: 50px;">B</button>
+				</div>
 				<!-- Card table -->
 			</div>
 			<!-- end container -->

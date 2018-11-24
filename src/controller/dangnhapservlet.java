@@ -97,7 +97,7 @@ public class dangnhapservlet extends HttpServlet {
                 	
                     url = "";
                 }
-                if (t == "classmanager") {
+                if (t.equals("classmanager")) {
                     url = "";
                 }
                 request.setAttribute("user", nd);
@@ -105,8 +105,7 @@ public class dangnhapservlet extends HttpServlet {
             } else {
                 url = "/login.jsp";
             }
-            RequestDispatcher rd = getServletContext().getRequestDispatcher(url);
-            rd.forward(request, response);
+            request.getRequestDispatcher("/addquestion.jsp").forward(request, response);
 
         } catch (Exception e) {
         }
