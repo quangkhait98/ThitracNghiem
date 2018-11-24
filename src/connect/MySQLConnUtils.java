@@ -8,6 +8,7 @@ public class MySQLConnUtils {
 	public static Connection getMySQLConnection() {
 	    String userName = "root";
 	    String password = "rongdenmatdo";
+	    
 	    String connectionURL = "jdbc:mysql://localhost:3306/thitracnghiem?autoReconnect=true&useSSL=false";
 	    try
 	    {

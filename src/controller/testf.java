@@ -37,6 +37,7 @@ public class testf extends HttpServlet {
 	nguoidungf.kiemTraDangNhap("aaa", "aaaa");
 	} 
 
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 	}
