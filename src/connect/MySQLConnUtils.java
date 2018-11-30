@@ -12,6 +12,9 @@ public class MySQLConnUtils {
 	    
 =======
 	    String password = "quangkhamarsu";
+<<<<<<< HEAD
+>>>>>>> parent of c216beb... phan lop
+=======
 >>>>>>> parent of c216beb... phan lop
 	    String connectionURL = "jdbc:mysql://localhost:3306/thitracnghiem?autoReconnect=true&useSSL=false";
 	    try

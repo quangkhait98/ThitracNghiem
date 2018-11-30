@@ -2,6 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre-10.0.2">
 		<attributes>
@@ -24,6 +25,10 @@
 =======
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
+=======
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+>>>>>>> parent of c216beb... phan lop
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
@@ -48,6 +53,9 @@
 	<classpathentry kind="lib" path="G:/download/thuvien/thuvien/poi-3.13.jar"/>
 	<classpathentry kind="lib" path="G:/download/thuvien/thuvien/poi-ooxml-3.13.jar"/>
 	<classpathentry kind="lib" path="G:/download/thuvien/thuvien/poi-ooxml-schemas-3.13.jar"/>
+<<<<<<< HEAD
+>>>>>>> parent of c216beb... phan lop
+=======
 >>>>>>> parent of c216beb... phan lop
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

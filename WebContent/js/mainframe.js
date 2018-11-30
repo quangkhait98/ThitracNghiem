@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 $(document).on("click", function() {
 	$(".info").hide();
 });
@@ -37,6 +38,8 @@ $(document).ready(function myFunction() {
 	}
 })
 =======
+=======
+>>>>>>> parent of c216beb... phan lop
 $(document).on("click", function () {
 	$(".info").hide();
 });
@@ -59,4 +62,7 @@ $(document).ready(function(){
         event.hide();
     }); 
 });
+<<<<<<< HEAD
+>>>>>>> parent of c216beb... phan lop
+=======
 >>>>>>> parent of c216beb... phan lop

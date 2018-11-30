@@ -164,6 +164,7 @@ public class cauhoif {
 		return null;		
 	}
 <<<<<<< HEAD
+<<<<<<< HEAD
 	public java.util.ArrayList<cauhoi> getquestion(String monhoc, int slDe, int slTBinh, int slKho)
 	{
 		Connection conn = MySQLConnUtils.getMySQLConnection();
@@ -204,6 +205,8 @@ public class cauhoif {
 		}	
 		return null;		
 	}
+=======
+>>>>>>> parent of c216beb... phan lop
 =======
 >>>>>>> parent of c216beb... phan lop
 }

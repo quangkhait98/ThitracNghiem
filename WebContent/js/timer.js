@@ -1,5 +1,6 @@
 function startTimer(duration, display) {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	var timer = duration, hours, minutes, seconds;
 	setInterval(function() {
 		
@@ -28,6 +29,8 @@ $(document).ready(function() {
 	startTimer(duration, display);
 });
 =======
+=======
+>>>>>>> parent of c216beb... phan lop
     var timer = duration, minutes, seconds;
     setInterval(function () {
         minutes = parseInt(timer / 60, 10)
@@ -48,5 +51,9 @@ window.onload = function () {
     var time = 60 * 45,
         display = document.querySelector('#time');
     startTimer(time, display);
+<<<<<<< HEAD
+};
+>>>>>>> parent of c216beb... phan lop
+=======
 };
 >>>>>>> parent of c216beb... phan lop
