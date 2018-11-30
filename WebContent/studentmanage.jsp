@@ -22,6 +22,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 	<script src="js/studentmanage.js" type="text/javascript"></script>
@@ -35,6 +36,11 @@
 	<script src="js/studentmanage.js" type="text/javascript"></script>
 >>>>>>> parent of c216beb... phan lop
 
+=======
+
+	<script src="js/studentmanage.js" type="text/javascript"></script>
+
+>>>>>>> parent of c216beb... phan lop
 	<script src="js/mainframe.js"></script>
 </head>
 <body>		

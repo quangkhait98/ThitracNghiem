@@ -18,6 +18,7 @@ import function.cauhoif;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import function.monhocf;
 import function.nguoidungf;
 import model.monhoc;
@@ -33,6 +34,9 @@ import model.nguoidung;
 =======
 >>>>>>> parent of c216beb... phan lop
 import model.cauhoi;
+=======
+import model.cauhoi;
+>>>>>>> parent of c216beb... phan lop
 
 @WebServlet("/testf")
 @MultipartConfig
@@ -50,10 +54,13 @@ public class testf extends HttpServlet {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	nguoidungf nguoidungf = new nguoidungf();
 	nguoidungf.kiemTraDangNhap("aaa", "aaaa");
 	} 
 =======
+=======
+>>>>>>> parent of c216beb... phan lop
 =======
 >>>>>>> parent of c216beb... phan lop
 =======
