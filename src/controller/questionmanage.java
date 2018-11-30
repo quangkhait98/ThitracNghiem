@@ -22,7 +22,6 @@ import model.nguoidung;
 public class questionmanage extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	cauhoif chf = new cauhoif();
-	monhocf mhf = new monhocf();
     public questionmanage() {
         super();
         // TODO Auto-generated constructor stub
@@ -63,6 +62,9 @@ public class questionmanage extends HttpServlet {
 			}
 		}
 			this.loadtrang(request, response);
+	
+	
+		//request.getRequestDispatcher("login.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -99,16 +101,22 @@ public class questionmanage extends HttpServlet {
 			e.printStackTrace();
 		}
 		if(!err)
-		{	
+		{
+			
 			java.util.List<cauhoi> ch;
 			ch = chf.getquestion(search, chonmon, chonloai, length, offset);
-			request.setAttribute("question", ch);		
+			request.setAttribute("question", ch);
+			for (cauhoi cauhoi : ch) {
+				System.out.println(cauhoi.getMacauhoi());
+			}
+			System.out.println(ch.size());
 		}
 		request.getRequestDispatcher("tablequestion.jsp").forward(request, response);
+		
 	}
 	private void loadtrang(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		List<monhoc> mh = mhf.getmonhoc();
+		monhocf mhf = new monhocf();
+		ArrayList<monhoc> mh = mhf.getmonhoc();
 		if(mh != null && mh.size()>0)
 		{
 			request.setAttribute("chonmon", mh);

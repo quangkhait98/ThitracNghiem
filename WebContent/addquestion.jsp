@@ -16,8 +16,6 @@
 	<script src="js/jquery-3.3.1.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/addquestion.css">
 	<script src="js/mainframe.js"></script>
-	<script type="text/javascript">
-</script>
 </head>
 <body>	
 <%
@@ -138,7 +136,6 @@ if(request.getAttribute("err")!=null)
 					</div>
 					<div class="col-sm-2"></div>	
 				 </div>
-
 				 <hr>
 				 <div class="row addfile-mode"><h2>Thêm bằng file excel</h2> </div>
 				 <div class="row main col-sm-12">
