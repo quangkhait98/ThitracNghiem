@@ -14,10 +14,13 @@ import java.util.ArrayList;
 
 
 import function.cauhoif;
+<<<<<<< HEAD
 import function.monhocf;
 import function.nguoidungf;
 import model.monhoc;
 import model.nguoidung;
+=======
+>>>>>>> parent of c216beb... phan lop
 import model.cauhoi;
 
 @WebServlet("/testf")
@@ -33,9 +36,16 @@ public class testf extends HttpServlet {
     
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+<<<<<<< HEAD
 	nguoidungf nguoidungf = new nguoidungf();
 	nguoidungf.kiemTraDangNhap("aaa", "aaaa");
 	} 
+=======
+
+		
+
+	}
+>>>>>>> parent of c216beb... phan lop
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

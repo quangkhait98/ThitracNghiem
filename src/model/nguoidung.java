@@ -5,6 +5,7 @@ public class nguoidung {
 	 private String manguoidung;
 	 private String matkhau;
 	 private String quyen;
+<<<<<<< HEAD
 	 private String tenNguoiDung;
 	 
 	 public String getTenNguoiDung() {
@@ -14,6 +15,10 @@ public class nguoidung {
 		this.tenNguoiDung = tenNguoiDung;
 	}
 	public nguoidung()
+=======
+	 
+	 public nguoidung()
+>>>>>>> parent of c216beb... phan lop
 	 {
 	 
 	 }
@@ -35,12 +40,19 @@ public class nguoidung {
 	public void setQuyen(String quyen) {
 		this.quyen = quyen;
 	}
+<<<<<<< HEAD
 	public nguoidung (String manguoidung,String matkhau,String quyen, String tenNguoiDung)
+=======
+	public nguoidung (String manguoidung,String matkhau,String quyen)
+>>>>>>> parent of c216beb... phan lop
 	 {
 		 this.manguoidung=manguoidung;
 		 this.matkhau=matkhau;
 		 this.quyen=quyen;
+<<<<<<< HEAD
 		 this.tenNguoiDung = tenNguoiDung;
+=======
+>>>>>>> parent of c216beb... phan lop
 	 }
 	
 }

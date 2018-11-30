@@ -83,4 +83,8 @@ $(document).ready(function(){
 			}
 		});
 	});
+<<<<<<< HEAD
 });
+=======
+});	
+>>>>>>> parent of c216beb... phan lop
