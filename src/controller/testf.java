@@ -14,18 +14,18 @@ import java.util.ArrayList;
 
 
 import function.cauhoif;
-import function.monhocf;
 import function.nguoidungf;
+import function.monhocf;
 import model.monhoc;
-import model.nguoidung;
 import model.cauhoi;
+import model.nguoidung;
 
 @WebServlet("/testf")
 @MultipartConfig
 public class testf extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	cauhoif chf = new cauhoif();
+	nguoidungf ngf = new nguoidungf();
     public testf() {
         super();
         
@@ -33,10 +33,9 @@ public class testf extends HttpServlet {
     
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	nguoidungf nguoidungf = new nguoidungf();
-	nguoidungf.kiemTraDangNhap("aaa", "aaaa");
-	} 
-
+	int dem=	ngf.addstdofclass("SV2","AV3");
+	System.out.print(dem);
+	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
