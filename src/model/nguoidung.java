@@ -5,40 +5,14 @@ public class nguoidung {
 	 private String manguoidung;
 	 private String matkhau;
 	 private String quyen;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	 private String tenNguoiDung;
-	 
-	 public String getTenNguoiDung() {
-		return tenNguoiDung;
+	 private String tennguoidung;
+	 public String getTennguoidung() {
+		return tennguoidung;
 	}
-	public void setTenNguoiDung(String tenNguoiDung) {
-		this.tenNguoiDung = tenNguoiDung;
+	public void setTennguoidung(String tennguoidung) {
+		this.tennguoidung = tennguoidung;
 	}
 	public nguoidung()
-=======
-	 
-	 public nguoidung()
->>>>>>> parent of c216beb... phan lop
-=======
-	 
-	 public nguoidung()
->>>>>>> parent of c216beb... phan lop
-=======
-	 
-	 public nguoidung()
->>>>>>> parent of c216beb... phan lop
-=======
-	 
-	 public nguoidung()
->>>>>>> parent of c216beb... phan lop
-=======
-	 
-	 public nguoidung()
->>>>>>> parent of c216beb... phan lop
 	 {
 	 
 	 }
@@ -60,47 +34,12 @@ public class nguoidung {
 	public void setQuyen(String quyen) {
 		this.quyen = quyen;
 	}
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	public nguoidung (String manguoidung,String matkhau,String quyen, String tenNguoiDung)
-=======
-	public nguoidung (String manguoidung,String matkhau,String quyen)
->>>>>>> parent of c216beb... phan lop
-=======
-	public nguoidung (String manguoidung,String matkhau,String quyen)
->>>>>>> parent of c216beb... phan lop
-=======
-	public nguoidung (String manguoidung,String matkhau,String quyen)
->>>>>>> parent of c216beb... phan lop
-=======
-	public nguoidung (String manguoidung,String matkhau,String quyen)
->>>>>>> parent of c216beb... phan lop
-=======
-	public nguoidung (String manguoidung,String matkhau,String quyen)
->>>>>>> parent of c216beb... phan lop
+	public nguoidung (String manguoidung,String matkhau,String quyen,String tennguoidung)
 	 {
 		 this.manguoidung=manguoidung;
 		 this.matkhau=matkhau;
 		 this.quyen=quyen;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-		 this.tenNguoiDung = tenNguoiDung;
-=======
->>>>>>> parent of c216beb... phan lop
-=======
->>>>>>> parent of c216beb... phan lop
-=======
->>>>>>> parent of c216beb... phan lop
-=======
->>>>>>> parent of c216beb... phan lop
-=======
->>>>>>> parent of c216beb... phan lop
+		 this.tennguoidung=tennguoidung;
 	 }
 	
 }

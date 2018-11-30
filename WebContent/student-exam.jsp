@@ -47,11 +47,7 @@
 				<div class="sidebar-menu">
 					<ul>
 						<li class="sidebar-feature">
-<<<<<<< HEAD
-							<a href="student-exam.jsp">
-=======
 							<a href="find-friend.html">
->>>>>>> parent of 660be74... Merge branch 'master' of https://github.com/quangkhait98/thitracnghiem
 								<i class="fas fa-book-open"></i>
 								<span>Xem các bài kiểm tra</span>
 							</a>
@@ -62,15 +58,12 @@
 								<span>Xem điểm kiểm tra</span>
 							</a>
 						</li>
-<<<<<<< HEAD
-=======
 						<li class="sidebar-feature">
 							<a href="friend-list.html">
 								<i class="fas fa-info"></i>
 								<span>Thông tin cá nhân</span>
 							</a>
 						</li>
->>>>>>> parent of 660be74... Merge branch 'master' of https://github.com/quangkhait98/thitracnghiem
 					</ul>
 				</div>
 			</div>

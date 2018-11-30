@@ -1,146 +1,229 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head lang="vi">
-<title>Thi trắc nghiệm</title>
-<meta charset="UTF-8" />
-<!-- Bootstrap -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<!-- Latest compiled JavaScript -->
-<script src="js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="css/mainframe.css">
-<link rel="stylesheet" type="text/css" href="css/exam-manage.css">
-<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
-<link rel="stylesheet"
-	href="fontawesome/fontawesome-free-5.3.1-web/css/all.min.css">
-<script src="js/jquery-3.3.1.min.js"></script>
-<script src="js/exammanage.js" charset="UTF-8"></script>
-<script type="text/javascript" src="js/mainframe.js"></script>
-<script src="js/moment.min.js" type="text/javascript"></script>
-<script src="js/bootstrap-datetimepicker.min.js"></script>
+<head lang = "vi">
+	<title>Thi trắc nghiệm</title>
+	<meta charset = "UTF-8" />
+	<!-- Bootstrap -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<!-- Latest compiled JavaScript -->
+	<script src="js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/mainframe.css">
+	<link rel="stylesheet" type="text/css" href="css/exam-manage.css">
+
+	<link rel="stylesheet" href="fontawesome/fontawesome-free-5.3.1-web/css/all.min.css">
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/studentmanage.js"></script>
+
 </head>
-<body>
+<body>		
 	<div class="canvas">
-		<t:header>
-		</t:header>
-		<div class="body">
-			<a href="javascript:void(0);" class="icon" id="menubtn"> <i
-				class="fa fa-bars"></i>
-			</a>
-			<div class="sidebar" id="mySidebar">
-				<div class="sidebar-header">
-					<p>MENU</p>
+		<div class="header">
+			<div class="cover-header">
+				<div class="software-name">
+					<h3>LUYỆN THI TRẮC NGHIỆM</h3>
 				</div>
+				<div class="logo-inline"></div>
+				
+				<div class="toggle-info">
+					<img id="toggle-img" src="images/user-icon-logout.png" alt="">
+					<span class="user-name">Hải Nguyễn</span>
+					<div class="info">
+						<div class="myinfo item-info">
+							<span>Thông tin cá nhân</span>
+						</div>
+						<div class="logout item-info">
+							<i class="fas fa-sign-out-alt"></i><span>Đăng xuất</span>
+						</div>
+					</div>
+				</div>				
+			</div>		
+		</div>
+		<div class="body">
+			<div class="sidebar">
 				<div class="sidebar-menu">
 					<ul>
-						<li class="sidebar-feature"><a href="find-friend.html"> <i
-								class="fas fa-file-signature"></i> <span>Ra đề</span>
-						</a></li>
+						<li class="sidebar-feature">
+							<a href="find-friend.html">
+								<i class="fas fa-file-signature"></i>
+								<span>Ra đề</span>
+							</a>
+						</li>
 
-						<li class="sidebar-feature"><a href="find-friend.html"> <i
-								class="fas fa-book"></i> <span>Quản lý đề</span>
-						</a></li>
+						<li class="sidebar-feature">
+							<a href="find-friend.html">
+								<i class="fas fa-book"></i>
+								<span>Quản lý đề</span>
+							</a>
+						</li>
+						<li class="sidebar-feature">
+							<a href="mainframe.html">
+								<i class="fas fa-info"></i>
+								<span>Thông tin cá nhân</span>
+							</a>
+						</li>
 					</ul>
 				</div>
 			</div>
-			<div class="container-main" id="myContainer">
+			<div class="container-main">
 				<div class="manager-form">
-					<form id="formquanlybode">
+					<form action="/action_page.php">
 						<div class="form-group">
 							<div class="form-item">
 								<label class="item-title">Ngày mở đề: </label>
-								<div class="input-group date from-control" id="ngaymode">
-									<input type="text" class="form-control" name="ngaymode" /> <span
-										class="input-group-addon"> <span class="fa fa-calendar"></span>
-									</span>
-								</div>
+								<select class="form-control">
+									<option>1</option>
+									<option>3</option>
+									<option>6</option>
+									<option>9</option>
+									<option>12</option>
+									<option>15</option>
+									<option>18</option>
+									<option>21</option>
+									<option>24</option>
+								</select>
+								<label>h </label>
+								<select class="form-control">
+									<option>00</option>
+									<option>15</option>
+									<option>30</option>
+									<option>45</option>
+								</select>
+								<select class="form-control">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+									<option>6</option>
+									<option>7</option>
+									<option>8</option>
+									<option>9</option>
+									<option>10</option>
+								</select>
+								<select class="form-control">
+									<option>Tháng 1</option>
+									<option>Tháng 2</option>
+									<option>Tháng 3</option>
+									<option>Tháng 4</option>
+								</select>
+								<select class="form-control">
+									<option>2015</option>
+									<option>2016</option>
+									<option>2017</option>
+									<option>2018</option>
+								</select>
 							</div>
 							<div class="form-item">
 								<label class="item-title">Ngày đóng đề: </label>
-								<div class="input-group date from-control" id="ngaydongde">
-									<input type="text" class="form-control" name="ngaydongde"/> <span
-										class="input-group-addon"> <span class="fa fa-calendar"></span>
-									</span>
-								</div>
+								<select class="form-control">
+									<option>1</option>
+									<option>3</option>
+									<option>6</option>
+									<option>9</option>
+									<option>12</option>
+									<option>15</option>
+									<option>18</option>
+									<option>21</option>
+									<option>24</option>
+								</select>
+								<label>h </label>
+								<select class="form-control">
+									<option>00</option>
+									<option>15</option>
+									<option>30</option>
+									<option>45</option>
+								</select>
+								<select class="form-control">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+									<option>6</option>
+									<option>7</option>
+									<option>8</option>
+									<option>9</option>
+									<option>10</option>
+								</select>
+								<select class="form-control">
+									<option>Tháng 1</option>
+									<option>Tháng 2</option>
+									<option>Tháng 3</option>
+									<option>Tháng 4</option>
+								</select>
+								<select class="form-control">
+									<option>2015</option>
+									<option>2016</option>
+									<option>2017</option>
+									<option>2018</option>
+								</select>
 							</div>
 							<div class="form-item">
-								<label class="item-title">Thời gian làm bài: </label> <select
-									class="form-control" name="giolambai">
-									<c:forEach begin="0" end="10" varStatus="loop">
-										<option value="${loop.index }">${loop.index}</option>
-										<br />
-									</c:forEach>
-								</select> <label>Tiếng </label> <select class="form-control"
-									name="phutlambai">
-									<c:forEach begin="0" end="59" varStatus="loop">
-										<option value="${loop.index }">${loop.index}</option>
-										<br />
-									</c:forEach>
-								</select> <label>Phút </label>
+								<label class="item-title">Thời gian làm bài: </label>
+								<select class="form-control">
+									<option>1</option>
+									<option>1</option>
+									<option>20</option>
+								</select>
+								<label>h </label>
+								<select class="form-control">
+									<option>00</option>
+									<option>15</option>
+									<option>30</option>
+									<option>45</option>
+								</select>
 							</div>
 							<div class="form-item">
-								<label class="item-title">Chọn lớp giao đề: </label> <select
-									class="form-control" id="class" name="lopgiaode">
+								<label class="item-title">Chọn lớp giao đề: </label>
+								<select class="form-control">
 									<option>Lớp Toán</option>
 									<option>Lớp Lý</option>
 									<option>Lớp Hóa</option>
 									<option>Lớp Sinh</option>
 								</select>
-								<!--<button type="button" onclick="addClasses()" class="btn btn-primary">Thêm lớp</button>-->
-							</div>
-							<!--<div class="form-item">
-								<ul class="list-group" id="list-classes">
-
-								</ul>
-							</div>  -->
-							<div class="form-item">
-								<label class="item-title">Chọn môn: </label> <select
-									class="form-control" id="subject" name="mon">
-									<option>Môn Toán</option>
-									<option>Môn Lý</option>
-									<option>Môn Hóa</option>
-									<option>Môn Sinh</option>
-								</select>
-								<!--<button type="button" onclick="addClasses()" class="btn btn-primary">Thêm lớp</button>-->
+								<button type="submit" class="btn btn-primary">Thêm lớp</button>
 							</div>
 							<div class="form-item">
-								<label class="item-title">Loại câu hỏi: </label> <select
-									class="form-control" id="type-of-questions"
-									style="margin-right: 6px;" name="dokho">
+								<label class="item-title">Loại câu hỏi: </label>
+								<select class="form-control" style="margin-right: 6px;">
 									<option>Dễ</option>
-									<option>Trung Bình</option>
 									<option>Khó</option>
-								</select> <label style="margin-right: 10px;">Số lượng: </label> <select
-									class="form-control" name="soluong" id="questions-num" >
-									<c:forEach begin="1" end="20" varStatus="loop">
-										<option value="${loop.index }">${loop.index}</option>
-										<br />
-									</c:forEach>
+									<option>Cực khó</option>
+									<option>Cực kỳ khó</option>
 								</select>
-								<button type="button" class="btn btn-primary"
-									id="addQuestionBtn">Thêm câu hỏi</button>
+								<label style="margin-right: 10px;">Số lượng: </label>
+								<input type="text" class="form-control" style="width: 50px;">
+								<button type="submit" class="btn btn-primary">Thêm câu hỏi</button>							
 							</div>
 							<div class="form-item">
-								<ul class="list-group" id="list-questions">
-
+								<ul class="list-group">
+									<li class="list-group-item d-flex justify-content-between align-items-center">
+										Khó
+										<div>
+										<span class="badge badge-primary badge-pill">25</span>
+										<span class="btn badge badge-primary badge-pill"><i class="fas fa-times"></i></span>
+										</div>
+									</li>
+									<li class="list-group-item d-flex justify-content-between align-items-center">
+										Dễ
+										<div>
+										<span class="badge badge-primary badge-pill">50</span>
+										<span class="btn badge badge-primary badge-pill"><i class="fas fa-times"></i></span>
+										</div>
+									</li>
+									<li class="list-group-item d-flex justify-content-between align-items-center">
+										Cực Dễ
+										<div>
+										<span class="badge badge-primary badge-pill">90</span>
+										<span class="btn badge badge-primary badge-pill"><i class="fas fa-times"></i></span>
+										</div>
+									</li>
 								</ul>
-							</div>
-							<div class="form-item">
-								<label class="item-title">Số lần làm bài: </label> <select
-									class="form-control" name="solanlambai">
-									<c:forEach begin="1" end="5" varStatus="loop">
-										<option value="${loop.index }">${loop.index}</option>
-										<br />
-									</c:forEach>
-								</select>
 							</div>
 						</div>
 						<div class="review-btn">
-							<button type="submit" class="btn btn-primary" id="reviewButton">Xem
-								trước</button>
+							<button type="submit" class="btn btn-primary">Xem trước</button>
 						</div>
 					</form>
 				</div>

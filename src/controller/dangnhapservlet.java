@@ -91,20 +91,20 @@ public class dangnhapservlet extends HttpServlet {
                 }
                 if (t == "questionmanager") {
                    
-                    url = "/questionmagage.jsp";
+                    url = "";
                 }
-                if (t == "exammagager") {
+                if (t == "") {
                 	
-                    url = "/exammanage.jsp";
+                    url = "";
                 }
                 if (t.equals("classmanager")) {
-                    url = "/studentmanage.jsp";
+                    url = "";
                 }
 
             } else {
                 url = "/login.jsp";
             }
-            request.getRequestDispatcher(url).forward(request, response);
+            request.getRequestDispatcher("/addquestion.jsp").forward(request, response);
 
         } catch (Exception e) {
         }
