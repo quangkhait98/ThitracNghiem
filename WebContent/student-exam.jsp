@@ -23,8 +23,27 @@
 		<t:header>
 		</t:header>		
 		<div class="body">
-			<t:sidebar>
-			</t:sidebar>
+			<div class="sidebar">
+				<div class="sidebar-header">
+					<p>MENU</p>
+				</div>
+				<div class="sidebar-menu">
+					<ul>
+						<li class="sidebar-feature">
+							<a href="student-exam.jsp">
+								<i class="fas fa-book-open"></i>
+								<span>Xem các bài kiểm tra</span>
+							</a>
+						</li>
+						<li class="sidebar-feature">
+							<a href="mainframe.html">
+								<i class="fas fa-star-half-alt"></i>
+								<span>Xem điểm kiểm tra</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
 			<div class="container-main">
 				<div id="accordion" class="exam-list">
 					<div class="card">

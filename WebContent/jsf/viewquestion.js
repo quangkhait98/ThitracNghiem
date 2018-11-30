@@ -73,7 +73,7 @@ $(document).ready(function(){
 			type:"POST",
 			success: function(content, status) {
 				var pageIndex = pageOffset / pageLength + 1;
-				$('#question_table_cap').text("Trang "+pageIndex);
+				$('#question_table_cap').text("Trang "+ pageIndex);
 				$('#question_table > tbody').html(content);
 				if(content.trim() == '') {
 					isLimit = true;
@@ -83,4 +83,4 @@ $(document).ready(function(){
 			}
 		});
 	});
-});	
+});

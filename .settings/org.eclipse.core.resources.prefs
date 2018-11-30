@@ -1,5 +1,7 @@
 eclipse.preferences.version=1
 encoding//src/controller/AddQuestion.java=UTF-8
 encoding//src/controller/AddQuestionFromExcel.java=UTF-8
+encoding//src/controller/QuanLyBoDe.java=UTF-8
 encoding//src/controller/dangnhapservlet.java=UTF-8
 encoding//src/controller/testf.java=UTF-8
+encoding//src/function/cauhoif.java=UTF-8
