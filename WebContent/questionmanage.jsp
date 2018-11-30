@@ -20,7 +20,9 @@
 	<link rel="stylesheet" type="text/css" href="css/questionmanage.css">
 	<script src="js/mainframe.js"></script>
 	<script src="jsf/viewquestion.js"></script>
-	
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"> </script>
 </head>
 <body>		
 	<div class="canvas">
@@ -73,6 +75,10 @@
 				</div>
 			</div>
 			<div class="container-main">
+			<div id="report_result">
+				<c:import url="Success.jsp" />
+				<c:import url="Errors.jsp" />
+			</div>
 				<!-- Editable table -->
 				<div class="row filter-search">
 		  			<div class="col-sm-3">
@@ -116,7 +122,11 @@
 						          <th class="text-center">STT</th>
 						          <th class="text-center">Mã câu hỏi</th>
 						          <th class="text-center">Nội dung</th>
-						          <th class="text-center">Đáp án</th>						       
+						          <th class="text-center">Đáp án 1</th>
+						          <th class="text-center">Đáp án 2</th>
+						          <th class="text-center">Đáp án 3</th>
+						          <th class="text-center">Đáp án 4</th>
+						          <th class="text-center">Đáp án đúng</th>						       
 						          <th class="text-center">Chức năng</th>
 						        </tr>
 						        </thead>
@@ -130,11 +140,65 @@
 				<div class="col-sm-3" >
 				<button type="button" id="backBut" style="width: 50px;margin-left: 40px;">A</button>		
 				<button type="button" id="forwardBut" style="width: 50px;">B</button>
+				  <button class="btn" id="btn" >Popup</button>
 				</div>
-				<!-- Card table -->
-			</div>
+				 <!-- Modal -->
+           
 			<!-- end container -->
 		</div>
 	</div>
+</div>
 </body>
+ <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+ 
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title"></h4>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                           <c:forEach items="${editch}" var="item">
+         						 <div class="form-group">
+           								 <label for="recipient-name" class="col-form-label">Nội dung</label>
+            								<textarea class="form-control" id="editnd" >${item.noidung}</textarea>
+         						 </div>
+         						 <div class="form-group">
+           							 <label for="message-text" class="col-form-label">Đáp án 1</label>
+           							 <input type="text" class="form-control" id="editda1" value="${item.dapan1}">
+          						</div>
+          						 <div class="form-group">
+           							 <label for="message-text" class="col-form-label">Đáp án 2</label>
+           							 <input type="text" class="form-control" id="editda2" value="${item.dapan2}">
+          						</div>
+          						 <div class="form-group">
+           							 <label for="message-text" class="col-form-label">Đáp án 3</label>
+           							 <input type="text" class="form-control" id="editda3" value="${item.dapan3}">
+          						</div>
+          						 <div class="form-group">
+           							 <label for="message-text" class="col-form-label">Đáp án 4</label>
+           							 <input type="text" class="form-control" id="editda4" value="${item.dapan4}">
+          						</div>
+          						 <div class="form-group">
+          						 <label for="message-text" class="col-form-label">Đáp án đúng</label>
+								<select class="form-control" name="" id="editdad"  required>
+									<option value="1">A</option>
+									<option value="2">B</option>
+									<option value="3">C</option>
+									<option value="4">D</option>
+								</select>
+								</div>
+							</c:forEach>	
+       				 		</form>
+                </div>
+                  <div class="modal-footer">
+                            <button type="button" class="btn btn-default" id="register-btn">Save</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+            </div>
+				</div>
+			</div>
+			
 </html>
