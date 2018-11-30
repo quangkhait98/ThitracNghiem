@@ -5,16 +5,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import connect.MySQLConnUtils;
 import model.monhoc;
+import model.nguoidung;
 
 public class monhocf {
 
 
 	public monhoc getmamon(String tenmon) {
 		Connection connection = MySQLConnUtils.getMySQLConnection();
+	       
+
         try {
         	Statement state = connection.createStatement();
         	 String sql = "select * from monhoc where TenMon='" + tenmon + "'";
@@ -33,7 +37,8 @@ public class monhocf {
 
 
 	public ArrayList<monhoc> getmonhoc() {
-		Connection connection = MySQLConnUtils.getMySQLConnection();      
+		Connection connection = MySQLConnUtils.getMySQLConnection();
+	      
         try {
         	Statement state = connection.createStatement();
         	String sql = "select * from thitracnghiem.monhoc ";
@@ -43,6 +48,8 @@ public class monhocf {
             	monhoc mh = new monhoc();
                 mh.setMamon(rs.getString("MaMon"));
                 mh.setTenmon(rs.getString("TenMon"));
+            //    System.out.print(rs.getString("MaMon"));
+             //   System.out.print(rs.getString("TenMon"));
                 arr.add(mh);
             }
             return arr;

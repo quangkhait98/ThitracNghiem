@@ -202,41 +202,6 @@ public class cauhoif {
 			e.printStackTrace();
 		}	
 		return null;		
-	public int  deletequestion(int ID) {
-		
-		try {
-			Connection connnection = MySQLConnUtils.getMySQLConnection();
-			String sql = "delete from cauhoi where MaCauHoi=?";
-			PreparedStatement  ps = connnection.prepareStatement(sql);
-			ps.setInt(1, ID);
-			int dem = ps.executeUpdate();
-			return  dem;
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-		return 0;
-		
-	}
-	public boolean editquestion (int id,String nd,String da1,String da2,String da3,String da4,int dad)
-	{
-		Connection connnection = MySQLConnUtils.getMySQLConnection();
-		String sql = "UPDATE cauhoi SET NoiDung=?,DapAn1=?,DapAn2=?,DapAn3=?,DapAn4=?,DapAnDung=? where MaCauHoi=? ";
-		try {
-			PreparedStatement  ps = connnection.prepareStatement(sql);
-			ps.setString(1, nd);
-			ps.setString(2, da1);
-			ps.setString(3, da2);
-			ps.setString(4, da3);
-			ps.setString(5, da4);
-			ps.setInt(6, dad);
-			ps.setInt(7, id);
-			ps.executeUpdate();
-			return true;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return false;
 	}
 }
 
