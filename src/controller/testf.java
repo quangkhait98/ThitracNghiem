@@ -17,9 +17,14 @@ import function.cauhoif;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import function.monhocf;
 import function.nguoidungf;
 import model.monhoc;
+=======
+import function.nguoidungf;
+import model.cauhoi;
+>>>>>>> parent of 660be74... Merge branch 'master' of https://github.com/quangkhait98/thitracnghiem
 import model.nguoidung;
 =======
 >>>>>>> parent of c216beb... phan lop
@@ -58,6 +63,7 @@ public class testf extends HttpServlet {
 
 	}
 >>>>>>> parent of c216beb... phan lop
+
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

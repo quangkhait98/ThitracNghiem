@@ -1,6 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
 <html>
 <head lang = "vi">
@@ -20,8 +18,27 @@
 </head>
 <body>		
 	<div class="canvas">
-		<t:header>
-		</t:header>		
+		<div class="header">
+			<div class="cover-header">
+				<div class="software-name">
+					<h3>LUYỆN THI TRẮC NGHIỆM</h3>
+				</div>
+				<div class="logo-inline"></div>
+				
+				<div class="toggle-info">
+					<img id="toggle-img" src="images/user-icon-logout.png" alt="">
+					<span class="user-name">Hải Nguyễn</span>
+					<div class="info">
+						<div class="myinfo item-info">
+							<span>Thông tin cá nhân</span>
+						</div>
+						<div class="logout item-info">
+							<i class="fas fa-sign-out-alt"></i><span>Đăng xuất</span>
+						</div>
+					</div>
+				</div>				
+			</div>		
+		</div>
 		<div class="body">
 			<div class="sidebar">
 				<div class="sidebar-header">
@@ -30,7 +47,11 @@
 				<div class="sidebar-menu">
 					<ul>
 						<li class="sidebar-feature">
+<<<<<<< HEAD
 							<a href="student-exam.jsp">
+=======
+							<a href="find-friend.html">
+>>>>>>> parent of 660be74... Merge branch 'master' of https://github.com/quangkhait98/thitracnghiem
 								<i class="fas fa-book-open"></i>
 								<span>Xem các bài kiểm tra</span>
 							</a>
@@ -41,6 +62,15 @@
 								<span>Xem điểm kiểm tra</span>
 							</a>
 						</li>
+<<<<<<< HEAD
+=======
+						<li class="sidebar-feature">
+							<a href="friend-list.html">
+								<i class="fas fa-info"></i>
+								<span>Thông tin cá nhân</span>
+							</a>
+						</li>
+>>>>>>> parent of 660be74... Merge branch 'master' of https://github.com/quangkhait98/thitracnghiem
 					</ul>
 				</div>
 			</div>
