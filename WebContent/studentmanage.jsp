@@ -21,6 +21,11 @@
 	<script src="js/bootstrap.min.js"></script>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+	<script src="js/studentmanage.js" type="text/javascript"></script>
+>>>>>>> parent of c216beb... phan lop
 =======
 
 	<script src="js/studentmanage.js" type="text/javascript"></script>
