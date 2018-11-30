@@ -87,7 +87,11 @@ $(document).ready(function(){
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 });
+=======
+});	
+>>>>>>> parent of c216beb... phan lop
 =======
 });	
 >>>>>>> parent of c216beb... phan lop

@@ -2,6 +2,7 @@
 <classpath>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<classpathentry kind="src" path="src"/>
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -52,6 +53,12 @@
 		<attributes>
 >>>>>>> parent of c216beb... phan lop
 			<attribute name="owner.project.facets" value="java"/>
+=======
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+>>>>>>> parent of c216beb... phan lop
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
@@ -79,6 +86,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> parent of c216beb... phan lop
 =======
 >>>>>>> parent of c216beb... phan lop
@@ -95,6 +103,9 @@
 	<classpathentry kind="lib" path="G:/download/gson-2.6.2.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 >>>>>>> parent of 660be74... Merge branch 'master' of https://github.com/quangkhait98/thitracnghiem
+=======
+	<classpathentry kind="output" path="build/classes"/>
+>>>>>>> parent of c216beb... phan lop
 =======
 	<classpathentry kind="output" path="build/classes"/>
 >>>>>>> parent of c216beb... phan lop

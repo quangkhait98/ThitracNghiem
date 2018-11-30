@@ -19,7 +19,12 @@
 	<script src="js/popper.min.js"></script>
 	<script src="js/bootstrap.bundle.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+
 	<script src="js/studentmanage.js" type="text/javascript"></script>
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of c216beb... phan lop
 	<script src="js/mainframe.js"></script>
 </head>
 <body>		

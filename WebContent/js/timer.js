@@ -3,6 +3,7 @@ function startTimer(duration, display) {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	var timer = duration, hours, minutes, seconds;
 	setInterval(function() {
 		
@@ -37,6 +38,8 @@ $(document).ready(function() {
 >>>>>>> parent of c216beb... phan lop
 =======
 >>>>>>> parent of c216beb... phan lop
+=======
+>>>>>>> parent of c216beb... phan lop
     var timer = duration, minutes, seconds;
     setInterval(function () {
         minutes = parseInt(timer / 60, 10)
@@ -60,6 +63,10 @@ window.onload = function () {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+};
+>>>>>>> parent of c216beb... phan lop
+=======
 };
 >>>>>>> parent of c216beb... phan lop
 =======
