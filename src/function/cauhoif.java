@@ -162,6 +162,46 @@ public class cauhoif {
 		}	
 		return null;		
 	}
+	public java.util.ArrayList<cauhoi> getquestion(String monhoc, int slDe, int slTBinh, int slKho)
+	{
+		Connection connnection = MySQLConnUtils.getMySQLConnection();
+		
+		try {
+			String sql = "(SELECT * FROM thitracnghiem.cauhoi where MaMon = ? and LoaiCauHoi ='Dễ' order by Rand() limit ?)\r\n" + 
+					"union\r\n" + 
+					"(SELECT * FROM thitracnghiem.cauhoi where MaMon = ? and LoaiCauHoi ='Khó' order by Rand() limit ?)\r\n" + 
+					"union \r\n" + 
+					"(SELECT * FROM thitracnghiem.cauhoi where MaMon = ? and LoaiCauHoi = 'Trung Bình' order by Rand() limit ?)";
+			PreparedStatement  ps = connnection.prepareStatement(sql);
+				ps.setString(1, monhoc);
+				ps.setString(3, monhoc);
+				ps.setString(5, monhoc);
+				ps.setInt(2, slDe);
+				ps.setInt(3, slTBinh);
+				ps.setInt(4, slKho);
+				ResultSet rs = ps.executeQuery();
+				java.util.ArrayList<cauhoi> lch = new ArrayList<cauhoi>();
+				while(rs.next())
+				{
+					cauhoi ch= new cauhoi();
+					ch.setMacauhoi(rs.getInt("MaCAuHoi"));
+					ch.setNoidung(rs.getString("NoiDung"));
+					ch.setLoaicauhoi(rs.getString("LoaiCauHoi"));
+					ch.setDapan1(rs.getString("DapAn1"));
+					ch.setDapan2(rs.getString("DapAn2"));
+					ch.setDapan3(rs.getString("DapAn3"));
+					ch.setDapan4(rs.getString("DapAn4"));
+					ch.setDapandung(rs.getInt("DapAnDung"));
+					ch.setMamon(rs.getString("MaMon"));
+					lch.add(ch);
+				}
+				return lch;		
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}	
+		return null;		
+	}
 	public int  deletequestion(int ID) {
 		
 		try {
