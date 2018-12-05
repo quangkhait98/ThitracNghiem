@@ -114,6 +114,8 @@ $(document).ready(function() {
 	});
 });
 $(document).ready(function() {
+	//var listQuestion = getListQuestion();
+	
 	$("#menubtn").click(function() {
 		myFunction();
 	});
@@ -132,4 +134,18 @@ $(document).ready(function() {
 				$('#ngaymode').data("DateTimePicker").date());
 	});
 });
+
+function getListQuestion()
+{
+	var listQuestion;
+	$.ajax({		 
+        type: "POST",
+        url: "/getListQuestion",
+        dataType: 'json',
+        success : function(result) {
+        	listQuestion = result;
+        	alter('ok');
+        }
+	});
+}
 

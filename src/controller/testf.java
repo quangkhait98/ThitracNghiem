@@ -31,8 +31,9 @@ public class testf extends HttpServlet {
     
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	int dem=	ngf.addstdofclass("SV2","AV3");
-	System.out.print(dem);
+	nguoidungf ngf = new nguoidungf();
+	boolean ab = ngf.kiemTraDangNhap("a", "ab");
+	System.out.print(ab);
 	}
 
 
