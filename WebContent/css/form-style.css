@@ -1,22 +1,29 @@
-.container-main{
+.container-main {
 	overflow-y: auto;
 }
-.online-test{
+
+.container {
+	overflow-y: scroll;
+}
+
+.online-test {
 	margin-left: 30px;
 	float: left;
 	width: calc(100% - 180px)
 }
-.questions{
+
+.questions {
 	list-style-type: none;
 	padding: 0;
 	float: left;
 	width: 100%;
 }
-.question{
+
+.question {
 	margin: 10px;
 }
-.questionLabel
-{
+
+.questionLabel {
 	background: #fbe4c3;
 	padding: 10px 15px;
 	font-weight: 700;
@@ -24,45 +31,68 @@
 	display: block;
 	clear: both;
 }
-.answerSet{
+
+.answerSet {
 	padding-left: 30px;
 }
-.answerSet span{
+
+.answerSet span {
 	float: left;
 	width: 175px;
 	padding: 10px 0;
 }
-.submit{
+
+.submit {
 	text-align: center;
 	margin-bottom: 20px;
 }
-.indexer{
+
+.indexer {
 	width: 150px;
-    float: right;
-    position: fixed;
-    margin-top: 30px;
-    display: inline-grid;
+	margin-top: 30px;
+	display: inline-grid;
 }
-#time{
-	float: left;
-    margin: auto;
-    margin-bottom: 10px;
+
+#clock {
+	margin: auto;
+	margin-bottom: 10px;
+	display: inline-flex;
 }
-.question-index{
-    list-style: none;
-    width: 70%;
-    margin: auto;
+
+.question-index {
+	list-style: none;
+	width: 70%;
+	margin: auto;
 }
-.question-index > .question-num{
+
+.question-index>.question-num {
 	width: 14px;
 	text-align: center;
 }
-.exam-list{
+
+.exam-list {
 	width: 80%;
 	margin: auto;
 	margin-top: 40px;
 }
-.exams{
+
+.exams {
 	width: auto;
 	margin: 0 20px;
+}
+
+@media all and (-ms-high-contrast: none) , ( -ms-high-contrast : active)
+	{
+	.indexer {
+		display: -ms-inline-grid;
+	}
+	#clock {
+		text-align: center;
+	}
+	.question-index{
+    list-style: none;
+    width: 70%;
+    margin: auto;
+    margin-top: 40px;
+}
 }

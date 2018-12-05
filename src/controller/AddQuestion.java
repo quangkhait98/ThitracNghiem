@@ -37,8 +37,7 @@ public class AddQuestion extends HttpServlet {
 		{
 			String quyen = nd.getQuyen();
 			if(quyen.equals("questionmanager"))
-			{
-				
+			{				
 				
 			}else if(quyen.equals("student"))
 			{
