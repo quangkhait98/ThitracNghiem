@@ -36,8 +36,5 @@ $(document).ready(function myFunction() {
 		y.className = "container-main";
 	}
 })
-$(document).on("click", function () {
-	$(".info").hide();
-});
 
 

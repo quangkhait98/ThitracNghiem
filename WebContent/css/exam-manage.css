@@ -1,30 +1,72 @@
-.container-main{
+.container-main {
 	overflow: auto;
 }
-.form-control{
+
+.form-control {
 	width: auto;
 	display: inline-block;
 }
-.manager-form{
+
+.input-group {
+	display: inline;
+}
+
+.input-group>.form-control {
+	width: auto;
+}
+
+ .input-group > :not(:last-child).form-control{
+	border-top-right-radius: .25rem;
+	border-bottom-right-radius: .25rem;
+}
+.input-group-addon > span{
+	font-size: 25px;
+}
+.manager-form {
 	width: 800px;
 	margin: auto;
 	margin-top: 50px;
 }
-.form-item{
+
+.form-item {
 	margin-bottom: 20px;
 	min-width: 800px;
 }
-.item-title{
+
+.item-title {
 	width: 150px;
 	margin-right: 5px;
 }
-.review-btn button{
+
+.review-btn button {
 	margin-left: 270px;
+	margin-bottom:20px;
 }
-.btn{
+
+.btn {
 	vertical-align: baseline;
 }
-.item-title
-{
+
+.item-title {
 	font-weight: bold;
+}
+
+.list-group {
+	width: 50%;
+}
+.amount{
+	border: none;
+    background-color: #007bff;
+    width: 15px;
+    font-weight: 700;
+    color: #ffffff;
+}
+.difficulty{
+	border: none;
+    background-color: #ffffff;
+}
+.delete-btn{
+	height: 24px;
+    line-height: 16px;
+    width: 30px;
 }

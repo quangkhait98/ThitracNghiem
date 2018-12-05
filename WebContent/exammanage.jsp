@@ -23,6 +23,13 @@
 <script src="js/bootstrap-datetimepicker.min.js"></script>
 </head>
 <body>
+<%
+String err="";
+if(request.getAttribute("err")!=null)
+{
+    err=(String) request.getAttribute("err"); 
+}
+%>
 	<div class="canvas">
 		<t:header>
 		</t:header>
@@ -48,12 +55,17 @@
 			</div>
 			<div class="container-main" id="myContainer">
 				<div class="manager-form">
+				<p style="color:red"><%=err  %></p>
 					<form id="formquanlybode">
 						<div class="form-group">
+						<div class="form-item">
+								<label class="item-title">Tên bộ đề:  </label> 
+									<input type="text" class="form-control" name="tenbode" required/>
+							</div>
 							<div class="form-item">
 								<label class="item-title">Ngày mở đề: </label>
 								<div class="input-group date from-control" id="ngaymode">
-									<input type="text" class="form-control" name="ngaymode" /> <span
+									<input type="text" class="form-control" name="ngaymode" required/> <span
 										class="input-group-addon"> <span class="fa fa-calendar"></span>
 									</span>
 								</div>
@@ -61,7 +73,7 @@
 							<div class="form-item">
 								<label class="item-title">Ngày đóng đề: </label>
 								<div class="input-group date from-control" id="ngaydongde">
-									<input type="text" class="form-control" name="ngaydongde"/> <span
+									<input type="text" class="form-control" name="ngaydongde" required/> <span
 										class="input-group-addon"> <span class="fa fa-calendar"></span>
 									</span>
 								</div>
@@ -99,35 +111,35 @@
 							<div class="form-item">
 								<label class="item-title">Chọn môn: </label> <select
 									class="form-control" id="subject" name="mon">
-									<option>Môn Toán</option>
-									<option>Môn Lý</option>
-									<option>Môn Hóa</option>
-									<option>Môn Sinh</option>
+									<c:forEach items="${mon}" var="item">
+										<option value="${item.mamon}">${item.tenmon}</option>
+									</c:forEach>
 								</select>
 								<!--<button type="button" onclick="addClasses()" class="btn btn-primary">Thêm lớp</button>-->
 							</div>
+							
 							<div class="form-item">
-								<label class="item-title">Loại câu hỏi: </label> <select
+								<label class="item-title">Tổng số câu hỏi: </label> <select
 									class="form-control" id="type-of-questions"
 									style="margin-right: 6px;" name="dokho">
 									<option>Dễ</option>
 									<option>Trung Bình</option>
 									<option>Khó</option>
 								</select> <label style="margin-right: 10px;">Số lượng: </label> <select
-									class="form-control" name="soluong" id="questions-num" >
+									class="form-control" name="soluong" id="questions-num">
 									<c:forEach begin="1" end="20" varStatus="loop">
 										<option value="${loop.index }">${loop.index}</option>
 										<br />
 									</c:forEach>
 								</select>
 								<button type="button" class="btn btn-primary"
-									id="addQuestionBtn">Thêm câu hỏi</button>
+									id="addQuestionBtn">Thêm</button>
 							</div>
 							<div class="form-item">
 								<ul class="list-group" id="list-questions">
 
 								</ul>
-							</div>
+							</div>							
 							<div class="form-item">
 								<label class="item-title">Số lần làm bài: </label> <select
 									class="form-control" name="solanlambai">

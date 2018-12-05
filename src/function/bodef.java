@@ -2,8 +2,14 @@ package function;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import model.bode;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 
+import model.bode;
+import model.cauhoi;
+import model.monhoc;
 import connect.MySQLConnUtils;
 
 public class bodef {
@@ -24,10 +30,23 @@ public class bodef {
 			ps2.setString(1, bode.getMaLop());
 			ps2.setString(2, bode.getMaBode());
 			ps2.setInt(3, bode.getSoLanNopToiDa());
-			ps2.setDate(4, bode.getThoiGianBatDau());
-			ps2.setDate(5, bode.getThoiGianKetThuc());
+			ps2.setTimestamp(4, bode.getThoiGianBatDau());
+			ps2.setTimestamp(5, bode.getThoiGianKetThuc());
 			ps2.setTime(6, bode.getThoiGianLamBai());
 			ps2.execute();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void BoDe_CauHoi(String  maBode, int maCauhoi) {
+		Connection connnection = MySQLConnUtils.getMySQLConnection();
+		try {
+			String sql = "INSERT INTO bode_cauhoi (MaBoDe, MaCauHoi) VALUES (?,?)";
+			PreparedStatement ps = connnection.prepareStatement(sql);
+			ps.setString(1, maBode);
+			ps.setInt(2, maCauhoi);
+			ps.execute();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

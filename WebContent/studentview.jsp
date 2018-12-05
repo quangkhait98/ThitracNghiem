@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 <!DOCTYPE html>
 <html>
 <head lang = "vi">
@@ -19,27 +21,8 @@
 </head>
 <body>		
 	<div class="canvas">
-		<div class="header">
-			<div class="cover-header">
-				<div class="software-name">
-					<h3>LUYỆN THI TRẮC NGHIỆM</h3>
-				</div>
-				<div class="logo-inline"></div>
-				
-				<div class="toggle-info">
-					<img id="toggle-img" src="images/user-icon-logout.png" alt="">
-					<span class="user-name">Hải Nguyễn</span>
-					<div class="info">
-						<div class="myinfo item-info">
-							<span>Thông tin cá nhân</span>
-						</div>
-						<div class="logout item-info">
-							<i class="fas fa-sign-out-alt"></i><span>Đăng xuất</span>
-						</div>
-					</div>
-				</div>				
-			</div>		
-		</div>
+		<t:header>
+		</t:header>
 		<div class="body">
 			<div class="sidebar">
 				<div class="sidebar-header">
@@ -293,19 +276,11 @@
 						<li class="page-item"><a class="page-link" href="#">Next</a></li>
 					</ul>	
 				</form>
-				<div class="indexer">
-					<div id="time">45:00</div>
+								<div class="indexer" style="display: inline-grid;">
+					<div id="clock"><c:out value="${clock}"/></div>
 					<ul class="list-inline question-index">
-						<li class="question-num list-inline-item"><a class="question-link" href="#">1</a></li>
-						<li class="question-num list-inline-item"><a class="question-link" href="#">2</a></li>
-						<li class="question-num list-inline-item"><a class="question-link" href="#">3</a></li>
-						<li class="question-num list-inline-item"><a class="question-link" href="#">4</a></li>
-						<li class="question-num list-inline-item"><a class="question-link" href="#">25</a></li>
-						<li class="question-num list-inline-item"><a class="question-link" href="#">62</a></li>
-						<li class="question-num list-inline-item"><a class="question-link" href="#">72</a></li>
-						<li class="question-num list-inline-item"><a class="question-link" href="#">82</a></li>
-						<li class="question-num list-inline-item"><a class="question-link" href="#">9</a></li>
-						<li class="question-num list-inline-item"><a class="question-link" href="#">10</a></li>
+						<li class="question-num list-inline-item" id="question-1"><a
+							class="question-link" href="#">1</a></li>
 					</ul>
 				</div>
 			</div>
