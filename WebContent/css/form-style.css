@@ -113,3 +113,26 @@
 .choice{
 	word-break: break-word;
 }
+.socaudung {
+    text-align: center;
+}
+
+
+.diem {
+    text-align: center;
+}
+
+.thoigianlambai {
+    text-align: center;
+}
+
+.thoigiannop {
+    text-align: center;
+}
+.body-function
+{
+	margin-top: 40%;
+	border-radius: 15px;
+	padding: 20px;
+	background-color: powderblue;
+}

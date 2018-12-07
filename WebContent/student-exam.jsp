@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 <!DOCTYPE html>
 <html>
 <head lang = "vi">
@@ -13,7 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="css/form-style.css">
 
 	<link rel="stylesheet" href="fontawesome/fontawesome-free-5.3.1-web/css/all.min.css">
-	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/mainframe.js"></script>
 	<link rel="stylesheet" href="fullcalendar/fullcalendar.css" />
@@ -60,27 +61,8 @@
 </head>
 <body>		
 	<div class="canvas">
-		<div class="header">
-			<div class="cover-header">
-				<div class="software-name">
-					<h3>LUYỆN THI TRẮC NGHIỆM</h3>
-				</div>
-				<div class="logo-inline"></div>
-				
-				<div class="toggle-info">
-					<img id="toggle-img" src="images/user-icon-logout.png" alt="">
-					<span class="user-name">Hải Nguyễn</span>
-					<div class="info">
-						<div class="myinfo item-info">
-							<span>Thông tin cá nhân</span>
-						</div>
-						<div class="logout item-info">
-							<i class="fas fa-sign-out-alt"></i><span>Đăng xuất</span>
-						</div>
-					</div>
-				</div>				
-			</div>		
-		</div>
+	<t:header>
+	</t:header>
 		<div class="body">
 			<div class="sidebar">
 				<div class="sidebar-header">
@@ -159,7 +141,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="testf" method="POST">
+      <form action="XuLyBaiThi" method="POST">
       <div class="modal-body">
 	      <h5 class="lop">Lớp : </h5>
 		  <hr>

@@ -37,8 +37,7 @@ public class homepagestd extends HttpServlet {
 			{
 				String quyen = nd.getQuyen();
 				if(quyen.equals("questionmanager"))
-				{
-					
+				{					
 					
 				}else if(quyen.equals("student"))
 				{
@@ -52,18 +51,12 @@ public class homepagestd extends HttpServlet {
 				}
 			}
 		}
-		java.util.List<lophoc> lhp = lh.getclassstd("SV1");
-		for (lophoc lophoc : lhp) {
-			System.out.print(lophoc.getMalop()+" "+ lophoc.getTenlop());
-		}
+		java.util.List<lophoc> lhp = lh.getclassstd("aaa");
 		if(lhp !=null)
 		{
 			request.setAttribute("lophoc", lhp);
 		}
 	java.util.List<pagehome> ph = bdf.loadhomepage(lhp);
-	for (pagehome pagehome : ph) {
-		System.out.print(pagehome.getMabode()+" "+ pagehome.getTenbode()+" "+ pagehome.getThoigianbatdau()+" "+pagehome.getThoigianketthuc());
-	}
 	if(ph != null || ph.size()>0)
 	{
 		request.setAttribute("dethi", ph);

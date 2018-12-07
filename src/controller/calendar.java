@@ -46,7 +46,7 @@ public class calendar extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		java.util.List<lophoc> lhp = lh.getclassstd("SV1");
+		java.util.List<lophoc> lhp = lh.getclassstd("aaa");
 		java.util.List<pagehome> ph = bdf.loadhomepage(lhp);
 		ArrayList<fullcalendar> cld = clf.getcalendar(ph);	
         response.setCharacterEncoding("UTF8");

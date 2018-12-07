@@ -9,11 +9,6 @@ import model.bode;
 import model.pagehome;
 import model.lophoc;
 
-import java.sql.SQLException;
-import java.sql.Statement;
-
-import model.cauhoi;
-import model.monhoc;
 import connect.MySQLConnUtils;
 
 public class bodef {

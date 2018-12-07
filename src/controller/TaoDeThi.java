@@ -29,17 +29,16 @@ public class TaoDeThi extends HttpServlet {
 		String maBoDe = (String) cauhoi.getAttribute("mabode");
 		int sluong = (int) cauhoi.getAttribute("sluong");
 		@SuppressWarnings("unchecked")
-		ArrayList<cauhoi> ch = (ArrayList<cauhoi>) cauhoi.getAttribute("question");
+		ArrayList<cauhoi> ch = (ArrayList<cauhoi>) cauhoi.getAttribute("listcauhoi");
 		bode bode = (bode) cauhoi.getAttribute("bode");
 		bodef bdf = new bodef();
-		System.out.println(ch);
-		/*bdf.TaoBoDe(bode);
+		bdf.TaoBoDe(bode);
 		for (int i = 0; i < sluong; i++) {
 			int maCauHoi = ch.get(i).getMacauhoi();
 			bdf.BoDe_CauHoi(maBoDe, maCauHoi);
-			} */
+			}
 		cauhoi.invalidate();
-		//request.getRequestDispatcher("QuanLyBoDe").forward(request, response);
+		request.getRequestDispatcher("QuanLyBoDe").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

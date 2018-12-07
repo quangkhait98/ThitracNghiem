@@ -165,14 +165,5 @@ $(document).ready(
 						$('#ngaydongde').data("DateTimePicker").clear();
 					});
 		});
-/*
- * $(document).ready(function() { var currentTab = 0; showTab(currentTab);
- * 
- * function showTab(n) { var x = document.getElementsByClassName("hidden");
- * x[n].style.display = "block"; } function nextPrev(n) { var x =
- * document.getElementsByClassName("hidden"); if (currentTab >= x.length - 1) {
- * return false; } x[currentTab].style.display = "none"; currentTab = currentTab +
- * n; showTab(currentTab); } $('#abc').click(function() { nextPrev(-1); })
- * $('#xyz').click(function() { nextPrev(1); }) });
- */
+
 

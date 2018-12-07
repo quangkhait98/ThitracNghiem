@@ -33,8 +33,8 @@ public class SubmitBaiThi extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession cauhoi = request.getSession();
 		@SuppressWarnings("unchecked")
-		ArrayList<cauhoi> ch = (ArrayList<cauhoi>) cauhoi.getAttribute("listcauhoi");
-		int sluong = (int) cauhoi.getAttribute("sluong");
+		ArrayList<cauhoi> ch = (ArrayList<cauhoi>) cauhoi.getAttribute("questions");
+		int sluong = Integer.parseInt(request.getParameter("soluong"));
 		int[] dapAnDung = new int[sluong];
 		String[] dapAn = request.getParameterValues("dapAn[]");
 		int soCauDung = 0;
