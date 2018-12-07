@@ -102,7 +102,7 @@ public class questionmanage extends HttpServlet {
 		{	
 			java.util.List<cauhoi> ch;
 			ch = chf.getquestion(search, chonmon, chonloai, length, offset);
-			request.setAttribute("question", ch);		
+			request.setAttribute("chonmon", ch);		
 		}
 		request.getRequestDispatcher("tablequestion.jsp").forward(request, response);
 	}

@@ -21,25 +21,25 @@ function addQuestions() {
 		var li = document.createElement("li");
 		var input1 = document.createElement("input")
 		$(input1).attr({
-			"type": "text",
-			"value": type,
-			"readonly": true,
-			"name": "dokho-"+id,
+			"type" : "text",
+			"value" : type,
+			"readonly" : true,
+			"name" : "dokho-" + id,
 		})
 		$(input1).addClass("difficulty");
 		$(li)
 				.addClass(
 						"list-group-item d-flex justify-content-between align-items-center");
-		$(li).attr("id", "list-question-"+id);
+		$(li).attr("id", "list-question-" + id);
 		var div = document.createElement("div");
 		var num = document.createElement("span");
 		$(num).addClass("badge badge-primary badge-pill");
 		var input2 = document.createElement("input")
 		$(input2).attr({
-			"type": "text",
-			"value": vlue,
-			"readonly": true,
-			"name": "soluong-"+id,
+			"type" : "text",
+			"value" : vlue,
+			"readonly" : true,
+			"name" : "soluong-" + id,
 		})
 		$(input2).addClass("amount");
 		$(num).append(input2);
@@ -94,16 +94,12 @@ function addClasses() {
 };
 function checkDuplicatedText(id) {
 	var found = false
-	$('li.list-group-item > input')
-			.each(
-					function() {
-						if ($(this).val()
-								.trim() == $("#" + id + " option:selected")
-								.text()) {
-							found = true;
-							return false;
-						}
-					});
+	$('li.list-group-item > input').each(function() {
+		if ($(this).val().trim() == $("#" + id + " option:selected").text()) {
+			found = true;
+			return false;
+		}
+	});
 	if (!found)
 		return true;
 };
@@ -112,8 +108,41 @@ $(document).ready(function() {
 	$('#addQuestionBtn').click(function() {
 		addQuestions();
 	});
+	$('#addQuestionBtn-2').click(function() {
+		addQuestions();
+	});
 });
+$(document).ready(
+		function() {
+			$("#menubtn").click(function() {
+				myFunction();
+			});
+			$("#formquanlybode").attr({
+				action : 'QuanLyBoDe',
+				method : 'POST'
+			});
+			$('#ngaymode, #ngaydongde').datetimepicker({
+				format : 'DD/MM/YYYY hh:mm:00 A',
+				icons : {
+					time : 'far fa-clock'
+				},
+				minDate : new Date($.now()),
+				maxDate : '12/31/2022',
+				useCurrent : false,
+			});
+			$('#ngaymode').datetimepicker().on(
+					"dp.change",
+					function() {
+						var now = new Date(Date.now());
+						$('#ngaydongde').data("DateTimePicker").minDate(
+								$('#ngaymode').data("DateTimePicker").date());
+
+						$('#ngaydongde').data("DateTimePicker").clear();
+					});
+		});
 $(document).ready(function() {
+	//var listQuestion = getListQuestion();
+	
 	$("#menubtn").click(function() {
 		myFunction();
 	});
@@ -131,5 +160,35 @@ $(document).ready(function() {
 		$('#ngaydongde').data("DateTimePicker").minDate(
 				$('#ngaymode').data("DateTimePicker").date());
 	});
+	$('#abc').click(function() {
+		$.ajax({
+			url : "TaoDeThi",
+			type : "GET",
+			data : {
+				
+			},
+			async : false,
+			success : function(data) {
+				alert(data);
+			}
+		});
+	});
 });
 
+});
+
+
+function getListQuestion()
+{
+	var listQuestion;
+	$.ajax({		 
+        type: "POST",
+        url: "/getListQuestion",
+        dataType: 'json',
+        success : function(result) {
+        	listQuestion = result;
+        	alter('ok');
+        }
+	});
+}
+	

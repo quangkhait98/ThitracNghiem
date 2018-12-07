@@ -167,18 +167,18 @@ public class cauhoif {
 		Connection connnection = MySQLConnUtils.getMySQLConnection();
 		
 		try {
-			String sql = "(SELECT * FROM thitracnghiem.cauhoi where MaMon = ? and LoaiCauHoi ='Dễ' order by Rand() limit ?)\r\n" + 
-					"union\r\n" + 
-					"(SELECT * FROM thitracnghiem.cauhoi where MaMon = ? and LoaiCauHoi ='Khó' order by Rand() limit ?)\r\n" + 
-					"union \r\n" + 
-					"(SELECT * FROM thitracnghiem.cauhoi where MaMon = ? and LoaiCauHoi = 'Trung Bình' order by Rand() limit ?)";
+			String sql = "(SELECT * FROM thitracnghiem.cauhoi where MaMon = ? and LoaiCauHoi ='Dễ' order by Rand() limit ?)" + 
+					"union" + 
+					"(SELECT * FROM thitracnghiem.cauhoi where MaMon = ? and LoaiCauHoi ='Trung Bình' order by Rand() limit ?)" + 
+					"union" + 
+					"(SELECT * FROM thitracnghiem.cauhoi where MaMon = ? and LoaiCauHoi = 'Khó' order by Rand() limit ?)";
 			PreparedStatement  ps = connnection.prepareStatement(sql);
 				ps.setString(1, monhoc);
 				ps.setString(3, monhoc);
 				ps.setString(5, monhoc);
 				ps.setInt(2, slDe);
-				ps.setInt(3, slTBinh);
-				ps.setInt(4, slKho);
+				ps.setInt(4, slTBinh);
+				ps.setInt(6, slKho);
 				ResultSet rs = ps.executeQuery();
 				java.util.ArrayList<cauhoi> lch = new ArrayList<cauhoi>();
 				while(rs.next())

@@ -58,6 +58,9 @@ public class testf extends HttpServlet {
         String objectToReturn = gson.toJson(cld); //Convert List -> Json
         out.write(objectToReturn); //Đưa Json trả về Ajax
         out.flush();
+	nguoidungf ngf = new nguoidungf();
+	boolean ab = ngf.kiemTraDangNhap("a", "ab");
+	System.out.print(ab);
 	}
 
 

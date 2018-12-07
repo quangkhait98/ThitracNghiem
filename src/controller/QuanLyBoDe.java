@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Random;
@@ -12,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import function.bodef;
 import function.cauhoif;
@@ -31,34 +33,37 @@ public class QuanLyBoDe extends HttpServlet {
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	throws ServletException, IOException {
+
 		monhocf mhf = new monhocf();
 		ArrayList<monhoc> mh = mhf.getmonhoc();
-		if(mh != null && mh.size()>0)
-		{
-			request.setAttribute("chonmon", mh);
+		if (mh != null && mh.size() > 0) {
+			request.setAttribute("mon", mh);
 		}
+		request.getRequestDispatcher("exammanage.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		byte[] array = new byte[10]; // length is bounded by 7
+	throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		byte[] array = new byte[10];
 		new Random().nextBytes(array);
 		String maBoDe = new String(array, Charset.forName("UTF-8"));
-		String tenBoDe = "bode" + maBoDe;
-		request.setCharacterEncoding("utf-8");
-		SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+		String tenBoDe = request.getParameter("tenbode");
+		String url = "exammanage.jsp";
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss a");
 		java.sql.Time thoiGianLamBai = null;
-		java.sql.Date ngayMoDe = null;
-		java.sql.Date ngayDongDe = null;
+		java.sql.Timestamp ngayMoDe = null;
+		java.sql.Timestamp ngayDongDe = null;
 		int slDe = 0, slTBinh = 0, slKho = 0;
 		String gioLamBai = request.getParameter("giolambai");
 		String phutLamBai = request.getParameter("phutlambai");
 		int soLanLamBai = Integer.parseInt(request.getParameter("solanlambai"));
 		try {
-			ngayMoDe = new java.sql.Date(formatter.parse(request.getParameter("ngaymode")).getTime());
-			ngayDongDe = new java.sql.Date(formatter.parse(request.getParameter("ngaydongde")).getTime());
-			thoiGianLamBai = new java.sql.Time(Long.valueOf(new SimpleDateFormat("HH:mm").parse(gioLamBai + ":" + phutLamBai).getTime()));
+			thoiGianLamBai = new java.sql.Time(
+				Long.valueOf(new SimpleDateFormat("HH:mm").parse(gioLamBai + ":" + phutLamBai).getTime()));
+			ngayDongDe = new java.sql.Timestamp(formatter.parse(request.getParameter("ngaydongde")).getTime());
+			ngayMoDe = new java.sql.Timestamp(formatter.parse(request.getParameter("ngaymode")).getTime());
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
@@ -76,13 +81,6 @@ public class QuanLyBoDe extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		String err = "";
-		if (ngayMoDe == null) {
-			err = "Chưa chọn ngày mở đề!";
-		}
-		if (ngayDongDe == null) {
-			err = "Chưa chọn ngày đóng đề!";
-		}
 		for (int i = 0; i < 3; i++) {
 			if (doKho[i] != null) {
 				if (doKho[i].equals("Dễ"))
@@ -91,22 +89,33 @@ public class QuanLyBoDe extends HttpServlet {
 					slTBinh = soluong[i];
 				else if (doKho[i].equals("Khó"))
 					slKho = soluong[i];
-			}
+			}	
+		}
+		String err = "";
+		if (gioLamBai.equals("0") && phutLamBai.equals("0")) {
+			err = "Chưa chọn thời gian làm bài!";
+		}
+		if (slDe + slTBinh + slKho == 0) {
+			err = "Chưa chọn câu hỏi!";
 		}
 		if (err.length() == 0) {
 			bode bode = new bode(maBoDe, tenBoDe, slDe, slTBinh, slKho, mon, soLanLamBai, ngayMoDe, ngayDongDe,
-					thoiGianLamBai, lopGiaoDe);
-			bdf.TaoBoDe(bode);
-		} else {
-			request.setAttribute("err", err);
+				thoiGianLamBai, lopGiaoDe);
+			//bdf.TaoBoDe(bode);
+			HttpSession session = request.getSession();
+			cauhoif chf = new cauhoif();
+			ArrayList<cauhoi> ch = chf.getquestion(mon, slDe, slTBinh, slKho);
+			{	
+				session.setAttribute("sluong", slDe+slTBinh+slKho);
+				session.setAttribute("mabode", maBoDe);
+				session.setAttribute("listcauhoi", ch);
+				url = "TaoDeThi";
+			} 
 		}
-		cauhoif chf = new cauhoif();
-		ArrayList<cauhoi> ch = chf.getquestion(mon, slDe, slTBinh, slKho);
-		if(ch != null && ch.size()>0)
-		{
-			request.setAttribute("question", ch);
+		else{
+			request.setAttribute("err", err);			
 		}
-		request.getRequestDispatcher("exampreview.jsp").forward(request, response);
+		request.getRequestDispatcher(url).forward(request, response);
 	}
 
 }

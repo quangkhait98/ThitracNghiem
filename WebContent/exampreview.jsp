@@ -39,7 +39,6 @@
 						<li class="sidebar-feature"><a href="find-friend.html"> <i
 								class="fas fa-file-signature"></i> <span>Ra đề</span>
 						</a></li>
-
 						<li class="sidebar-feature"><a href="find-friend.html"> <i
 								class="fas fa-book"></i> <span>Quản lý đề</span>
 						</a></li>
@@ -47,41 +46,15 @@
 				</div>
 			</div>
 			<div class="container-main" id="myContainer">
-				<form id="form_online_test" class="online-test" method="post"
-					action="#">
-					<ol class="questions">
-						<c:forEach items = "${question}" var = "i">
-							<li class="question" id="question${i}"><label
-							class="questionLabel" id="question_2_${i}" for="question_${i}">${i + 1}.
-								${i.noidung}</label>
-							<div class="answerSet">
-								<span> <input id="question_${i}_1" name="question_${i}"
-									class="element radio" type="radio" value="1"> <label
-									class="choice" id="question_3_${i}" for="question_${i}_1">${i.dapan1}</label>
-								</span> <span> <input id="questioni_${i}_2" name="question_${i}"
-									class="element radio" type="radio" value="2"> <label
-									class="choice" id="question_4_${i}" for="question_${i}_2">${i.dapan2}</label>
-								</span> <span> <input id="questioni_${i}_3" name="question_${i}"
-									class="element radio" type="radio" value="3"> <label
-									class="choice" id="question_5_${i}" for="question_${i}_3">${i.dapan3}</label>
-								</span> <span> <input id="questioni_${i}_4" name="question_${i}"
-									class="element radio" type="radio" value="4"> <label
-									class="choice" id="question_6_${i}" for="question_${i}_4">${i.dapan4}</label>
-								</span>
-							</div></li> <br/>
-						</c:forEach>						
+				<form id="form_online_test" class="online-test">
+				<input type="hidden" name="mabode"/>
+					<ol class="questions" id="questions-table">
+						<c:import url="questionlist.jsp" />
 					</ol>
 					<div class="submit">
-						<button type="submit" class="btn">Basic</button>
+						<button type="button" class="btn" id="abc">Basic</button>
 					</div>
 				</form>
-				<div class="indexer" style="display: inline-grid;">
-					<div id="clock">09:00:00</div>
-					<ul class="list-inline question-index">
-						<li class="question-num list-inline-item" id="question-1"><a
-							class="question-link" href="#">1</a></li>
-					</ul>
-				</div>
 			</div>
 		</div>
 	</div>

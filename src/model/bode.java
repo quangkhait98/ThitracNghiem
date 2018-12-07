@@ -1,11 +1,12 @@
 package model;
 import java.sql.Date;
 import java.sql.Time;
+import java.sql.Timestamp;
 
 public class bode {
 	
 	public bode(String maBode, String tenBoDe, int slDe, int slTB, int slKho, String maMon,
-			int soLanNopToiDa, Date thoiGianBatDau,	Date thoiGianKetThuc, Time thoiGianLamBai, String maLop) {
+			int soLanNopToiDa, Timestamp thoiGianBatDau, Timestamp thoiGianKetThuc, Time thoiGianLamBai, String maLop) {
 		this.maBode = maBode;
 		this.tenBoDe = tenBoDe;
 		this.slDe = slDe;
@@ -80,19 +81,19 @@ public class bode {
 		this.soLanNopToiDa = soLanNopToiDa;
 	}
 
-	public Date getThoiGianBatDau() {
+	public Timestamp getThoiGianBatDau() {
 		return thoiGianBatDau;
 	}
 
-	public void setThoiGianBatDau(Date thoiGianBatDau) {
+	public void setThoiGianBatDau(Timestamp thoiGianBatDau) {
 		this.thoiGianBatDau = thoiGianBatDau;
 	}
 
-	public Date getThoiGianKetThuc() {
+	public Timestamp getThoiGianKetThuc() {
 		return thoiGianKetThuc;
 	}
 
-	public void setThoiGianKetThuc(Date thoiGianKetThuc) {
+	public void setThoiGianKetThuc(Timestamp thoiGianKetThuc) {
 		this.thoiGianKetThuc = thoiGianKetThuc;
 	}
 
@@ -119,8 +120,8 @@ public class bode {
 	private int slKho;
 	private String maMon;
 	private int soLanNopToiDa;
-	private Date thoiGianBatDau;
-	private Date thoiGianKetThuc;
+	private Timestamp thoiGianBatDau;
+	private Timestamp thoiGianKetThuc;
 	private Time thoiGianLamBai;
 	private String maLop;
 
