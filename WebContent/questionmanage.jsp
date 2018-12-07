@@ -53,23 +53,18 @@
 				<div class="sidebar-menu">
 					<ul>
 						<li class="sidebar-feature">
-							<a href="#">
+							<a href="questionmanage">
 								<i class="fas fa-user-graduate"></i>
 								<span>Quản lý câu hỏi</span>
 							</a>
 						</li>
 						<li class="sidebar-feature">
-							<a href="addquestion.jsp">
+							<a href="AddQuestion">
 								<i class="fas fa-user-graduate"></i>
 								<span>Thêm câu hỏi</span>
 							</a>
 						</li>
-						<li class="sidebar-feature">
-							<a href="profile.jsp">
-								<i class="fas fa-info"></i>
-								<span>Thông tin cá nhân</span>
-							</a>
-						</li>
+						
 					</ul>
 				</div>
 			</div>
@@ -96,13 +91,13 @@
 									<option value="de">Dễ</option>
 								</select>
 					</div>
-					<div class="col-sm-30">
+					<div class="col-sm-3">
 						<label>Nhập câu hỏi: </label><br>
 						<input type="text" name="search" id="search" style="height: 39px;width: 350px;"
 						class="form-control">
 					</div>
 					<div class="col-sm-3">
-						<button type="button" id="searchBut" style="width: 250px;margin-left: 40px;">tim kiem</button>
+						<button type="button" id="searchBut" style="width: 130px;margin-left: 38%;margin-top: 13%">tim kiem</button>
 					</div>
 		  		</div>
 				<div class="card">
@@ -110,12 +105,13 @@
 					    <div id="table" class="table-editable" style="overflow: inherit">
 							<span class="table-add float-right mb-3 mr-2">
 						    	<a href="#!" class="text-success">
-						    		<i class="fa fa-plus fa-2x" aria-hidden="true"></i>
+						    		
 						        </a>
 						    </span>
 							
-					        <table id="question_table" class="table table-bordered table-responsive-md table-striped text-center">
-					        <caption id="question_table_cap">Trang 1</caption>
+					        <table  id="question_table" class="table table-bordered table-responsive-md table-striped text-center">
+					        <%--  <caption  id="question_table_cap" >Trang 1</caption>  --%>
+					       
 					        <thead>
 						        <tr>
 						          <th class="text-center">STT</th>
@@ -132,15 +128,17 @@
 								<tbody>							
 								</tbody>
 					      </table>
+					      <div class="col-sm-3" style="margin-left: 39%;">
+				<button type="button" id="backBut" class="btn btn-primary btn-md" style="width: 33%;margin-right: 11px;float: left;">previous</button>		
+				<div id="question_table_cap" style="float: left;margin-top: 5px;">Trang 1</div>
+				<button type="button" id="forwardBut" class="btn btn-primary btn-md"style="width: 33%;margin-left: 12px;">next</button>
+				 
+				</div>
 					    </div>
 					    
 				  	</div>
 				</div>
-				<div class="col-sm-3" >
-				<button type="button" id="backBut" style="width: 50px;margin-left: 40px;">A</button>		
-				<button type="button" id="forwardBut" style="width: 50px;">B</button>
-				  <button class="btn" id="btn" >Popup</button>
-				</div>
+				
 				 <!-- Modal -->
            
 			<!-- end container -->

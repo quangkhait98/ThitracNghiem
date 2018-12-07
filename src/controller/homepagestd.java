@@ -52,7 +52,7 @@ public class homepagestd extends HttpServlet {
 				}
 			}
 		}
-		java.util.List<lophoc> lhp = lh.getclassstd("SV1");
+		java.util.List<lophoc> lhp = lh.getclassstd("SV2");
 		for (lophoc lophoc : lhp) {
 			System.out.print(lophoc.getMalop()+" "+ lophoc.getTenlop());
 		}

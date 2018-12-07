@@ -9,9 +9,7 @@
 				<td >${layclass[i].tenlop}</td>
 				<td >${layclass[i].soluong}</td>
 				<td>
-				<span class="table-edit"><button type="button" class="btn btn-primary btn-rounded btn-sm my-0">Sửa</button></span>
-				<span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">Xóa</button></span>
-						           	  
+				<span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">Xóa</button></span>						           	  
 			</td>
 		</tr>
 	</c:forEach>
