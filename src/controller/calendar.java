@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -22,6 +23,7 @@ import function.lophocf;
 import function.nguoidungf;
 import model.fullcalendar;
 import model.lophoc;
+import model.nguoidung;
 import model.pagehome;
 
 /**
@@ -46,7 +48,9 @@ public class calendar extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		java.util.List<lophoc> lhp = lh.getclassstd("aaa");
+		HttpSession session = request.getSession(false);
+		nguoidung nd = (nguoidung) session.getAttribute("login");
+		java.util.List<lophoc> lhp = lh.getclassstd(nd.getManguoidung());
 		java.util.List<pagehome> ph = bdf.loadhomepage(lhp);
 		ArrayList<fullcalendar> cld = clf.getcalendar(ph);	
         response.setCharacterEncoding("UTF8");

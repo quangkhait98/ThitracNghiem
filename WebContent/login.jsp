@@ -83,7 +83,7 @@ if(request.getAttribute("err")!=null)
 			   	<p style="color:red"><%=err  %></p>
 			      <input type="text" name="taikhoan" placeholder="Tài khoản"/>
 			      <input type="password" name="password" placeholder="Mật khẩu"/>
-			      <button>Đăng nhập</button>
+			      <button >Đăng nhập</button>
 			      <!-- <p class="sign-up message">Chưa có tài khoản? <a href="#">Tạo tài khoản</a></p>
 			      <p class="forget-pass  message">Quên mật khẩu?<a href="#">Lấy lại mật khẩu</a></p> -->
 			   </form>
