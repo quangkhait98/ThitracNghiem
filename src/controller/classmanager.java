@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -12,22 +11,27 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import function.lophocf;
-import function.nguoidungf;
 import model.lophoc;
 import model.nguoidung;
 
-
-@WebServlet("/studentofclass")
-public class studentofclass extends HttpServlet {
+/**
+ * Servlet implementation class classmanager
+ */
+@WebServlet("/classmanager")
+public class classmanager extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       nguoidungf ngf = new nguoidungf();
- 
-    public studentofclass() {
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public classmanager() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
 		String url = "";
@@ -37,60 +41,39 @@ public class studentofclass extends HttpServlet {
 				String quyen = nd.getQuyen();
 				if (quyen.equals("student")) {
 
-					url = "student";
+					url = "student-exam.jsp";
 				}
 				if (quyen.equals("questionmanager")) {
 
-					url = "questionmanager";
+					url = "addquestion.jsp";
 				}
 				if (quyen.equals("exammanager")) {
-					url = "exammanager";
+
+					url = "exammanage.jsp";
 				}
 				if (quyen.equals("classmanager")) {
-					url = "studentmanage.jsp";
+					url = "classmanage.jsp";
 				}
 
 			} else {
 				url = "login.jsp";
 			}
 		}
-
-
-		lophocf lhf = new  lophocf();
-		ArrayList<lophoc> lh= lhf.getclass();
-		if(lh != null || lh.size()>0)
-			
-		{	java.util.List<nguoidung> nga = ngf.getstudent(lh.get(0).getMalop());
-			java.util.List<nguoidung> ng = ngf.svkothuoclop(lh.get(0).getMalop());
-			
-			if(ng !=null || ng.size()>0)
-			{
-				request.setAttribute("chonsv", ng);
-			}
-			request.setAttribute("chonlop", lh);
-			request.setAttribute("studenta", nga);
-			
+		lophocf lhf = new lophocf();
+		List<lophoc> getclass= lhf.getttlophoc();
+		if(getclass!= null)
+		{
+			request.setAttribute("getclass", getclass);
 		}
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 
-
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		String idclass = request.getParameter("classID");
-		Boolean err=false;
-		StringBuilder errors = new StringBuilder();
-		if(idclass == null || idclass.length()==0)
-		{
-			err=true;
-			errors.append("không tìm thấy lớp");
-		}
-		if(!err)
-		{
-			List<nguoidung> ng = ngf.getstudent(idclass);
-			request.setAttribute("student", ng);
-		}
-		request.getRequestDispatcher("studenttable.jsp").forward(request, response);
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }

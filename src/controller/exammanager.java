@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,20 +10,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import function.lophocf;
+import function.monhocf;
+import model.monhoc;
 import model.nguoidung;
 
 /**
- * Servlet implementation class addclass
+ * Servlet implementation class exammanager
  */
-@WebServlet("/addclass")
-public class addclass extends HttpServlet {
+@WebServlet("/exammanager")
+public class exammanager extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       lophocf lhf = new lophocf();
+       
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public addclass() {
+    public exammanager() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,55 +41,38 @@ public class addclass extends HttpServlet {
 				String quyen = nd.getQuyen();
 				if (quyen.equals("student")) {
 
-					url = "student";
+					url = "student-exam.jsp";
 				}
 				if (quyen.equals("questionmanager")) {
 
-					url = "questionmanager";
+					url = "addquestion.jsp";
 				}
 				if (quyen.equals("exammanager")) {
-					url = "exammanager";
+
+					url = "exammanage.jsp";
 				}
 				if (quyen.equals("classmanager")) {
-					url = "classmanager";
+					url = "classmanage.jsp";
 				}
 
 			} else {
 				url = "login.jsp";
 			}
 		}
-
+		monhocf mhf = new monhocf();
+		ArrayList<monhoc> mh = mhf.getmonhoc();
+		if (mh != null && mh.size() > 0) {
+			request.setAttribute("mon", mh);
+		}
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		String malop = request.getParameter("malop");
-		String tenlop = request.getParameter("tenlop");
-		Boolean err=false;
-		StringBuilder errors = new StringBuilder();
-		if(malop==null || malop.length()==0 || tenlop==null ||tenlop.length()==0)
-		{
-			err=true;
-			errors.append("nhập chưa đầy đủ thông tin");
-		}
-		if(!err)
-		{
-			if(lhf.addclass(malop, tenlop)>0)
-			{
-				request.setAttribute("success", 
-						String.format("\u2713\u2713 thêm thành công."));
-				request.getRequestDispatcher("Success.jsp").forward(request, response);
-				return;
-			} 
-			else {
-				errors.append(String.format(">thêm thất bại.<br />"));
-				request.setAttribute("errors", errors);
-			}
-		}else {
-			request.setAttribute("errors", errors);
-		}
-		request.getRequestDispatcher("Errors.jsp").forward(request, response);
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }

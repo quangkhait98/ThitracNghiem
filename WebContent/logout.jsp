@@ -2,5 +2,5 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 
-<c:remove var="ses" scope="session"/>
+<c:remove var="session" scope="session"/>
 <c:redirect url="login.jsp" />

@@ -37,11 +37,8 @@
 				</div>
 				<div class="sidebar-menu">
 					<ul>
-						<li class="sidebar-feature"><a href="find-friend.html"> <i
+						<li class="sidebar-feature"><a href="QuanLyBoDe"> <i
 								class="fas fa-file-signature"></i> <span>Ra đề</span>
-						</a></li>
-						<li class="sidebar-feature"><a href="find-friend.html"> <i
-								class="fas fa-book"></i> <span>Quản lý đề</span>
 						</a></li>
 					</ul>
 				</div>

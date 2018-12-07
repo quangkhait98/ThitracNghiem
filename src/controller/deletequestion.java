@@ -6,8 +6,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import function.cauhoif;
+import model.nguoidung;
 
 
 @WebServlet("/deletequestion")
@@ -33,7 +35,7 @@ public class deletequestion extends HttpServlet {
 		StringBuilder errors = new StringBuilder();
 		if(questionID == null || questionID.trim().isEmpty()) {
 			isError = true;
-			errors.append("khÃ´ng tÃ¬m Ä‘Æ°á»£c cÃ¢u há»�i");
+			errors.append("Không tìm thấy câu hỏi");
 		}
 		if(!isError) {
 			

@@ -29,7 +29,7 @@ public class XuLyBaiThi extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession cauhoi = request.getSession();
+		HttpSession cauhoi = request.getSession(false);
 		String maBode = (String)request.getParameter("mabd");
 		cauhoif chf = new cauhoif();
 		ArrayList<cauhoi> ch = chf.getquestionfrombode(maBode);

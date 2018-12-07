@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 <!DOCTYPE html>
 <html>
 <head lang = "vi">
@@ -13,33 +14,14 @@
 	<link rel="stylesheet" href="fontawesome/fontawesome-free-5.3.1-web/css/all.min.css">
 	<link rel="stylesheet" href="css/profile.css">
 	
-	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/jquery.min.js"></script>
 	<script src="js/mainframe.js"></script>
 
 </head>
 <body>		
 	<div class="canvas">
-		<div class="header">
-			<div class="cover-header">
-				<div class="software-name">
-					<h3>LUYỆN THI TRẮC NGHIỆM</h3>
-				</div>
-				<div class="logo-inline"></div>
-				
-				<div class="toggle-info">
-					<img id="toggle-img" src="images/user-icon-logout.png" alt="">
-					<span class="user-name">Hải Nguyễn</span>
-					<div class="info">
-						<div class="myinfo item-info">
-							<span>Thông tin cá nhân</span>
-						</div>
-						<div class="logout item-info">
-							<i class="fas fa-sign-out-alt"></i><span>Đăng xuất</span>
-						</div>
-					</div>
-				</div>				
-			</div>		
-		</div>
+		<t:header>
+		</t:header>
 		<div class="body">
 			<div class="sidebar">
 				<div class="sidebar-header">
@@ -57,12 +39,6 @@
 							<a href="#">
 								<i class="fas fa-users"></i>
 								<span>Quản lý lớp học</span>
-							</a>
-						</li>
-						<li class="sidebar-feature">
-							<a href="#">
-								<i class="fas fa-info"></i>
-								<span>Thông tin cá nhân</span>
 							</a>
 						</li>
 					</ul>

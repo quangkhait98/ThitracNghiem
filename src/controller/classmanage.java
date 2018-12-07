@@ -8,9 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import function.lophocf;
 import model.lophoc;
+import model.nguoidung;
 
 /**
  * Servlet implementation class classmanage
@@ -18,7 +20,7 @@ import model.lophoc;
 @WebServlet("/classmanage")
 public class classmanage extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-      lophocf lhf = new lophocf();
+
       
   
     public classmanage() {
@@ -27,20 +29,41 @@ public class classmanage extends HttpServlet {
     }
 
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<lophoc> getclass=lhf.getttlophoc();
-		if(getclass!= null || getclass.size()>0)
-		{
-			request.setAttribute("getclass", getclass);
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
+		HttpSession session = request.getSession(false);
+		String url = "";
+		if (session != null) {
+			nguoidung nd = (nguoidung) session.getAttribute("login");
+			if (nd != null) {
+				String quyen = nd.getQuyen();
+				if (quyen.equals("student")) {
+
+					url = "student";
+				}
+				if (quyen.equals("questionmanager")) {
+
+					url = "questionmanager";
+				}
+				if (quyen.equals("exammanager")) {
+					url = "exammanager";
+				}
+				if (quyen.equals("classmanager")) {
+					url = "classmanager";
+				}
+
+			} else {
+				url = "login.jsp";
+			}
 		}
-		request.getRequestDispatcher("classmanage.jsp").forward(request, response);
+
+		request.getRequestDispatcher(url).forward(request, response);
 	}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	      lophocf lhf = new lophocf();
 		List<lophoc> getclass=lhf.getttlophoc();
-		if(getclass!= null || getclass.size()>0)
+		if(getclass!= null)
 		{
 			request.setAttribute("layclass", getclass);
 		}

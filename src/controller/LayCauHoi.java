@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import function.cauhoif;
 import model.cauhoi;
+import model.nguoidung;
 
 @WebServlet("/LayCauHoi")
 public class LayCauHoi extends HttpServlet {
@@ -24,6 +25,32 @@ public class LayCauHoi extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession(false);
+		String url = "";
+		if (session != null) {
+			nguoidung nd = (nguoidung) session.getAttribute("login");
+			if (nd != null) {
+				String quyen = nd.getQuyen();
+				if (quyen.equals("student")) {
+
+					url = "student";
+				}
+				if (quyen.equals("questionmanager")) {
+
+					url = "questionmanager";
+				}
+				if (quyen.equals("exammanager")) {
+					url = "exampreview.jsp";
+				}
+				if (quyen.equals("classmanager")) {
+					url = "classmanager";
+				}
+
+			} else {
+				url = "login.jsp";
+			}
+		}
+
 		HttpSession cauhoi = request.getSession();
 		String monhoc = (String)cauhoi.getAttribute("monhoc");
 		cauhoif chf = new cauhoif();
@@ -31,7 +58,7 @@ public class LayCauHoi extends HttpServlet {
 		if (ch != null && ch.size() > 0) {
 			request.setAttribute("cauhoi", ch);
 		}
-		request.getRequestDispatcher("exampreview.jsp").forward(request, response);
+		request.getRequestDispatcher(url).forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

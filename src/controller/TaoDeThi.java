@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import function.bodef;
 import model.bode;
 import model.cauhoi;
+import model.nguoidung;
 
 @WebServlet("/TaoDeThi")
 public class TaoDeThi extends HttpServlet {
@@ -25,6 +26,31 @@ public class TaoDeThi extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		HttpSession session = request.getSession(false);
+		String url = "";
+		if (session != null) {
+			nguoidung nd = (nguoidung) session.getAttribute("login");
+			if (nd != null) {
+				String quyen = nd.getQuyen();
+				if (quyen.equals("student")) {
+
+					url = "student";
+				}
+				if (quyen.equals("questionmanager")) {
+
+					url = "questionmanager";
+				}
+				if (quyen.equals("exammanager")) {
+					url = "QuanLyBoDe";
+				}
+				if (quyen.equals("classmanager")) {
+					url = "classmanager";
+				}
+
+			} else {
+				url = "login.jsp";
+			}
+		}
 		HttpSession cauhoi = request.getSession();
 		String maBoDe = (String) cauhoi.getAttribute("mabode");
 		int sluong = (int) cauhoi.getAttribute("sluong");
@@ -38,12 +64,12 @@ public class TaoDeThi extends HttpServlet {
 			bdf.BoDe_CauHoi(maBoDe, maCauHoi);
 			}
 		cauhoi.invalidate();
-		request.getRequestDispatcher("QuanLyBoDe").forward(request, response);
+		request.getRequestDispatcher(url).forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession cauhoi = request.getSession();
+		HttpSession cauhoi = request.getSession(false);
 		@SuppressWarnings("unchecked")
 		ArrayList<cauhoi> ch = (ArrayList<cauhoi>) cauhoi.getAttribute("listcauhoi");
 		cauhoi.setAttribute("question", ch);

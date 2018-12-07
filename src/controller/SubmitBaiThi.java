@@ -1,8 +1,11 @@
 package controller;
 
 import java.io.IOException;
+import java.text.DateFormat;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -31,7 +34,9 @@ public class SubmitBaiThi extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession cauhoi = request.getSession();
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		Date date = new Date();
+		HttpSession cauhoi = request.getSession(false);
 		@SuppressWarnings("unchecked")
 		ArrayList<cauhoi> ch = (ArrayList<cauhoi>) cauhoi.getAttribute("questions");
 		int sluong = Integer.parseInt(request.getParameter("soluong"));
@@ -45,10 +50,12 @@ public class SubmitBaiThi extends HttpServlet {
 			if (dapAn[i].toString().equals(String.valueOf(dapAnDung[i])))
 				soCauDung++;
 		}
+		cauhoi.removeAttribute("questions");
 		DecimalFormat df = new DecimalFormat("#.##"); 
 		request.setAttribute("soCau", sluong);
 		request.setAttribute("soCauDung", soCauDung);
 		request.setAttribute("diem", df.format(10/(double)(sluong)*soCauDung));
+		request.setAttribute("time",dateFormat.format(date));
 		request.getRequestDispatcher("scoreboard.jsp").forward(request, response);
 	}
 

@@ -7,7 +7,7 @@
 		<div class="logo-inline"></div>
 		<div class="toggle-info">
 			<img id="toggle-img" src="images/user-icon-logout.png" alt="">
-			<span class="user-name">${user.tenNguoiDung}</span>
+			<span class="user-name">${login.tennguoidung}</span>
 			<div class="info">
 				<div class="logout item-info">
 					<a href="logout.jsp"> <i class="fas fa-sign-out-alt"></i> <span>Đăng

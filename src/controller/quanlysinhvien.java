@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import function.nguoidungf;
 import model.lophoc;
@@ -32,12 +33,38 @@ public class quanlysinhvien extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession(false);
+		String url = "";
+		if (session != null) {
+			nguoidung nd = (nguoidung) session.getAttribute("login");
+			if (nd != null) {
+				String quyen = nd.getQuyen();
+				if (quyen.equals("student")) {
+
+					url = "student";
+				}
+				if (quyen.equals("questionmanager")) {
+
+					url = "questionmanager";
+				}
+				if (quyen.equals("exammanager")) {
+					url = "exammanager";
+				}
+				if (quyen.equals("classmanager")) {
+					url = "quanlysv.jsp";
+				}
+
+			} else {
+				url = "login.jsp";
+			}
+		}
+
 		List<nguoidung> getstd=ngf.getallstudent();
-		if(getstd!= null || getstd.size()>0)
+		if(getstd!= null)
 		{
 			request.setAttribute("getstd", getstd);
 		}
-		request.getRequestDispatcher("quanlysv.jsp").forward(request, response);
+		request.getRequestDispatcher(url).forward(request, response);
 	}
 
 

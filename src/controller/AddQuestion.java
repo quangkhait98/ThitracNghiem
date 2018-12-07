@@ -1,8 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,11 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 
 import function.cauhoif;
-import function.monhocf;
-import model.monhoc;
 import model.nguoidung;
 
 
@@ -29,35 +24,33 @@ public class AddQuestion extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	HttpSession ses = request.getSession(false);
-	if(ses!= null)
-	{
-		nguoidung nd =(nguoidung) ses.getAttribute("login");
-		if(nd != null)
-		{
-			String quyen = nd.getQuyen();
-			if(quyen.equals("questionmanager"))
-			{				
-				
-			}else if(quyen.equals("student"))
-			{
-				response.sendRedirect("");
-			}else if(quyen.equals("creator"))
-			{
-				response.sendRedirect("");
-			} else
-			{
-				response.sendRedirect("");
+		HttpSession session = request.getSession(false);
+		String url = "";
+		if (session != null) {
+			nguoidung nd = (nguoidung) session.getAttribute("login");
+			if (nd != null) {
+				String quyen = nd.getQuyen();
+				if (quyen.equals("student")) {
+
+					url = "student";
+				}
+				if (quyen.equals("questionmanager")) {
+
+					url = "questionmanager";
+				}
+				if (quyen.equals("exammanager")) {
+					url = "exammanager";
+				}
+				if (quyen.equals("classmanager")) {
+					url = "classmanager";
+				}
+
+			} else {
+				url = "login.jsp";
 			}
 		}
-	}
-	monhocf mhf = new monhocf();
-	ArrayList<monhoc> mh = mhf.getmonhoc();
-	if(mh != null && mh.size()>0)
-	{
-		request.setAttribute("chonmon", mh);
-	}
-	request.getRequestDispatcher("addquestion.jsp").forward(request, response);
+
+		request.getRequestDispatcher(url).forward(request, response);
 	}
 
 	

@@ -36,36 +36,33 @@ public class AddQuestionFromExcel extends HttpServlet {
 
 	
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	HttpSession ses = request.getSession(false);
-    	if(ses!= null)
-    	{
-    		nguoidung nd =(nguoidung) ses.getAttribute("login");
-    		if(nd != null)
-    		{
-    			String quyen = nd.getQuyen();
-    			if(quyen.equals("questionmanager"))
-    			{
-    				
-    				
-    			}else if(quyen.equals("student"))
-    			{
-    				response.sendRedirect("");
-    			}else if(quyen.equals("creator"))
-    			{
-    				response.sendRedirect("");
-    			} else
-    			{
-    				response.sendRedirect("");
-    			}
-    		}
-    	}
-    	monhocf mhf = new monhocf();
-    	ArrayList<monhoc> mh = mhf.getmonhoc();
-    	if(mh != null && mh.size()>0)
-    	{
-    		request.setAttribute("chonmon", mh);
-    	}
-    	request.getRequestDispatcher("addquestion.jsp").forward(request, response);
+    	HttpSession session = request.getSession(false);
+		String url = "";
+		if (session != null) {
+			nguoidung nd = (nguoidung) session.getAttribute("login");
+			if (nd != null) {
+				String quyen = nd.getQuyen();
+				if (quyen.equals("student")) {
+
+					url = "student";
+				}
+				if (quyen.equals("questionmanager")) {
+
+					url = "questionmanager";
+				}
+				if (quyen.equals("exammanager")) {
+					url = "exammanager";
+				}
+				if (quyen.equals("classmanager")) {
+					url = "classmanager";
+				}
+
+			} else {
+				url = "login.jsp";
+			}
+		}
+
+		request.getRequestDispatcher(url).forward(request, response);
     	}
 
 
