@@ -8,9 +8,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import function.bodef;
 import function.ketquathif;
+import function.lophocf;
 import model.ketquathi;
+import model.lophoc;
+import model.nguoidung;
+import model.pagehome;
 
 /**
  * Servlet implementation class hienketquathisv
@@ -29,12 +35,40 @@ public class hienketquathisv extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<ketquathi> kqthi = kqt.getketqua("SV1");
-		if(kqthi!=null || kqthi.size()>0)
-		{
-			request.setAttribute("kqthi", kqthi);
+		HttpSession session = request.getSession(false);
+		bodef bdf = new bodef();
+		lophocf lh = new lophocf();
+		String url = "";
+		if (session != null) {
+			nguoidung nd = (nguoidung) session.getAttribute("login");
+			if (nd != null) {
+				String quyen = nd.getQuyen();
+				if (quyen.equals("student")) {
+					List<ketquathi> kqthi = kqt.getketqua(nd.getManguoidung());
+					if(kqthi!=null)
+					{
+						request.setAttribute("kqthi", kqthi);
+					}
+					url = "ketquathisv.jsp";
+				}
+				if (quyen.equals("questionmanager")) {
+
+					url = "addquestion.jsp";
+				}
+				if (quyen.equals("exammanager")) {
+
+					url = "exammanage.jsp";
+				}
+				if (quyen.equals("classmanager")) {
+					url = "classmanage.jsp";
+				}
+
+			} else {
+				url = "login.jsp";
+			}
 		}
-		request.getRequestDispatcher("ketquathisv.jsp").forward(request, response);
+
+		request.getRequestDispatcher(url).forward(request, response);
 	}
 
 

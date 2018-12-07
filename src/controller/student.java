@@ -21,19 +21,21 @@ import model.pagehome;
 @WebServlet("/student")
 public class student extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public student() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public student() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
 		bodef bdf = new bodef();
 		lophocf lh = new lophocf();
@@ -43,7 +45,14 @@ public class student extends HttpServlet {
 			if (nd != null) {
 				String quyen = nd.getQuyen();
 				if (quyen.equals("student")) {
-
+					java.util.List<lophoc> lhp = lh.getclassstd(nd.getManguoidung());
+					if (lhp != null) {
+						request.setAttribute("lophoc", lhp);
+					}
+					java.util.List<pagehome> ph = bdf.loadhomepage(lhp);
+					if (ph != null) {
+						request.setAttribute("dethi", ph);
+					}
 					url = "student-exam.jsp";
 				}
 				if (quyen.equals("questionmanager")) {
@@ -62,20 +71,12 @@ public class student extends HttpServlet {
 				url = "login.jsp";
 			}
 		}
-		java.util.List<lophoc> lhp = lh.getclassstd("aaa");
-		if(lhp !=null)
-		{
-			request.setAttribute("lophoc", lhp);
-		}
-	java.util.List<pagehome> ph = bdf.loadhomepage(lhp);
-	if(ph != null)
-	{
-		request.setAttribute("dethi", ph);
-	}
+
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
 	}
 

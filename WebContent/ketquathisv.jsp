@@ -12,7 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="css/mainframe.css">
 	<link rel="stylesheet" href="fontawesome/fontawesome-free-5.3.1-web/css/all.min.css">
 	<link rel="stylesheet" href="css/classmanage.css">
-	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/jquery.min.js"></script>
 	<script src="js/popper.min.js"></script>
 	<script src="js/bootstrap.bundle.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
@@ -46,12 +46,6 @@
 							<a href="hienketquathisv">
 								<i class="fas fa-star-half-alt"></i>
 								<span>Xem điểm kiểm tra</span>
-							</a>
-						</li>
-						<li class="sidebar-feature">
-							<a href="friend-list.html">
-								<i class="fas fa-info"></i>
-								<span>Thông tin cá nhân</span>
 							</a>
 						</li>
 					</ul>
