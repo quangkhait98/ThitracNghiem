@@ -1,9 +1,23 @@
 
-$(document).on("click", function() {
-	$(".info").hide();
-});
+function myFunction() {
+	var x = document.getElementById("mySidebar");
+	if (x.className === "sidebar") {
+		x.className += " responsive";
+	} else {
+		x.className = "sidebar";
+	}
+	var y = document.getElementById("myContainer");
+	if (y.className === "container-main") {
+		y.className += " responsive";
+	} else {
+		y.className = "container-main";
+	}
+};
 
 $(document).ready(function() {
+	$("#menubtn").click(function() {
+		myFunction();
+	});
 	$('.sidebar-feature').click(function() {
 		$('.sidebar-feature').removeClass("sidebar-selected");
 		$(this).addClass("sidebar-selected");
@@ -21,20 +35,5 @@ $(document).ready(function() {
 		event.hide();
 	});
 });
-
-$(document).ready(function myFunction() {
-	var x = document.getElementById("mySidebar");
-	if (x.className === "sidebar") {
-		x.className += " responsive";
-	} else {
-		x.className = "sidebar";
-	}
-	var y = document.getElementById("myContainer");
-	if (y.className === "container-main") {
-		y.className += " responsive";
-	} else {
-		y.className = "container-main";
-	}
-})
 
 

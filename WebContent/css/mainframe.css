@@ -119,6 +119,7 @@ h5{
 @media screen and (max-width: 600px) {
 	.sidebar {display: none;}
 	.icon {
+		line-height: 50px;
 		float: left;
 		display: block;
 		position: absolute;

@@ -108,15 +108,9 @@ $(document).ready(function() {
 	$('#addQuestionBtn').click(function() {
 		addQuestions();
 	});
-	$('#addQuestionBtn-2').click(function() {
-		addQuestions();
-	});
 });
 $(document).ready(
 		function() {
-			$("#menubtn").click(function() {
-				myFunction();
-			});
 			$("#formquanlybode").attr({
 				action : 'QuanLyBoDe',
 				method : 'POST'
@@ -141,17 +135,27 @@ $(document).ready(
 					});
 		});
 $(document).ready(function() {
+	var currentTab = 0;
+	showTab(currentTab);
+
+	function showTab(n) {
+		var x = document.getElementsByClassName("hidden");
+		x[n].style.display = "block";
+	}
+
+	function nextPrev(n) {
+		var x = document.getElementsByClassName("hidden");
+		if (currentTab >= x.length - 1) {
+			return false;
+		}
+		x[currentTab].style.display = "none";
+		currentTab = currentTab + n;
+		showTab(currentTab);
+	}
 	$('#abc').click(function() {
-		$.ajax({
-			url : "TaoDeThi",
-			type : "GET",
-			data : {
-				
-			},
-			async : false,
-			success : function(data) {
-				alert(data);
-			}
-		});
-	});
+		nextPrev(-1);
+	})
+	$('#xyz').click(function() {
+		nextPrev(1);
+	})
 });

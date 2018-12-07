@@ -18,7 +18,7 @@
 	href="fontawesome/fontawesome-free-5.3.1-web/css/all.min.css">
 <script src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="js/timer.js"></script>
-
+<script type="text/javascript" src="js/exam.js"></script>
 <script type="text/javascript" src="js/mainframe.js"></script>
 <script src="js/exammanage.js" charset="UTF-8"></script>
 </head>
@@ -47,12 +47,14 @@
 			</div>
 			<div class="container-main" id="myContainer">
 				<form id="form_online_test" class="online-test">
-				<input type="hidden" name="mabode"/>
 					<ol class="questions" id="questions-table">
 						<c:import url="questionlist.jsp" />
 					</ol>
 					<div class="submit">
-						<button type="button" class="btn" id="abc">Basic</button>
+						<button type="button" class="btn" id="abc">Prev</button>
+						<button type="button" class="btn" id="xyz">Next</button>
+						<button type="button" class="btn" id="def">Save</button>
+						<button type="button" class="btn" id="jkl">Cancel</button>
 					</div>
 				</form>
 			</div>

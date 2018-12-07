@@ -89,7 +89,7 @@ public class QuanLyBoDe extends HttpServlet {
 					slTBinh = soluong[i];
 				else if (doKho[i].equals("Khó"))
 					slKho = soluong[i];
-			}	
+			}		
 		}
 		String err = "";
 		if (gioLamBai.equals("0") && phutLamBai.equals("0")) {
@@ -101,14 +101,14 @@ public class QuanLyBoDe extends HttpServlet {
 		if (err.length() == 0) {
 			bode bode = new bode(maBoDe, tenBoDe, slDe, slTBinh, slKho, mon, soLanLamBai, ngayMoDe, ngayDongDe,
 				thoiGianLamBai, lopGiaoDe);
-			//bdf.TaoBoDe(bode);
-			HttpSession session = request.getSession();
+			HttpSession cauhoi = request.getSession();
 			cauhoif chf = new cauhoif();
 			ArrayList<cauhoi> ch = chf.getquestion(mon, slDe, slTBinh, slKho);
 			{	
-				session.setAttribute("sluong", slDe+slTBinh+slKho);
-				session.setAttribute("mabode", maBoDe);
-				session.setAttribute("listcauhoi", ch);
+				cauhoi.setAttribute("bode", bode);
+				cauhoi.setAttribute("sluong", slDe+slTBinh+slKho);
+				cauhoi.setAttribute("mabode", maBoDe);
+				cauhoi.setAttribute("listcauhoi", ch);
 				url = "TaoDeThi";
 			} 
 		}

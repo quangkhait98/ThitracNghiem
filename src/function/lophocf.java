@@ -1,6 +1,7 @@
 package function;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -29,6 +30,20 @@ public class lophocf {
 			e.printStackTrace();
 		}
 		return null;
+		
+	}
+	public void ThemLopHoc (lophoc lophoc)
+	{
+		Connection connnection = MySQLConnUtils.getMySQLConnection();
+		try {
+			String sql = "INSERT INTO lop (MaLop, TenLop) VALUES (?,?)";
+			PreparedStatement ps = connnection.prepareStatement(sql);
+			ps.setString(1, lophoc.getMalop());
+			ps.setString(2, lophoc.getTenlop());
+			ps.execute();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 	}
 }

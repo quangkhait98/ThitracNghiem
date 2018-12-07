@@ -48,12 +48,6 @@
 								<span>Quản lý lớp học</span>
 							</a>
 						</li>
-						<li class="sidebar-feature">
-							<a href="friend-list.html">
-								<i class="fas fa-info"></i>
-								<span>Thông tin cá nhân</span>
-							</a>
-						</li>
 					</ul>
 				</div>
 			</div>
