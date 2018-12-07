@@ -111,6 +111,7 @@ public class AddQuestionFromExcel extends HttpServlet {
 		else {
 			request.setAttribute("err", err);
 }
+		this.doGet(request, response);
 	}
 	
 }

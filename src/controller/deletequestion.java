@@ -33,13 +33,13 @@ public class deletequestion extends HttpServlet {
 		StringBuilder errors = new StringBuilder();
 		if(questionID == null || questionID.trim().isEmpty()) {
 			isError = true;
-			errors.append("không tìm được câu hỏi");
+			errors.append("khÃ´ng tÃ¬m Ä‘Æ°á»£c cÃ¢u há»�i");
 		}
 		if(!isError) {
 			
 			if(chf.deletequestion(Integer.parseInt(questionID))>0) {
 				request.setAttribute("success", 
-						String.format("\u2713\u2713 xóa thành công.", questionID));
+						String.format("\u2713\u2713 Xóa thành công.", questionID));
 				request.getRequestDispatcher("Success.jsp").forward(request, response);
 				return;
 			} else {

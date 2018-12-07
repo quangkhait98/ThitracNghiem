@@ -1,34 +1,27 @@
-
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
-<head lang="vi">
-<title>Thi trắc nghiệm</title>
-<meta charset="UTF-8" />
-<!-- Bootstrap -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<!-- Latest compiled JavaScript -->
+<head lang = "vi">
+	<title>Thi trắc nghiệm</title>
+	<meta charset = "UTF-8" />
+	<!-- Bootstrap -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<!-- Latest compiled JavaScript -->	
+	<link rel="stylesheet" type="text/css" href="css/mainframe.css">
+	<link rel="stylesheet" href="fontawesome/fontawesome-free-5.3.1-web/css/all.min.css">
+	<link rel="stylesheet" href="css/classmanage.css">
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.bundle.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 
-<link rel="stylesheet" type="text/css" href="css/mainframe.css">
-
-<link rel="stylesheet"
-	href="fontawesome/fontawesome-free-5.3.1-web/css/all.min.css">
-<link rel="stylesheet" href="css/classmanage.css">
-
-
-
-<script src="js/jquery-3.3.1.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.bundle.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-
-<script src="js/mainframe.js"></script>
-
-<script type="text/javascript">
-	
-</script>
+	<script src="js/mainframe.js"></script>
+<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"> </script>
+	<script src="jsf/classmanage.js"></script>
 </head>
 <body>
 	<div class="canvas">
@@ -54,27 +47,49 @@
 				</div>
 			</div>
 			<div class="container-main">
-
+				 <div id="report_result">
+				<c:import url="Success.jsp" />
+				<c:import url="Errors.jsp" />
+			</div>
 				<div class="card">
-					<div class="card-body">
-						<div class="form-item">
-							<label class="item-title">Tên Lớp: </label> <input type="text"
-								class="form-control" name="tenlop" required />
-						</div>
-						<div id="table" class="table-editable">
-							<span class="table-add float-right mb-3 mr-2"> <a href="#"
-								class="text-success"> <i class="fa fa-plus fa-2x"
-									aria-hidden="true"></i>
-							</a>
-							</span>
+				  	<div class="card-body">
+					    <div id="table" class="table-editable">
+							<span class="table-add float-right mb-3 mr-2">
+						    	<a href="#" class="text-success">
+						    		<i class="fa fa-plus fa-2x" aria-hidden="true" ></i>
+						    		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Open modal</button>
+						        </a>
+						    </span>
 
-							<table
-								class="table table-bordered table-responsive-md table-striped text-center">
-								<tr>
-									<th class="text-center">Mã lớp</th>
-									<th class="text-center">Tên lớp</th>
-									<th class="text-center">Chức năng</th>
-								</tr>
+					        <table id="class_table" class="table table-bordered table-responsive-md table-striped text-center">
+					         <thead>
+						        <tr>
+						          <th class="text-center">STT</th>
+						          <th class="text-center">Mã lớp</th>
+						          <th class="text-center">Tên lớp</th>
+						          <th class="text-center">Số lượng sinh viên</th>
+						          <th class="text-center">Chức năng</th>
+						        </tr>
+							</thead>
+							<tbody>
+							 <% int i=1; %>
+								<c:forEach var="item" items="${getclass}">
+						        <tr>
+						       	  <td><%= (i++) %></td>
+						          <td class="pt-1-half" contenteditable="false">${item.malop}</td>
+						          <td class="pt-2-half" contenteditable="false">${item.tenlop}</td>
+						          <td class="pt-2-half" contenteditable="false">${item.soluong}</td>
+						          <td>
+						          	  <span class="table-edit"><button type="button" class="btn btn-primary btn-rounded btn-sm my-0">Sửa</button></span>
+						           	  <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">Xóa</button></span>
+						           	  
+						          </td>
+						        </tr>
+						        </c:forEach>
+							</tbody>
+					      </table>
+					    </div>
+					    <!-- end idtable -->
 
 							</table>
 						</div>
@@ -96,5 +111,37 @@
 			<!-- end container -->
 		</div>
 	</div>
+	 <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Thêm lớp học</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+         <form role="form" name="modalForm" action="testf" method="POST">	
+        <!-- Modal body -->
+        <div class="modal-body">
+       
+         <div class="form-group">
+         <label for="">Mã Lớp</label>
+         <input type="text" class="form-control" name="malop" id="malop" />
+         <label for="">Tên lớp</label>
+         <input type="text" class="form-control" name="tenlop" id="tenlop" />
+         </div> 
+       
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+           <button type="submit" id="addclass" class="btn btn-danger" data-dismiss="modal" value = "Submit">save</button>
+        </div>
+          </form>
+      </div>
+    </div>
+  </div>
 </body>
+
 </html>

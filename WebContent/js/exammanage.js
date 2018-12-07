@@ -152,6 +152,7 @@ $(document).ready(function() {
 		currentTab = currentTab + n;
 		showTab(currentTab);
 	}
+	//var listQuestion = getListQuestion();
 	$('#abc').click(function() {
 		nextPrev(-1);
 	})
@@ -159,3 +160,21 @@ $(document).ready(function() {
 		nextPrev(1);
 	})
 });
+
+});
+
+
+function getListQuestion()
+{
+	var listQuestion;
+	$.ajax({		 
+        type: "POST",
+        url: "/getListQuestion",
+        dataType: 'json',
+        success : function(result) {
+        	listQuestion = result;
+        	alter('ok');
+        }
+	});
+}
+	

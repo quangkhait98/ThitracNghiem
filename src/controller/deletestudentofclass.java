@@ -36,21 +36,21 @@ public class deletestudentofclass extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		String studentid = request.getParameter("stdID");
-		String classid = request.getParameter("classID");
+		String studentid = request.getParameter("ID");
+		String classid = request.getParameter("classid");
 		System.out.print(studentid);
 		System.out.print(classid);
 		boolean isError = false;
 		StringBuilder errors = new StringBuilder();
 		if(studentid == null || studentid.trim().isEmpty()||classid == null || classid.trim().isEmpty()) {
 			isError = true;
-			errors.append("không tìm được lớp hoặc sinh viên hợp lệ");
+			errors.append("không tìm thấy sinh viên hoặc lớp học");
 		}
 		if(!isError)
 		{
 			if(ngf.deletestudentofclass(studentid,classid)>0) {
 				request.setAttribute("success", 
-						String.format("\u2713\u2713 xóa thành công."));
+						String.format("\u2713\u2713 xóa thành công ."));
 				request.getRequestDispatcher("Success.jsp").forward(request, response);
 				return;
 			} else {

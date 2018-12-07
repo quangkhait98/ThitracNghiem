@@ -36,7 +36,7 @@ public class addstudentclass extends HttpServlet {
 		StringBuilder errors = new StringBuilder();
 		if(classid == null || classid.trim().isEmpty()||studentID == null || studentID.trim().isEmpty()) {
 			isError = true;
-			errors.append("không tìm được lớp hoặc sinh viên hợp lệ");
+			errors.append("khÃ´ng tÃ¬m Ä‘Æ°á»£c lá»›p hoáº·c sinh viÃªn há»£p lá»‡");
 		}
 		if(!isError)
 		{
