@@ -35,7 +35,6 @@ public class lophocf {
 		return null;
 		
 	}
-	
 	public List<lophoc> getclassstd(String studentid)
 	{
 		Connection connection = MySQLConnUtils.getMySQLConnection();    
@@ -107,7 +106,6 @@ public int  deleteclass(String ID) {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		return 0;
-		
+		return 0;		
 	}
 }

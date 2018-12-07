@@ -90,10 +90,13 @@
 	#clock {
 		text-align: center;
 	}
-	.question-index{
-    list-style: none;
-    width: 70%;
-    margin: auto;
-    margin-top: 40px;
+	.question-index {
+		list-style: none;
+		width: 70%;
+		margin: auto;
+		margin-top: 40px;
+	}
 }
+.hidden{
+	display: none
 }

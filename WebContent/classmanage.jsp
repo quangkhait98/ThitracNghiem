@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
@@ -22,32 +23,12 @@
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"> </script>
 	<script src="jsf/classmanage.js"></script>
 </head>
-<body>		
+<body>
 	<div class="canvas">
-		<div class="popup-remove">
-								
-		</div>
+		<div class="popup-remove"></div>
 
-		<div class="header">
-			<div class="cover-header">
-				<div class="software-name">
-					<h3>LUYỆN THI TRẮC NGHIỆM</h3>
-				</div>
-				
-				<div class="toggle-info">
-					<img id="toggle-img" src="images/user-icon-logout.png" alt="">
-					<span class="user-name">Hải Nguyễn</span>
-					<div class="info">
-						<div class="myinfo item-info">
-							<span>Thông tin cá nhân</span>
-						</div>
-						<div class="logout item-info">
-							<i class="fas fa-sign-out-alt"></i><span>Đăng xuất</span>
-						</div>
-					</div>
-				</div>				
-			</div>		
-		</div>
+		<t:header>
+		</t:header>
 		<div class="body">
 			<div class="sidebar">
 				<div class="sidebar-header">
@@ -55,24 +36,13 @@
 				</div>
 				<div class="sidebar-menu">
 					<ul>
-						<li class="sidebar-feature">
-							<a href="studentmanage.jsp">
-								<i class="fas fa-user-graduate"></i>
-								<span>Quản lý thí sinh</span>
-							</a>
-						</li>
-						<li class="sidebar-feature">
-							<a href="#">
-								<i class="fas fa-users"></i>
-								<span>Quản lý lớp học</span>
-							</a>
-						</li>
-						<li class="sidebar-feature">
-							<a href="#">
-								<i class="fas fa-info"></i>
-								<span>Thông tin cá nhân</span>
-							</a>
-						</li>
+						<li class="sidebar-feature"><a href="studentmanage.jsp">
+								<i class="fas fa-user-graduate"></i> <span>Quản lý thí
+									sinh</span>
+						</a></li>
+						<li class="sidebar-feature"><a href="#"> <i
+								class="fas fa-users"></i> <span>Quản lý lớp học</span>
+						</a></li>
 					</ul>
 				</div>
 			</div>
@@ -121,16 +91,20 @@
 					    </div>
 					    <!-- end idtable -->
 
-					    <nav class="pagination-bot" aria-label="Page navigation example">
-						  <ul class="pagination">
-						    <li class="page-item"><a class="page-link" href="#">Trước</a></li>
-						    <li class="page-item"><a class="page-link" href="#">1</a></li>
-						    <li class="page-item"><a class="page-link" href="#">2</a></li>
-						    <li class="page-item"><a class="page-link" href="#">3</a></li>
-						    <li class="page-item"><a class="page-link" href="#">Sau</a></li>
-						  </ul>
+							</table>
+						</div>
+						<!-- end idtable -->
+
+						<nav class="pagination-bot" aria-label="Page navigation example">
+							<ul class="pagination">
+								<li class="page-item"><a class="page-link" href="#">Trước</a></li>
+								<li class="page-item"><a class="page-link" href="#">1</a></li>
+								<li class="page-item"><a class="page-link" href="#">2</a></li>
+								<li class="page-item"><a class="page-link" href="#">3</a></li>
+								<li class="page-item"><a class="page-link" href="#">Sau</a></li>
+							</ul>
 						</nav>
-				  	</div>
+					</div>
 				</div>
 				<!-- Editable table -->
 			</div>

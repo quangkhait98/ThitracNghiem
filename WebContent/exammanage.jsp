@@ -115,7 +115,6 @@ if(request.getAttribute("err")!=null)
 										<option value="${item.mamon}">${item.tenmon}</option>
 									</c:forEach>
 								</select>
-								<!--<button type="button" onclick="addClasses()" class="btn btn-primary">Thêm lớp</button>-->
 							</div>
 							
 							<div class="form-item">
@@ -151,7 +150,7 @@ if(request.getAttribute("err")!=null)
 							</div>
 						</div>
 						<div class="review-btn">
-							<button type="submit" class="btn btn-primary" id="reviewButton">Xem
+							<button type="submit" class="btn btn-primary" id="previewButton">Xem
 								trước</button>
 						</div>
 					</form>
