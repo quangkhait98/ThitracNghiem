@@ -94,7 +94,7 @@ public class QuanLyBoDe extends HttpServlet {
 		String err = "";
 		if (gioLamBai.equals("0") && phutLamBai.equals("0")) {
 			err = "Chưa chọn thời gian làm bài!";
-		}
+		}	
 		if (slDe + slTBinh + slKho == 0) {
 			err = "Chưa chọn câu hỏi!";
 		}
@@ -105,6 +105,7 @@ public class QuanLyBoDe extends HttpServlet {
 			cauhoif chf = new cauhoif();
 			ArrayList<cauhoi> ch = chf.getquestion(mon, slDe, slTBinh, slKho);
 			{	
+				cauhoi.setAttribute("monhoc", mon);
 				cauhoi.setAttribute("bode", bode);
 				cauhoi.setAttribute("sluong", slDe+slTBinh+slKho);
 				cauhoi.setAttribute("mabode", maBoDe);

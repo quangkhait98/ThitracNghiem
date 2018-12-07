@@ -64,7 +64,6 @@
 						        	
 						        </a>
 						    </span>
-
 					        <table id="class_table" class="table table-bordered table-responsive-md table-striped text-center">
 					         <thead>
 						        <tr>
@@ -95,18 +94,19 @@
 					    </div>
 					    <!-- end idtable -->
 
+
 						
-						</div>
+	
 						<!-- end idtable -->
 
 					
+
 					</div>
 				</div>
 				<!-- Editable table -->
 			</div>
 			<!-- end container -->
 		</div>
-
 	 <div class="modal" id="myModal">
     <div class="modal-dialog">
       <div class="modal-content">
