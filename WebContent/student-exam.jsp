@@ -71,13 +71,13 @@
 				<div class="sidebar-menu">
 					<ul>
 						<li class="sidebar-feature">
-							<a href="find-friend.html">
+							<a href="homepagestd">
 								<i class="fas fa-book-open"></i>
 								<span>Xem các bài kiểm tra</span>
 							</a>
 						</li>
 						<li class="sidebar-feature">
-							<a href="mainframe.html">
+							<a href="hienketquathisv">
 								<i class="fas fa-star-half-alt"></i>
 								<span>Xem điểm kiểm tra</span>
 							</a>

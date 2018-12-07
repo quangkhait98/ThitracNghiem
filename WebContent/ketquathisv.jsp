@@ -36,16 +36,24 @@
 				</div>
 				<div class="sidebar-menu">
 					<ul>
-						<li class="sidebar-feature"><a href="quanlysinhvien">
-								<i class="fas fa-user-graduate"></i> <span>Quản lý thí
-									sinh</span>
-						</a></li>
-						<li class="sidebar-feature"><a href="classmanage"> <i
-								class="fas fa-users"></i> <span>Quản lý lớp học</span>
-						</a></li>
-						<li class="sidebar-feature"><a href="studentofclass"> <i
-								class="fas fa-users"></i> <span>Thêm sinh viên vào lớp</span>
-						</a></li>
+						<li class="sidebar-feature">
+							<a href="homepagestd">
+								<i class="fas fa-book-open"></i>
+								<span>Xem các bài kiểm tra</span>
+							</a>
+						</li>
+						<li class="sidebar-feature">
+							<a href="hienketquathisv">
+								<i class="fas fa-star-half-alt"></i>
+								<span>Xem điểm kiểm tra</span>
+							</a>
+						</li>
+						<li class="sidebar-feature">
+							<a href="friend-list.html">
+								<i class="fas fa-info"></i>
+								<span>Thông tin cá nhân</span>
+							</a>
+						</li>
 					</ul>
 				</div>
 			</div>
@@ -68,25 +76,21 @@
 					         <thead>
 						        <tr>
 						          <th class="text-center">STT</th>
-						          <th class="text-center">Mã lớp</th>
 						          <th class="text-center">Tên lớp</th>
-						          <th class="text-center">Số lượng sinh viên</th>
-						          <th class="text-center">Chức năng</th>
+						          <th class="text-center">tên bộ đề</th>
+						          <th class="text-center">Điểm</th>
+						          <th class="text-center">Thời gian nộp</th>
 						        </tr>
 							</thead>
 							<tbody>
 							 <% int i=1; %>
-								<c:forEach var="item" items="${getclass}">
+								<c:forEach var="item" items="${kqthi}">
 						        <tr>
 						       	  <td><%= (i++) %></td>
-						          <td class="pt-1-half" contenteditable="false">${item.malop}</td>
-						          <td class="pt-2-half" contenteditable="false">${item.tenlop}</td>
-						          <td class="pt-2-half" contenteditable="false">${item.soluong}</td>
-						          <td>
-						          	  
-						           	  <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">Xóa</button></span>
-						           	  
-						          </td>
+						          <td class="pt-1-half" contenteditable="false">${item.tenlop}</td>
+						          <td class="pt-2-half" contenteditable="false">${item.tenbode}</td>
+						          <td class="pt-2-half" contenteditable="false">${item.diem}</td>
+						          <td class="pt-2-half" contenteditable="false">${item.thoigiannopbai}</td>
 						        </tr>
 						        </c:forEach>
 							</tbody>
@@ -98,39 +102,7 @@
 			</div>
 			<!-- end container -->
 		</div>
-	 <div class="modal" id="myModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-      
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">Thêm lớp học</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <div id="modalreport_result">
-				<c:import url="Success.jsp" />
-				<c:import url="Errors.jsp" />
-			</div>
-         <form role="form" name="modalForm" >	
-        <!-- Modal body -->
-        <div class="modal-body">
-       
-         <div class="form-group">
-         <label for="">Mã Lớp</label>
-         <input type="text" class="form-control" name="malop" id="malop" />
-         <label for="">Tên lớp</label>
-         <input type="text" class="form-control" name="tenlop" id="tenlop" />
-         </div>       
-        </div>    
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button id="close" type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-           <button type="button" id="addclass" class="btn btn-danger"  >save</button>
-        </div>
-          </form>
-      </div>
-    </div>
-  </div>
+	
   </div>
 </body>
 

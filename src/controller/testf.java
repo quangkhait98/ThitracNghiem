@@ -23,10 +23,12 @@ import com.google.gson.JsonElement;*/
 import function.bodef;
 import function.cauhoif;
 import function.fullcalendarf;
+import function.ketquathif;
 import function.lophocf;
 import function.nguoidungf;
 import model.cauhoi;
 import model.fullcalendar;
+import model.ketquathi;
 import model.lophoc;
 import model.pagehome;
 
@@ -35,10 +37,7 @@ import model.pagehome;
 public class testf extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	nguoidungf ngf = new nguoidungf();
-	bodef bdf = new bodef();
-	lophocf lh = new lophocf(); 
-	fullcalendarf clf = new fullcalendarf();
+	ketquathif kqt = new ketquathif();
     public testf() {
         super();
         
@@ -46,12 +45,14 @@ public class testf extends HttpServlet {
     
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		java.util.List<ketquathi> kqthi = kqt.getketqua("SV1");
+		for (ketquathi ketquathi : kqthi) {
+			System.out.print(ketquathi.getDiem());
+		}
 	}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	String mabode = request.getParameter("mabd");
-	System.out.println(mabode);
+	
 	}
 }
