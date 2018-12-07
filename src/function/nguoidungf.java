@@ -127,6 +127,58 @@ public class nguoidungf {
 		}
 		return 0;
 	}
+	public int addsv(String masv,String tensv,String matkhau)
+	{
+		Connection connnection = MySQLConnUtils.getMySQLConnection();
+		try {
+			String sql = "INSERT INTO nguoidung (MaNguoiDung,MatKhau,Quyen,tenNguoiDung) VALUES (?,?,?,?)";
+			PreparedStatement ps = connnection.prepareStatement(sql);
+			ps.setString(1, masv);
+			ps.setString(2, matkhau);
+			ps.setString(3, "student");
+			ps.setString(4, tensv);
+			int dem= ps.executeUpdate();
+			return dem;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	public List<nguoidung> getallstudent()
+	{
+		Connection connnection = MySQLConnUtils.getMySQLConnection();
+		try {
+			String sql="select manguoidung,tennguoidung from nguoidung where quyen ='student'";
+			PreparedStatement  ps = connnection.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			List<nguoidung> nd = new ArrayList<nguoidung>();
+			while(rs.next())
+			{
+				nguoidung nguoidung = new nguoidung();
+				nguoidung.setManguoidung(rs.getString("manguoidung"));
+				nguoidung.setTennguoidung(rs.getString("tennguoidung"));
+				nd.add(nguoidung);
+			}
+			return nd;
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;
+	}
+public int  deletestudent(String ID) {
+		
+		try {
+			Connection connnection = MySQLConnUtils.getMySQLConnection();
+			String sql = "delete from nguoidung where MaNguoiDung=?";
+			PreparedStatement  ps = connnection.prepareStatement(sql);
+			ps.setString(1, ID);
+			int dem = ps.executeUpdate();
+			return  dem;
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return 0;		
+	}
 	
 	
 }

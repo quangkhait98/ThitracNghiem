@@ -1,63 +1,58 @@
 $(document).ready(function(){
-$('#addclass').click(function() {
+$('#addsv').click(function() {
 	$.ajax({
-		url:"addclass", 
+		url:"themsinhvien", 
 		type:"POST",
 		async: false,
 		data: {
-			malop:$('#malop').val(),
-			tenlop:$('#tenlop').val(),
-			
+			masv:$('#masv').val(),
+			tensv:$('#tensv').val(),
+			matkhau:$('#password').val(),
 		},
 		success: function(content, status) {
-			
 			if(content != null)
 				{
 					$("#modalreport_result").html(content);
 					/*$('#myModal').modal('dispose');*/
 				}
-			
-			$('#class_table > tbody').empty();
+			$('#std_table > tbody').empty();
 			$.ajax({
-				url:"classmanage",
+				url:"quanlysinhvien",
 				data:{
 				},
 				async:false,
 				type:"POST",
 				success: function(content, status) {
-					$('#class_table > tbody').html(content);
+					$('#std_table > tbody').html(content);
 				}
 			});
 		}
 	}); 
-	/*$(this).next().click(); */
-	});
-$('#close').click(function() {
-	$('#myModal').modal('hide');
-});
-});
+}); 
+}); 
+
 $(document).on('click', '.table-remove', function() {
-	var classID = $(this).closest('tr').children('td:nth-child(2)').text();
-	var isDelete = window.confirm("Bạn thực sự muốn xóa lớp ?");
+	var studentid = $(this).closest('tr').children('td:nth-child(2)').text();
+	var isDelete = window.confirm("Bạn thực sự muốn xóa sinh viên ?");
 	if(isDelete) {
-		$('#class_table > tbody').empty();
+		$('#std_table > tbody').empty();
 		$.ajax({
-			url:"deleteclass", 
+			url:"deletetkstd", 
 			type:"POST",
 			async: false,
 			data: {
-				ID: classID
+				ID: studentid
 			},
 			success: function(content, status) {
 				$("#report_result").html(content);
 				$.ajax({
-					url:"classmanage",
+					url:"quanlysinhvien",
 					data:{
 					},
 					async:false,
 					type:"POST",
 					success: function(content, status) {
-						$('#class_table > tbody').html(content);
+						$('#std_table > tbody').html(content);
 					}
 				});
 			}

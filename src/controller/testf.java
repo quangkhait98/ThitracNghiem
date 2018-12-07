@@ -46,29 +46,12 @@ public class testf extends HttpServlet {
     
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		java.util.List<lophoc> lhp = lh.getclassstd("SV1");
-		java.util.List<pagehome> ph = bdf.loadhomepage(lhp);
-		ArrayList<fullcalendar> cld = clf.getcalendar(ph);	
 
-		PrintWriter out = response.getWriter();
-        response.setCharacterEncoding("UTF8");
-        response.setContentType("application/json");
-        //Import gson-2.2.2.jar
-        Gson gson = new Gson();
-        String objectToReturn = gson.toJson(cld); //Convert List -> Json
-        out.write(objectToReturn); //Đưa Json trả về Ajax
-        out.flush();
-	nguoidungf ngf = new nguoidungf();
-	boolean ab = ngf.kiemTraDangNhap("a", "ab");
-	System.out.print(ab);
 	}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		String malop = request.getParameter("malop");
-		String tenlop = request.getParameter("tenlop");
-		System.out.print(malop);
-		System.out.print(tenlop);
+	String mabode = request.getParameter("mabd");
+	System.out.println(mabode);
 	}
 }

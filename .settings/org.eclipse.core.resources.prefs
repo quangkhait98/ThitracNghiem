@@ -1,7 +1,10 @@
 =\=\=\=\=\=\=
+
 >>>>>>>=parent of c216beb... phan lop
 eclipse.preferences.version=1
+
 encoding//WebContent/scoreboard.jsp=UTF-8
+
 encoding//src/controller/AddQuestion.java=UTF-8
 encoding//src/controller/AddQuestionFromExcel.java=UTF-8
 encoding//src/controller/QuanLyBoDe.java=UTF-8
@@ -12,9 +15,13 @@ encoding//src/controller/dangnhapservlet.java=UTF-8
 encoding//src/controller/deleteclass.java=UTF-8
 encoding//src/controller/deletequestion.java=UTF-8
 encoding//src/controller/deletestudentofclass.java=UTF-8
+encoding//src/controller/deletetkstd.java=UTF-8
 encoding//src/controller/editquestion.java=UTF-8
+
 encoding//src/controller/getListQuestion.java=UTF-8
+
+
 encoding//src/controller/studentofclass.java=UTF-8
 encoding//src/controller/testf.java=UTF-8
-encoding//src/function/bodef.java=UTF-8
+encoding//src/controller/themsinhvien.java=UTF-8
 encoding//src/function/cauhoif.java=UTF-8

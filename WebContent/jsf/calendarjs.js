@@ -60,6 +60,7 @@ $(document).ready(function() {
 					thoigianlambai = thoigianlambai + 'Thời gian làm bài : ' + calEvent.tgian;
 					$('.thoigianlambai').empty();
 					$('.thoigianlambai').text(thoigianlambai);
+					$('#mabd').val(calEvent.id);
 					$('#exampleModal').modal('show');
 				  }
 		});

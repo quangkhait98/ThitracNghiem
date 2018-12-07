@@ -5,9 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.apache.jasper.tagplugins.jstl.core.ForEach;
-
 import model.bode;
 import model.pagehome;
 import model.lophoc;
@@ -101,7 +98,6 @@ public class bodef {
 		}
 		return null;
 	}
-
 	public void BoDe_CauHoi(String  maBode, int maCauhoi) {
 		Connection connnection = MySQLConnUtils.getMySQLConnection();
 		try {

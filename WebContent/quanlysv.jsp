@@ -21,7 +21,7 @@
 <!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"> </script>
-	<script src="jsf/classmanage.js"></script>
+	<script src="jsf/quanlysv.js"></script>
 </head>
 <body>
 	<div class="canvas">
@@ -40,17 +40,17 @@
 								<i class="fas fa-user-graduate"></i> <span>Quản lý thí
 									sinh</span>
 						</a></li>
-						<li class="sidebar-feature"><a href="#"> <i
+						<li class="sidebar-feature"><a href="classmanage"> <i
 								class="fas fa-users"></i> <span>Quản lý lớp học</span>
 						</a></li>
 					</ul>
 				</div>
 			</div>
 			<div class="container-main">
-				 <div id="report_result">
+			 <div id="report_result">
 				<c:import url="Success.jsp" />
 				<c:import url="Errors.jsp" />
-			</div> 
+			</div>
 				<div class="card">
 				  	<div class="card-body">
 					    <div id="table" class="table-editable">
@@ -60,24 +60,23 @@
 						    		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Open modal</button>
 						        </a>
 						    </span>
-					        <table id="class_table" class="table table-bordered table-responsive-md table-striped text-center">
+
+					        <table id="std_table" class="table table-bordered table-responsive-md table-striped text-center">
 					         <thead>
 						        <tr>
 						          <th class="text-center">STT</th>
-						          <th class="text-center">Mã lớp</th>
-						          <th class="text-center">Tên lớp</th>
-						          <th class="text-center">Số lượng sinh viên</th>
+						          <th class="text-center">Mã sinh viên</th>
+						          <th class="text-center">Tên sinh viên</th>
 						          <th class="text-center">Chức năng</th>
 						        </tr>
 							</thead>
 							<tbody>
 							 <% int i=1; %>
-								<c:forEach var="item" items="${getclass}">
+								<c:forEach var="item" items="${getstd}">
 						        <tr>
 						       	  <td><%= (i++) %></td>
-						          <td class="pt-1-half" contenteditable="false">${item.malop}</td>
-						          <td class="pt-2-half" contenteditable="false">${item.tenlop}</td>
-						          <td class="pt-2-half" contenteditable="false">${item.soluong}</td>
+						          <td class="pt-1-half" contenteditable="false">${item.manguoidung}</td>
+						          <td class="pt-2-half" contenteditable="false">${item.tennguoidung}</td>
 						          <td>
 						          	  <span class="table-edit"><button type="button" class="btn btn-primary btn-rounded btn-sm my-0">Sửa</button></span>
 						           	  <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">Xóa</button></span>
@@ -89,6 +88,11 @@
 					      </table>
 					    </div>
 					    <!-- end idtable -->
+
+						
+						</div>
+						<!-- end idtable -->
+
 						<nav class="pagination-bot" aria-label="Page navigation example">
 							<ul class="pagination">
 								<li class="page-item"><a class="page-link" href="#">Trước</a></li>
@@ -104,13 +108,14 @@
 			</div>
 			<!-- end container -->
 		</div>
+
 	 <div class="modal" id="myModal">
     <div class="modal-dialog">
       <div class="modal-content">
       
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">Thêm lớp học</h4>
+          <h4 class="modal-title">Thêm sinh viên</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div id="modalreport_result">
@@ -122,16 +127,20 @@
         <div class="modal-body">
        
          <div class="form-group">
-         <label for="">Mã Lớp</label>
-         <input type="text" class="form-control" name="malop" id="malop" />
-         <label for="">Tên lớp</label>
-         <input type="text" class="form-control" name="tenlop" id="tenlop" />
-         </div>       
-        </div>    
+         <label for="">Mã sinh viên</label>
+         <input type="text" class="form-control" name="masv" id="masv" />
+         <label for="">Tên sinh viên</label>
+         <input type="text" class="form-control" name="tensv" id="tensv" />
+          <label for="">Mật khẩu</label>
+         <input type="text" class="form-control" name="password" id="password" />
+         </div> 
+       
+        </div>
+        
         <!-- Modal footer -->
         <div class="modal-footer">
-          <button id="close" type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-           <button type="button" id="addclass" class="btn btn-danger"  >save</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+           <button type="button" id="addsv" class="btn btn-danger" >save</button>
         </div>
           </form>
       </div>

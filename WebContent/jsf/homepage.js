@@ -24,12 +24,9 @@ $(document).ready(function(){
 			thoigianlambai = thoigianlambai + 'Thời gian làm bài : ' + $(this).find("input[type=hidden][id$='tglb']").val();
 			$('.thoigianlambai').empty();
 			$('.thoigianlambai').text(thoigianlambai);
+			$('#mabd').val($(this).find("input[type=hidden][id$='mabode']").val())
 			$('#exampleModal').modal('show');
 	     });
-	
-	$('#test').click(function(){
-		alert("aaaa");
-	});
 	
 
 	
