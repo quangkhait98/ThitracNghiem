@@ -104,16 +104,47 @@ function checkDuplicatedText(id) {
 		return true;
 };
 
-$(document).ready(function() {
-	$('#addQuestionBtn').click(function() {
-		addQuestions();
-	});
-});
+$(document).ready(
+		function() {
+			$('#addQuestionBtn').click(function() {
+				addQuestions();
+			});
+			$("select[name=cauhoi]").change(
+					function() {
+						var str, val1, val2, val3, val4;
+						$("select option:selected").each(function() {
+							str = $(this).val();
+							val1 = str.split(':')[0];
+							val2 = str.split(':')[1];
+							val3 = str.split(':')[2];
+							val4 = str.split(':')[3];
+						});
+						$("#myAnswerSet").html(
+								'<label class="choice"> A.' + val1
+										+ '</label></br><label class="choice"> B.'
+										+ val2
+										+ '</label></br><label class="choice"> C.'
+										+ val3
+										+ '</label></br><label class="choice"> D.'
+										+ val4 + '</label>');
+					}).change();
+		});
 $(document).ready(
 		function() {
 			$("#formquanlybode").attr({
 				action : 'QuanLyBoDe',
 				method : 'POST'
+			});
+			$("#form_online_test").attr({
+				action : 'TaoDeThi',
+				method : 'GET'
+			});
+			$('#form_online_test').submit(function(event) {
+				var form = this;
+				event.preventDefault();
+				setTimeout(function() {
+					form.submit();
+				}, 2000);
 			});
 			$('#ngaymode, #ngaydongde').datetimepicker({
 				format : 'DD/MM/YYYY hh:mm:00 A',
@@ -134,47 +165,13 @@ $(document).ready(
 						$('#ngaydongde').data("DateTimePicker").clear();
 					});
 		});
-$(document).ready(function() {
-	var currentTab = 0;
-	showTab(currentTab);
-
-	function showTab(n) {
-		var x = document.getElementsByClassName("hidden");
-		x[n].style.display = "block";
-	}
-
-	function nextPrev(n) {
-		var x = document.getElementsByClassName("hidden");
-		if (currentTab >= x.length - 1) {
-			return false;
-		}
-		x[currentTab].style.display = "none";
-		currentTab = currentTab + n;
-		showTab(currentTab);
-	}
-	//var listQuestion = getListQuestion();
-	$('#abc').click(function() {
-		nextPrev(-1);
-	})
-	$('#xyz').click(function() {
-		nextPrev(1);
-	})
-});
-
-});
-
-
-function getListQuestion()
-{
-	var listQuestion;
-	$.ajax({		 
-        type: "POST",
-        url: "/getListQuestion",
-        dataType: 'json',
-        success : function(result) {
-        	listQuestion = result;
-        	alter('ok');
-        }
-	});
-}
-	
+/*
+ * $(document).ready(function() { var currentTab = 0; showTab(currentTab);
+ * 
+ * function showTab(n) { var x = document.getElementsByClassName("hidden");
+ * x[n].style.display = "block"; } function nextPrev(n) { var x =
+ * document.getElementsByClassName("hidden"); if (currentTab >= x.length - 1) {
+ * return false; } x[currentTab].style.display = "none"; currentTab = currentTab +
+ * n; showTab(currentTab); } $('#abc').click(function() { nextPrev(-1); })
+ * $('#xyz').click(function() { nextPrev(1); }) });
+ */

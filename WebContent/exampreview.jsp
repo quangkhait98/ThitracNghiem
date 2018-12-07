@@ -10,17 +10,18 @@
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <!-- Latest compiled JavaScript -->
-<script src="js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="css/mainframe.css">
 <link rel="stylesheet" type="text/css" href="css/form-style.css">
 
 <link rel="stylesheet"
 	href="fontawesome/fontawesome-free-5.3.1-web/css/all.min.css">
-<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/timer.js"></script>
-<script type="text/javascript" src="js/exam.js"></script>
 <script type="text/javascript" src="js/mainframe.js"></script>
 <script src="js/exammanage.js" charset="UTF-8"></script>
+
 </head>
 <body>
 	<div class="canvas">
@@ -53,10 +54,46 @@
 					<div class="submit">
 						<button type="button" class="btn" id="abc">Prev</button>
 						<button type="button" class="btn" id="xyz">Next</button>
-						<button type="button" class="btn" id="def">Save</button>
+						<button type="submit" class="btn" id="def" data-toggle="modal"
+							data-target="#alert">Save</button>
 						<button type="button" class="btn" id="jkl">Cancel</button>
 					</div>
 				</form>
+			</div>
+			<div id="alert" class="modal fade" role="dialog">
+				<div class="modal-dialog">
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-body">
+							<p>Tạo bộ đề thành công!</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="questionModal" class="modal fade" role="dialog">
+				<div class="modal-dialog">
+
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="modal-title">Danh sách câu hỏi</h4>
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+						</div>
+						<div class="modal-body">
+							<select class="form-control" name="cauhoi">
+								<c:forEach items="${cauhoi}" var="item">
+									<option
+										value="${item.dapan1}:${item.dapan2}:${item.dapan3}:${item.dapan4}:${item.macauhoi}">${item.noidung}</option>
+								</c:forEach>
+							</select>
+							<div class="answerSet" id="myAnswerSet"></div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default">Save</button>
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">Close</button>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

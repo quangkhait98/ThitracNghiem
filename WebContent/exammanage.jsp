@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
 <link rel="stylesheet"
 	href="fontawesome/fontawesome-free-5.3.1-web/css/all.min.css">
-<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/jquery.min.js"></script>
 <script src="js/exammanage.js" charset="UTF-8"></script>
 <script type="text/javascript" src="js/mainframe.js"></script>
 <script src="js/moment.min.js" type="text/javascript"></script>

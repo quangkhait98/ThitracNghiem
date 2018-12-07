@@ -60,7 +60,6 @@
 						    		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Open modal</button>
 						        </a>
 						    </span>
-
 					        <table id="class_table" class="table table-bordered table-responsive-md table-striped text-center">
 					         <thead>
 						        <tr>
@@ -90,11 +89,6 @@
 					      </table>
 					    </div>
 					    <!-- end idtable -->
-
-							</table>
-						</div>
-						<!-- end idtable -->
-
 						<nav class="pagination-bot" aria-label="Page navigation example">
 							<ul class="pagination">
 								<li class="page-item"><a class="page-link" href="#">Trước</a></li>
@@ -110,7 +104,6 @@
 			</div>
 			<!-- end container -->
 		</div>
-	</div>
 	 <div class="modal" id="myModal">
     <div class="modal-dialog">
       <div class="modal-content">

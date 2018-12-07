@@ -26,16 +26,20 @@ public class TaoDeThi extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession cauhoi = request.getSession();
-		//String maBoDe = (String) cauhoi.getAttribute("mabode");
-		//int sluong = (int) cauhoi.getAttribute("sluong");
-		/*
-		 * @SuppressWarnings("unchecked") ArrayList<cauhoi> ch = (ArrayList<cauhoi>)
-		 * session.getAttribute("question"); bode bode =
-		 * (bode)session.getAttribute("bode"); bodef bdf = new bodef(); for(int i=0; i <
-		 * sluong; i++) { int maCauHoi = ch.get(i).getMacauhoi();
-		 * bdf.BoDe_CauHoi(maBoDe, maCauHoi); } //bdf.TaoBoDe(bode);
-		 */
-		request.getRequestDispatcher("questionlist.jsp").forward(request, response);
+		String maBoDe = (String) cauhoi.getAttribute("mabode");
+		int sluong = (int) cauhoi.getAttribute("sluong");
+		@SuppressWarnings("unchecked")
+		ArrayList<cauhoi> ch = (ArrayList<cauhoi>) cauhoi.getAttribute("question");
+		bode bode = (bode) cauhoi.getAttribute("bode");
+		bodef bdf = new bodef();
+		System.out.println(ch);
+		/*bdf.TaoBoDe(bode);
+		for (int i = 0; i < sluong; i++) {
+			int maCauHoi = ch.get(i).getMacauhoi();
+			bdf.BoDe_CauHoi(maBoDe, maCauHoi);
+			} */
+		cauhoi.invalidate();
+		//request.getRequestDispatcher("QuanLyBoDe").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -44,7 +48,7 @@ public class TaoDeThi extends HttpServlet {
 		@SuppressWarnings("unchecked")
 		ArrayList<cauhoi> ch = (ArrayList<cauhoi>) cauhoi.getAttribute("listcauhoi");
 		cauhoi.setAttribute("question", ch);
-		request.getRequestDispatcher("exampreview.jsp").forward(request, response);
+		request.getRequestDispatcher("LayCauHoi").forward(request, response);	
 	}
 
 }

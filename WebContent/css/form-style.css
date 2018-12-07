@@ -24,6 +24,7 @@
 }
 
 .questionLabel {
+	word-break: break-word;
 	background: #fbe4c3;
 	padding: 10px 15px;
 	font-weight: 700;
@@ -37,9 +38,11 @@
 }
 
 .answerSet span {
-	float: left;
-	width: 175px;
-	padding: 10px 0;
+	word-break: break-word;
+    float: left;
+    min-width: 175px;
+    max-width: 100%;
+    padding: 10px 0;
 }
 
 .submit {
@@ -99,4 +102,14 @@
 }
 .hidden{
 	display: none
+}
+.edit{
+	padding: 0;
+	background: #fbe4c3;
+}
+.edit > i{
+	font-size: 25px;
+}
+.choice{
+	word-break: break-word;
 }

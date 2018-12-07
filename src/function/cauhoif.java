@@ -189,6 +189,33 @@ public class cauhoif {
 		}
 		return null;
 	}
+	public java.util.ArrayList<cauhoi> getquestion(String monhoc) {
+		Connection connnection = MySQLConnUtils.getMySQLConnection();
+
+		try {
+			String sql = "SELECT * FROM thitracnghiem.cauhoi where MaMon = ?";
+			PreparedStatement ps = connnection.prepareStatement(sql);
+			ps.setString(1, monhoc);
+			ResultSet rs = ps.executeQuery();
+			java.util.ArrayList<cauhoi> lch = new ArrayList<cauhoi>();
+			while (rs.next()) {
+				cauhoi ch = new cauhoi();
+				ch.setMacauhoi(rs.getInt("MaCauHoi"));
+				ch.setNoidung(rs.getString("NoiDung"));
+				ch.setLoaicauhoi(rs.getString("LoaiCauHoi"));
+				ch.setDapan1(rs.getString("DapAn1"));
+				ch.setDapan2(rs.getString("DapAn2"));
+				ch.setDapan3(rs.getString("DapAn3"));
+				ch.setDapan4(rs.getString("DapAn4"));
+				lch.add(ch);
+			}
+			return lch;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 	public int getAnswer(int macauhoi) {
 		Connection connnection = MySQLConnUtils.getMySQLConnection();
