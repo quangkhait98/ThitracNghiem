@@ -34,38 +34,43 @@ public class calendar extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	nguoidungf ngf = new nguoidungf();
 	bodef bdf = new bodef();
-	lophocf lh = new lophocf(); 
+	lophocf lh = new lophocf();
 	fullcalendarf clf = new fullcalendarf();
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public calendar() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	public calendar() {
+		super();	// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		HttpSession session = request.getSession(false);
 		nguoidung nd = (nguoidung) session.getAttribute("login");
 		java.util.List<lophoc> lhp = lh.getclassstd(nd.getManguoidung());
 		java.util.List<pagehome> ph = bdf.loadhomepage(lhp);
-		ArrayList<fullcalendar> cld = clf.getcalendar(ph);	
-        response.setCharacterEncoding("UTF8");
-        response.setContentType("application/json");
-        //Import gson-2.2.2.jar
-        Gson gson = new Gson();
-        String objectToReturn = gson.toJson(cld); //Convert List -> Json
-        
+		ArrayList<fullcalendar> cld = clf.getcalendar(ph);
+		response.setCharacterEncoding("UTF8");
+		response.setContentType("application/json");
+		// Import gson-2.2.2.jar
+		Gson gson = new Gson();
+		String objectToReturn = gson.toJson(cld); // Convert List -> Json
+
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		response.getWriter().println(objectToReturn);
-	
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
