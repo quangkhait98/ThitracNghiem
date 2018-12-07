@@ -159,6 +159,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+      <form action="testf" method="POST">
       <div class="modal-body">
 	      <h5 class="lop">Lớp : </h5>
 		  <hr>
@@ -169,11 +170,13 @@
 		  <h5 class="thoigianketthuc">Thời gian kêt thúc : </h5>
 		  <hr>
 		  <h5 class="thoigianlambai">Thời gian làm bài : </h5>
+		  <input type="hidden" id="mabd" name="mabd">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" >Hủy</button>
-        <button type="button" class="btn btn-primary" id="test">Thi</button>
+        <input type="submit" class="btn btn-primary" id="" value="Thi">
       </div>
+      </form>
     </div>
   </div>
 </div>
