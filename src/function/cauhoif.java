@@ -111,7 +111,7 @@ public class cauhoif {
 		try
 		{
 			String sql = "INSERT INTO cauhoi (NoiDung,LoaiCauHoi,DapAn1,DapAn2,DapAn3,DapAn4,MaMon,DapAnDung) VALUES (?,?,?,?,?,?,?,?)";
-				PreparedStatement ps = connnection.prepareStatement(sql);
+			PreparedStatement ps = connnection.prepareStatement(sql);
 				ps.setString(1,cauhoi.getNoidung() );
 				ps.setString(2, cauhoi.getLoaicauhoi());
 				ps.setString(3, cauhoi.getDapan1());

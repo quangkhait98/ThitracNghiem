@@ -1,7 +1,7 @@
 
-$(document).on("click", function() {
+/*$(document).on("click", function() {
 	$(".info").hide();
-});
+});*/
 
 $(document).ready(function() {
 	$('.sidebar-feature').click(function() {

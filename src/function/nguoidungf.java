@@ -1,5 +1,6 @@
 package function;
 import connect.MySQLConnUtils;
+import model.lophoc;
 import model.nguoidung;
 
 import java.sql.Connection;
@@ -76,16 +77,17 @@ public class nguoidungf {
 	{
 		Connection connnection = MySQLConnUtils.getMySQLConnection();
 		try {
-		String sql="select nguoidung.MaNguoiDung,nguoidung.TenNguoiDung from hoc,nguoidung where hoc.MaNguoiDung=nguoidung.MaNguoiDung and hoc.MaLop != ?";
+		String sql="select * from (select manguoidung,tennguoidung from nguoidung where quyen=?) as dt1 where dt1.manguoidung NOT IN (select nguoidung.manguoidung from hoc left join nguoidung on hoc.MaNguoiDung = nguoidung.Manguoidung where malop=?)";
 		PreparedStatement  ps = connnection.prepareStatement(sql);
-		ps.setString(1, idclass);
+		ps.setString(1, "student");
+		ps.setString(2, idclass);
 		ResultSet rs = ps.executeQuery();
 		java.util.List<nguoidung> lch = new ArrayList<nguoidung>();
 		while(rs.next())
 		{
 			nguoidung stdc = new nguoidung();
-			stdc.setManguoidung(rs.getString("Manguoidung"));
-			stdc.setTennguoidung(rs.getString("TenNguoidung"));
+			stdc.setManguoidung(rs.getString("manguoidung"));
+			stdc.setTennguoidung(rs.getString("tennguoidung"));
 			lch.add(stdc);
 		}
 		return lch;
@@ -125,5 +127,6 @@ public class nguoidungf {
 		}
 		return 0;
 	}
+	
 	
 }

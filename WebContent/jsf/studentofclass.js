@@ -12,6 +12,7 @@ $(document).ready(function() {
 				var select = $('#chonsv');
 		        select.find('option').remove();
 				$('select#chonsv').html(content);
+				$('#testing_table > tbody').empty();
 				$.ajax({
 				url: "studentofclass",
 				type: "POST",
@@ -52,6 +53,19 @@ $(document).on('click', '.table-remove', function() {
 					async:false,
 					success: function(content,status) {
 						$('#testing_table > tbody').html(content);
+						$.ajax({
+							url: "Loadstudent",
+							type: "GET",
+							data: {
+								classID: $('#chonlop').val(),
+							},
+							async:false,
+							success: function(content,status) {
+								var select = $('#chonsv');
+						        select.find('option').remove();
+								$('select#chonsv').html(content);
+							}
+						});	
 					}
 				});
 			}
@@ -82,6 +96,19 @@ $(document).ready(function() {
 						async:false,
 						success: function(content,status) {
 							$('#testing_table > tbody').html(content);
+							$.ajax({
+								url: "Loadstudent",
+								type: "GET",
+								data: {
+									classID: $('#chonlop').val(),
+								},
+								async:false,
+								success: function(content,status) {
+									var select = $('#chonsv');
+							        select.find('option').remove();
+									$('select#chonsv').html(content);
+								}
+							});	
 						}
 					});
 				}

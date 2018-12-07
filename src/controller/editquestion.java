@@ -43,37 +43,37 @@ public class editquestion extends HttpServlet {
 		if(idquestion == null || idquestion.trim().isEmpty() )
 		{
 			err = true;
-			errors.append("nhập chưa đầy đủ");
+			errors.append("Nhập chưa đầy đủ thông tin");
 		}
 		if(editnd==null||editnd.length()==0)
 		{
 			err=true;
-			errors.append("nhập chưa đầy đủ");
+			errors.append("Nhập chưa đầy đủ thông tin");
 		}
 		if(editda1==null||editda1.length()==0)
 		{
 			err=true;
-			errors.append("nhập chưa đầy đủ");
+			errors.append("Nhập chưa đầy đủ thông tin");
 		}
 		if(editda2==null||editda2.length()==0)
 		{
 			err=true;
-			errors.append("nhập chưa đầy đủ");
+			errors.append("Nhập chưa đầy đủ thông tin");
 		}
 		if(editda3==null||editda3.length()==0)
 		{
 			err=true;
-			errors.append("nhập chưa đầy đủ");
+			errors.append("Nhập chưa đầy đủ thông tin");
 		}
 		if(editda4==null||editda4.length()==0)
 		{
 			err=true;
-			errors.append("nhập chưa đầy đủ");
+			errors.append("Nhập chưa đầy đủ thông tin");
 		}
 		if(editdad == null || editdad.trim().isEmpty() )
 		{
 			err = true;
-			errors.append("nhập chưa đầy đủ");
+			errors.append("Nhập chưa đầy đủ thông tin");
 		}
 		int editdadung=0;
 		int idch=0;
@@ -90,11 +90,11 @@ public class editquestion extends HttpServlet {
 			if(chf.editquestion(idch, editnd, editda1, editda2, editda3, editda4, editdadung))
 			{
 				request.setAttribute("success", 
-						String.format("\u2713\u2713 sửa thành công.", idch));
+						String.format("\u2713\u2713 Sửa câu hỏi thành công.", idch));
 				request.getRequestDispatcher("Success.jsp").forward(request, response);
 				return;
 			}else {
-				errors.append(String.format(">sua thất bại.<br />", idch));
+				errors.append(String.format(">sửa câu hỏi thất bại.<br />", idch));
 				request.setAttribute("errors", errors);
 			}
 		} else {

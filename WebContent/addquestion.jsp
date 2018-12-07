@@ -1,4 +1,3 @@
-<%@page import="java.util.ArrayList"%>
 <%@page import="model.monhoc"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -103,25 +102,25 @@ if(request.getAttribute("err")!=null)
 							<div class="row">
 								<div class="col-100">
 									<label>Nhập câu hỏi</label><br>
-									<textarea class="form-control" name="cauhoi" rows="4" id="cauhoi" style="max-width: 95%"></textarea>
+									<textarea class="form-control" name="cauhoi" rows="4" id="cauhoi" style="max-width: 95%" required>${cauhoi}</textarea>
 								</div>		
 							</div>
 							<div class="row">
 								<div class="col-50">
 									<label>Câu trả lời A</label><br>
-									<textarea class="form-control" name="dapan1" rows="2" id="dapan1" style="width:90%;"></textarea>
+									<textarea class="form-control" name="dapan1" rows="2" id="dapan1" style="width:90%;" required>${dapan1}</textarea>
 								</div>
 								<div class="col-50">
 									<label>Câu trả lời B</label><br>
-									<textarea class="form-control" name="dapan2" rows="2" id="dapan2"style="width:90%;"></textarea>
+									<textarea class="form-control" name="dapan2" rows="2" id="dapan2"style="width:90%;" required>${dapan2}</textarea>
 								</div>
 								<div class="col-50">
 									<label>Câu trả lời C</label><br>
-									<textarea class="form-control" name="dapan3" rows="2" id="dapan3"style="width:90%;"></textarea>
+									<textarea class="form-control" name="dapan3" rows="2" id="dapan3"style="width:90%;" required>${dapan3}</textarea>
 								</div>
 								<div class="col-50">
 									<label>Câu trả lời D</label><br>
-									<textarea class="form-control" name="dapan4" rows="2" id="dapan4"style="width:90%;"></textarea>
+									<textarea class="form-control" name="dapan4" rows="2" id="dapan4"style="width:90%;" required>${dapan4}</textarea>
 								</div>
 								<div class="col-100"><label>đáp án đúng </label><br>
 								<select class="form-control" name="dapandung" style="width: 20%;display: inline;"  id="dapandung">

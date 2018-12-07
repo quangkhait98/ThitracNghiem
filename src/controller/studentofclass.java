@@ -57,7 +57,7 @@ public class studentofclass extends HttpServlet {
 		if(lh != null || lh.size()>0)
 			
 		{	java.util.List<nguoidung> nga = ngf.getstudent(lh.get(0).getMalop());
-			java.util.List<nguoidung> ng = ngf.svkothuoclop(lh.get(0).toString());
+			java.util.List<nguoidung> ng = ngf.svkothuoclop(lh.get(0).getMalop());
 			
 			if(ng !=null || ng.size()>0)
 			{
@@ -67,8 +67,7 @@ public class studentofclass extends HttpServlet {
 			request.setAttribute("studenta", nga);
 			
 		}
-		request.getRequestDispatcher("studentmanage.jsp").forward(request, response);
-		
+		request.getRequestDispatcher("/studentmanage.jsp").forward(request, response);
 	}
 
 
@@ -80,7 +79,7 @@ public class studentofclass extends HttpServlet {
 		if(idclass == null || idclass.length()==0)
 		{
 			err=true;
-			errors.append("lớp không đúng");
+			errors.append("không tìm thấy lớp");
 		}
 		if(!err)
 		{
