@@ -37,23 +37,18 @@ if(request.getAttribute("err")!=null)
 				<div class="sidebar-menu">
 					<ul>
 						<li class="sidebar-feature">
-							<a href="#">
+							<a href="questionmanage">
 								<i class="fas fa-user-graduate"></i>
 								<span>Quản lý câu hỏi</span>
 							</a>
 						</li>
 						<li class="sidebar-feature">
-							<a href="#">
+							<a href="AddQuestion">
 								<i class="fas fa-users"></i>
 								<span>Thêm câu hỏi</span>
 							</a>
 						</li>
-						<li class="sidebar-feature">
-							<a href="#">
-								<i class="fas fa-info"></i>
-								<span>Thông tin cá nhân</span>
-							</a>
-						</li>
+					
 					</ul>
 				</div>
 			</div>
@@ -121,23 +116,22 @@ if(request.getAttribute("err")!=null)
 				 </div>
 
 				 <hr>
-				 <div class="row addfile-mode"><h2>Thêm bằng file excel</h2> </div>
-				 <div class="row main col-sm-12">
-				 	<div class="col-sm-1"></div>
-					<div class="col-sm-10 ">
+				 <div class="row addfile-mode"><div class="col-sm-4"><h2>Thêm bằng file excel</h2></div> 
+				 <div class="col-sm-8 ">
 						<form action="AddQuestionFromExcel" method="POST" enctype="multipart/form-data" >
 							<div class="row">
 								<div class="col-sm-4" >
 									<input type="file" name="fileexcel" style="margin-top: 7px;">
 								</div>
-								<div class="col-sm-8" >
+								<div class="col-sm-1" ></div>
+								<div class="col-sm-3" >
 									<button type="submit" name="addexcel" class="btn btn-info btn-block" id="add" >Thêm</button>
 								</div>
 							</div>
 						</form>
 					</div>
-					<div class="col-sm-1"></div>
 				 </div>
+				
 			</div>
 		</div>
 	</div>

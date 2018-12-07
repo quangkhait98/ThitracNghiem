@@ -36,12 +36,15 @@
 				</div>
 				<div class="sidebar-menu">
 					<ul>
-						<li class="sidebar-feature"><a href="studentmanage.jsp">
+						<li class="sidebar-feature"><a href="quanlysinhvien">
 								<i class="fas fa-user-graduate"></i> <span>Quản lý thí
 									sinh</span>
 						</a></li>
-						<li class="sidebar-feature"><a href="#"> <i
+						<li class="sidebar-feature"><a href="classmanage"> <i
 								class="fas fa-users"></i> <span>Quản lý lớp học</span>
+						</a></li>
+						<li class="sidebar-feature"><a href="studentofclass"> <i
+								class="fas fa-users"></i> <span>Thêm sinh viên vào lớp</span>
 						</a></li>
 					</ul>
 				</div>
@@ -56,8 +59,9 @@
 					    <div id="table" class="table-editable">
 							<span class="table-add float-right mb-3 mr-2">
 						    	<a href="#" class="text-success">
-						    		<i class="fa fa-plus fa-2x" aria-hidden="true" ></i>
-						    		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Open modal</button>
+						    		
+						    		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus fa-2x" aria-hidden="true" ></i></button>
+						        	
 						        </a>
 						    </span>
 					        <table id="class_table" class="table table-bordered table-responsive-md table-striped text-center">
@@ -79,7 +83,7 @@
 						          <td class="pt-2-half" contenteditable="false">${item.tenlop}</td>
 						          <td class="pt-2-half" contenteditable="false">${item.soluong}</td>
 						          <td>
-						          	  <span class="table-edit"><button type="button" class="btn btn-primary btn-rounded btn-sm my-0">Sửa</button></span>
+						          	  
 						           	  <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">Xóa</button></span>
 						           	  
 						          </td>
@@ -89,15 +93,14 @@
 					      </table>
 					    </div>
 					    <!-- end idtable -->
-						<nav class="pagination-bot" aria-label="Page navigation example">
-							<ul class="pagination">
-								<li class="page-item"><a class="page-link" href="#">Trước</a></li>
-								<li class="page-item"><a class="page-link" href="#">1</a></li>
-								<li class="page-item"><a class="page-link" href="#">2</a></li>
-								<li class="page-item"><a class="page-link" href="#">3</a></li>
-								<li class="page-item"><a class="page-link" href="#">Sau</a></li>
-							</ul>
-						</nav>
+
+
+						
+	
+						<!-- end idtable -->
+
+					
+
 					</div>
 				</div>
 				<!-- Editable table -->

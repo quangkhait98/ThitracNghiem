@@ -36,18 +36,16 @@
 				</div>
 				<div class="sidebar-menu">
 					<ul>
-						<li class="sidebar-feature">
-							<a href="#">
-								<i class="fas fa-user-graduate"></i>
-								<span>Quản lý thí sinh</span>
-							</a>
-						</li>
-						<li class="sidebar-feature">
-							<a href="#">
-								<i class="fas fa-users"></i>
-								<span>Quản lý lớp học</span>
-							</a>
-						</li>
+						<li class="sidebar-feature"><a href="quanlysinhvien">
+								<i class="fas fa-user-graduate"></i> <span>Quản lý thí
+									sinh</span>
+						</a></li>
+						<li class="sidebar-feature"><a href="classmanage"> <i
+								class="fas fa-users"></i> <span>Quản lý lớp học</span>
+						</a></li>
+						<li class="sidebar-feature"><a href="studentofclass"> <i
+								class="fas fa-users"></i> <span>Thêm sinh viên vào lớp</span>
+						</a></li>
 					</ul>
 				</div>
 			</div>
@@ -79,7 +77,7 @@
 							</div>
 							 
 							<span class="table-add float-right mb-3 mr-2">
-						    	  <button class="btn" id="addst" >Popup</button>
+						    	  <button class="btn btn-primary" class="btn" id="addst" ><i class="fa fa-plus fa-2x" aria-hidden="true" ></i></button>
 						    </span>
 
 					        <table id="testing_table" class="table table-bordered table-responsive-md table-striped text-center">
