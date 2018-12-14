@@ -7,6 +7,11 @@ $(document).ready(function() {
 			if (typeof dapAn[i] === "undefined") {
 				dapAn[i] = 0;
 			}
+			if(getCookie(name)){
+				document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+			}
+			document.cookie = "duration=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+			document.cookie = "user=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 			i++;
 		})
 		$.ajax({
@@ -21,44 +26,37 @@ $(document).ready(function() {
 				$('#myContainer').html(data);
 			}
 		})
-	})
+	});
 })
 $(document).ready(function() {
-	$('label.questionLabel').each(function() {
-		var name = $(this).attr('for');
-		$('input[name=' + name + ']').change(function() {
-			if (this.checked) {
-				$('#index-' + name).children().css("color", "red");
-			}
-		});
-	});
 
 	var currentTab = 0;
 	showTab(currentTab);
 
 	function showTab(n) {
 		var x = document.getElementsByClassName("hidden");
-		for (var i = 0; i < 10; i++)
-			x[n + i].style.display = "block";
+		x[n].style.display = "block";
+		if (n == 0) {
+			document.getElementById("prev").style.display = "none";
+		} else {
+			document.getElementById("prev").style.display = "inline";
+		}
+		if (n == (x.length - 1)) {
+			document.getElementById("next").style.display = "none";
+		} else {
+			document.getElementById("next").style.display = "inline";
+		}
 	}
 	function nextPrev(n) {
 		var x = document.getElementsByClassName("hidden");
-		for (var i = 0; i < 10; i++)
-			x[currentTab + i].style.display = "none";
+		x[currentTab].style.display = "none";
 		currentTab = currentTab + n;
-		if (currentTab >= x.length) {
-			currentTab -= 10;
-		}
-		if (currentTab < 0) {
-			currentTab += 10;
-		}
-
 		showTab(currentTab);
 	}
 	$('#prev').click(function() {
-		nextPrev(-10);
+		nextPrev(-1);
 	})
 	$('#next').click(function() {
-		nextPrev(10);
+		nextPrev(1);
 	})
 });

@@ -72,7 +72,7 @@ public class QuanLyBoDe extends HttpServlet {
 		for (int i = 0; i < 10; i++)
 			maBoDe += ThreadLocalRandom.current().nextInt(1, 10);
 		String tenBoDe = request.getParameter("tenbode");
-		String url = "exammanage.jsp";
+		String url = "exammanager";
 		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss a");
 		java.sql.Time thoiGianLamBai = null;
 		java.sql.Timestamp ngayMoDe = null;

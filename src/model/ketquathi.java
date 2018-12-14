@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 public class ketquathi {
 	private String manguoidung;
 	private String mabode;
-	private int diem;
+	private double diem;
 	private Timestamp thoigiannopbai;
 	private String tenlop;
 	private String tenbode;
@@ -21,10 +21,10 @@ public class ketquathi {
 	public void setMabode(String mabode) {
 		this.mabode = mabode;
 	}
-	public int getDiem() {
+	public double getDiem() {
 		return diem;
 	}
-	public void setDiem(int diem) {
+	public void setDiem(double diem) {
 		this.diem = diem;
 	}
 	public Timestamp getThoigiannopbai() {

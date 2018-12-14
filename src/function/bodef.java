@@ -12,7 +12,7 @@ import model.lophoc;
 import connect.MySQLConnUtils;
 
 public class bodef {
-	public void TaoBoDe(bode bode) {
+	public boolean TaoBoDe(bode bode) {
 		Connection connnection = MySQLConnUtils.getMySQLConnection();
 		try {
 			String sql = "INSERT INTO bode (MaBoDe, TenBoDe, SLKho, SLTBinh, SLDe, MaMon) VALUES (?,?,?,?,?,?)";
@@ -33,8 +33,10 @@ public class bodef {
 			ps2.setTimestamp(5, bode.getThoiGianKetThuc());
 			ps2.setTime(6, bode.getThoiGianLamBai());
 			ps2.execute();
+			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
+			return false;
 		}
 	}
 	public List<pagehome> loadhomepage (List<lophoc> classofstd)
@@ -43,7 +45,12 @@ public class bodef {
 		List<pagehome> ph = new ArrayList<pagehome>();
 		try {
 			for (lophoc lophoc : classofstd) {
-				String sql="select lop.malop,lop.tenlop,bode.mabode,bode.tenbode,thoigianbatdau,thoigianketthuc,thoigianlambai from lop inner join bode_lop on lop.malop = bode_lop.malop inner join bode on bode_lop.mabode=bode.mabode where lop.malop=?";
+				String sql="select lop.malop,lop.tenlop,bode.mabode,bode.tenbode, thoigianbatdau,"
+						+ "thoigianketthuc,thoigianlambai,solannoptoida, count(manguoidung) "
+						+ "from lop inner join bode_lop on lop.malop = bode_lop.malop "
+						+ "inner join bode on bode_lop.mabode=bode.mabode "
+						+ "left join ketquathi on ketquathi.mabode = bode.mabode "
+						+ "where lop.malop=?";
 				PreparedStatement  ps = connnection.prepareStatement(sql);
 				ps.setString(1, lophoc.getMalop());
 				ResultSet rs = ps.executeQuery();
@@ -58,6 +65,8 @@ public class bodef {
 					pagehome.setThoigianbatdau(rs.getTimestamp("thoigianbatdau"));
 					pagehome.setThoigianketthuc(rs.getTimestamp("thoigianketthuc"));
 					pagehome.setThoigianlambai(rs.getTime("thoigianlambai"));
+					pagehome.setSolanlambaitoida(rs.getInt("solannoptoida"));
+					pagehome.setSolanlambai(rs.getInt("count(manguoidung)"));
 					ph.add(pagehome);
 				}
 			}

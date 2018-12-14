@@ -30,29 +30,14 @@
 			<a href="javascript:void(0);" class="icon" id="menubtn"> <i
 				class="fa fa-bars"></i>
 			</a>
-			<div class="sidebar" id="mySidebar">
-				<div class="sidebar-header">
-					<p>MENU</p>
-				</div>
-				<div class="sidebar-menu">
-					<ul>
-						<li class="sidebar-feature"><a href="find-friend.html"> <i
-								class="fas fa-book-open"></i> <span>Xem các bài kiểm tra</span>
-						</a></li>
-						<li class="sidebar-feature"><a href="mainframe.html"> <i
-								class="fas fa-star-half-alt"></i> <span>Xem điểm kiểm tra</span>
-						</a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="container-main" id="myContainer">
+			<div class="container-main" id="myContainer" style="width:100%;">
 				<form id="form_online_test" class="online-test">
 					<ol class="questions" id="student-questions-table">
 						<c:forEach items="${questions}" var="i" varStatus="loop">
 							<li class="question hidden" id="question${loop.index}"><label
 								class="questionLabel" id="question_2_${loop.index}"
 								for="question_${loop.index}">${loop.index + 1}.
-									${i.noidung}1 </label>
+									${i.noidung} </label>
 								<div class="answerSet">
 									<span> <input id="question_${loop.index}_1"
 										name="question_${loop.index}" class="element radio"
@@ -78,8 +63,8 @@
 						<button type="button" class="btn" id="nopbaibtn">Nộp bài</button>
 					</div>
 					<ul class="pagination justify-content-center">
-						<li id="prev" class="page-item"><a class="page-link" href="#">Previous</a></li>
-						<li id="next" class="page-item"><a class="page-link" href="#">Next</a></li>
+						<li id="prev" class="page-item"><button type="button" class="page-link">Previous</button></li>
+						<li id="next" class="page-item"><button type="button" class="page-link" >Next</button></li>
 					</ul>
 				</form>
 				<div class="indexer" style="display: inline-grid;">
@@ -89,7 +74,7 @@
 					<ul class="list-inline question-index">
 						<c:forEach items="${questions}" var="i" varStatus="loop">
 							<li class="question-num list-inline-item"
-								id="index-question_${loop.index}"><a class="question-link"
+								id="index-question_${loop.index}"><a class="question-link" href="#question${loop.index}"
 								>${loop.index + 1}</a></li>
 						</c:forEach>
 					</ul>

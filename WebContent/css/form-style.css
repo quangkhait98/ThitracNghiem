@@ -1,9 +1,11 @@
 .container-main {
 	overflow-y: auto;
+	overflow-x: hidden;
 }
 
 .container {
 	overflow-y: scroll;
+	
 }
 
 .online-test {
@@ -35,6 +37,7 @@
 
 .answerSet {
 	padding-left: 30px;
+	display: grid;
 }
 
 .answerSet span {
@@ -51,9 +54,11 @@
 }
 
 .indexer {
+	background-color: aliceblue;
 	width: 150px;
 	margin-top: 30px;
 	display: inline-grid;
+	border-radius: 10px;
 }
 
 #clock {

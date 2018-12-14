@@ -82,12 +82,6 @@
 								<span>Xem điểm kiểm tra</span>
 							</a>
 						</li>
-						<li class="sidebar-feature">
-							<a href="friend-list.html">
-								<i class="fas fa-info"></i>
-								<span>Thông tin cá nhân</span>
-							</a>
-						</li>
 					</ul>
 				</div>
 			</div>
@@ -113,6 +107,8 @@
 								<input type="hidden" id="tgbd" value="${itema.thoigianbatdau}" />
 								<input type="hidden" id="tgkt" value="${itema.thoigianketthuc}" />
 								<input type="hidden" id="tglb" value="${itema.thoigianlambai}" />
+								<input type="hidden" id="sllbtd" value="${itema.solanlambaitoida}" />
+								<input type="hidden" id="sllb" value="${itema.solanlambai}" />
 								</a>
 							</div>
 						</div>
@@ -152,11 +148,13 @@
 		  <h5 class="thoigianketthuc">Thời gian kêt thúc : </h5>
 		  <hr>
 		  <h5 class="thoigianlambai">Thời gian làm bài : </h5>
+		  <hr>
+		  <h5 class="solanlambaiconlai">Số lần làm bài còn lại : </h5>
 		  <input type="hidden" id="mabd" name="mabd">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" >Hủy</button>
-        <input type="submit" class="btn btn-primary" id="" value="Thi">
+        <input type="submit" class="btn btn-primary" id="thi" value="Thi">
       </div>
       </form>
     </div>

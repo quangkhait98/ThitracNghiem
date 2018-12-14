@@ -24,7 +24,15 @@ $(document).ready(function(){
 			thoigianlambai = thoigianlambai + 'Thời gian làm bài : ' + $(this).find("input[type=hidden][id$='tglb']").val();
 			$('.thoigianlambai').empty();
 			$('.thoigianlambai').text(thoigianlambai);
-			$('#mabd').val($(this).find("input[type=hidden][id$='mabode']").val())
+			
+			var solanlambaiconlai ="";
+			var num1 = $(this).find("input[type=hidden][id$='sllbtd']").val(), num2 = $(this).find("input[type=hidden][id$='sllb']").val();
+			solanlambaiconlai = solanlambaiconlai + 'Số lần làm bài còn lại : ' + (num1-num2);
+			$('.solanlambaiconlai').empty();
+			$('.solanlambaiconlai').text(solanlambaiconlai);
+			$('#mabd').val($(this).find("input[type=hidden][id$='mabode']").val());
+			if(num1 - num2 == 0)
+				$('#thi').addClass("hidden");
 			$('#exampleModal').modal('show');
 	     });
 	

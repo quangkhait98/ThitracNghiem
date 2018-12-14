@@ -216,6 +216,32 @@ public class cauhoif {
 		}
 		return null;
 	}
+	public cauhoi getquestionfromid(String macauhoi) {
+		Connection connnection = MySQLConnUtils.getMySQLConnection();
+
+		try {
+			String sql = "SELECT * FROM thitracnghiem.cauhoi where MaCauHoi = ?";
+			PreparedStatement ps = connnection.prepareStatement(sql);
+			ps.setString(1, macauhoi);
+			ResultSet rs = ps.executeQuery();
+			cauhoi ch = new cauhoi();
+			while (rs.next()) {
+				
+				ch.setMacauhoi(rs.getInt("MaCauHoi"));
+				ch.setNoidung(rs.getString("NoiDung"));
+				ch.setLoaicauhoi(rs.getString("LoaiCauHoi"));
+				ch.setDapan1(rs.getString("DapAn1"));
+				ch.setDapan2(rs.getString("DapAn2"));
+				ch.setDapan3(rs.getString("DapAn3"));
+				ch.setDapan4(rs.getString("DapAn4"));
+			}
+			return ch;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return null;
+	}
 	public java.util.ArrayList<cauhoi> getquestionfrombode(String mabode) {
 		Connection connnection = MySQLConnUtils.getMySQLConnection();
 

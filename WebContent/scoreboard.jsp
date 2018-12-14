@@ -24,7 +24,7 @@
 			<div class="row">
 				<div class="col-sm-5"></div>
 				<div class="col-sm-2">
-					<button type="button" class="btn btn-primary">Quay về</button>
+					<a href="student" class="btn btn-primary">Quay về</a>
 				</div>
 				<div class="col-sm-5"></div>
 			</div>

@@ -11,15 +11,15 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import function.bodef;
+import function.cauhoif;
 import model.bode;
 import model.cauhoi;
 import model.nguoidung;
 
-@WebServlet("/TaoDeThi")
-public class TaoDeThi extends HttpServlet {
+@WebServlet("/XuLyDeThi")
+public class XuLyDeThi extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	public TaoDeThi() {
+	public XuLyDeThi() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -41,9 +41,9 @@ public class TaoDeThi extends HttpServlet {
 					url = "questionmanager";
 				}
 				if (quyen.equals("exammanager")) {
-					url = "QuanLyBoDe";
+					url = "questionlist.jsp";
 				}
-				if (quyen.equals("classmanager")) {
+				if (quyen.equals("classmanager")) { 
 					url = "classmanager";
 				}
 
@@ -51,16 +51,37 @@ public class TaoDeThi extends HttpServlet {
 				url = "login.jsp";
 			}
 		}
+		HttpSession cauhoi = request.getSession();
+		@SuppressWarnings("unchecked")
+		ArrayList<cauhoi> ch = (ArrayList<cauhoi>) cauhoi.getAttribute("listcauhoi");
+		String q = request.getParameter("cauhoi");
+		int thutu = Integer.parseInt(request.getParameter("thutu"));
+		cauhoif chf = new cauhoif();
+		cauhoi c = chf.getquestionfromid(q);
+		ch.set(thutu, c);
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession cauhoi = request.getSession(false);
+		request.setCharacterEncoding("utf-8");
+		HttpSession cauhoi = request.getSession();
+		String maBoDe = (String) cauhoi.getAttribute("mabode");
+		String result = "";
+		int sluong = (int) cauhoi.getAttribute("sluong");
 		@SuppressWarnings("unchecked")
 		ArrayList<cauhoi> ch = (ArrayList<cauhoi>) cauhoi.getAttribute("listcauhoi");
-		cauhoi.setAttribute("question", ch);
-		request.getRequestDispatcher("LayCauHoi").forward(request, response);	
+		bode bode = (bode) cauhoi.getAttribute("bode");
+		bodef bdf = new bodef();
+		if (bdf.TaoBoDe(bode))
+			result = "Tạo bộ đề thành công!";
+		else
+			result = "Tạo bộ đề thất bại!";
+		for (int i = 0; i < sluong; i++) {
+			int maCauHoi = ch.get(i).getMacauhoi();
+			bdf.BoDe_CauHoi(maBoDe, maCauHoi);
+		}
+		request.getRequestDispatcher("exammanager").forward(request, response);
 	}
 
 }

@@ -49,9 +49,7 @@
 						<c:import url="questionlist.jsp" />
 					</ol>
 					<div class="submit">
-						<button type="button" class="btn" id="abc">Prev</button>
-						<button type="button" class="btn" id="xyz">Next</button>
-						<button type="submit" class="btn" id="def" data-toggle="modal"
+						<button type="submit" class="btn btn-primary" id="def" data-toggle="modal"
 							data-target="#alert">Save</button>
 						<button type="button" class="btn" id="jkl">Cancel</button>
 					</div>
@@ -62,7 +60,7 @@
 					<!-- Modal content-->
 					<div class="modal-content">
 						<div class="modal-body">
-							<p>Tạo bộ đề thành công!</p>
+							"${result}"
 						</div>
 					</div>
 				</div>
@@ -85,7 +83,7 @@
 							<div class="answerSet" id="myAnswerSet"></div>
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-default">Save</button>
+							<button type="button" class="btn btn-default" id="sss">Save</button>
 							<button type="button" class="btn btn-default"
 								data-dismiss="modal">Close</button>
 						</div>

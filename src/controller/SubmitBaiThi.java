@@ -9,13 +9,18 @@ import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+
 import model.cauhoi;
+import model.ketquathi;
+import model.nguoidung;
 import function.cauhoif;
+import function.ketquathif;
 
 @WebServlet("/SubmitBaiThi")
 public class SubmitBaiThi extends HttpServlet {
@@ -34,9 +39,11 @@ public class SubmitBaiThi extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy");
 		Date date = new Date();
 		HttpSession cauhoi = request.getSession(false);
+		HttpSession session = request.getSession(false);
+		ketquathif kqf = new ketquathif();
 		@SuppressWarnings("unchecked")
 		ArrayList<cauhoi> ch = (ArrayList<cauhoi>) cauhoi.getAttribute("questions");
 		int sluong = Integer.parseInt(request.getParameter("soluong"));
@@ -50,12 +57,21 @@ public class SubmitBaiThi extends HttpServlet {
 			if (dapAn[i].toString().equals(String.valueOf(dapAnDung[i])))
 				soCauDung++;
 		}
+		java.sql.Timestamp timestamp = null;
+		timestamp = new java.sql.Timestamp(date.getTime());
+		ketquathi kq = new ketquathi();
 		cauhoi.removeAttribute("questions");
-		DecimalFormat df = new DecimalFormat("#.##"); 
+		DecimalFormat df = new DecimalFormat("#.##");
 		request.setAttribute("soCau", sluong);
 		request.setAttribute("soCauDung", soCauDung);
-		request.setAttribute("diem", df.format(10/(double)(sluong)*soCauDung));
-		request.setAttribute("time",dateFormat.format(date));
+		request.setAttribute("diem", df.format(10 / (double) (sluong) * soCauDung));
+		kq.setDiem(Double.parseDouble(df.format(10 / (double) (sluong) * soCauDung)));
+		kq.setMabode((String) cauhoi.getAttribute("mabode"));
+		nguoidung nd = (nguoidung) session.getAttribute("login");
+		kq.setManguoidung(nd.getManguoidung());
+		kq.setThoigiannopbai(timestamp);
+		kqf.setketqua(kq);
+		request.setAttribute("time", dateFormat.format(date));
 		request.getRequestDispatcher("scoreboard.jsp").forward(request, response);
 	}
 

@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import function.lophocf;
 import function.monhocf;
+import model.lophoc;
 import model.monhoc;
 import model.nguoidung;
 
@@ -63,6 +65,11 @@ public class exammanager extends HttpServlet {
 		ArrayList<monhoc> mh = mhf.getmonhoc();
 		if (mh != null && mh.size() > 0) {
 			request.setAttribute("mon", mh);
+		}
+		lophocf lhf = new lophocf();
+		ArrayList<lophoc> lh = lhf.getclass();
+		if (lh != null && lh.size() > 0) {
+			request.setAttribute("lop", lh);
 		}
 		request.getRequestDispatcher(url).forward(request, response);
 	}

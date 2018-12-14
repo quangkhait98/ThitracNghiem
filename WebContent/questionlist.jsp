@@ -5,7 +5,7 @@
 <c:forEach items="${question}" var="i" varStatus="loop">
 	<li class="question" id="question${loop.index}"><label
 		class="questionLabel" id="question_2_${loop.index}"
-		for="question_${loop.index}">${loop.index + 1}. ${i.noidung}1
+		for="question_${loop.index}">${loop.index + 1}. ${i.noidung}
 			<button type="button" class="btn btn-default edit" data-toggle="modal"
 				data-target="#questionModal">
 				<i class="far fa-edit"></i>

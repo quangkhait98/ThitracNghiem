@@ -92,10 +92,9 @@ if(request.getAttribute("err")!=null)
 							<div class="form-item">
 								<label class="item-title">Chọn lớp giao đề: </label> <select
 									class="form-control" id="class" name="lopgiaode">
-									<option>Lớp Toán</option>
-									<option>Lớp Lý</option>
-									<option>Lớp Hóa</option>
-									<option>Lớp Sinh</option>
+									<c:forEach items="${lop}" var="item">
+										<option value="${item.malop}">${item.tenlop}</option>
+									</c:forEach>
 								</select>
 								<!--<button type="button" onclick="addClasses()" class="btn btn-primary">Thêm lớp</button>-->
 							</div>
