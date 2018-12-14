@@ -1,5 +1,14 @@
 $(document).ready(function(){
 	$(document).on('click', '#lop', function(){
+		var n = Date.now();
+		var end =Date.parse( $(this).find("input[type=hidden][id$='tgkt']").val());
+		var start =Date.parse($(this).find("input[type=hidden][id$='tgbd']").val());
+		if(n>=end||n<=start)
+		{
+			alert("Bài thi "+ $(this).find("input[type=hidden][id$='tenbode']").val()+" của lớp "+$(this).find("input[type=hidden][id$='tenLop']").val()+" không trong thời gian làm bài");
+		}
+		else
+		{
 			var lop ="";
 			lop = lop + 'Lớp : ' + $(this).find("input[type=hidden][id$='tenLop']").val();
 			$('.lop').empty();
@@ -34,7 +43,7 @@ $(document).ready(function(){
 			if(num1 - num2 == 0)
 				$('#thi').addClass("hidden");
 			$('#exampleModal').modal('show');
-	     });
+		});
 	
 
 	

@@ -129,20 +129,28 @@ $(document).ready(function(){
              return $(this).text();
           }).get();
 		 columnHeadings.splice(0, 9);
-		 columnHeadings.splice(0,0,"noidung","dapan1","dapan2","dapan3","dapan4","dapandung")
+		 columnHeadings.splice(0,0,"noidung","dapan1","dapan2","dapan3","dapan4","dapandung")	
 	       var columnValues = $(this).parent().siblings().map(function() {
 	                 return $(this).text();
 	       }).get();
 	       columnValues.shift();
 	       var id= columnValues.shift();
+	       var labels=["Nội dung","Đáp án 1","Đáp án 2","Đáp án 3","Đáp án 4","Đáp án đúng"];
 	       var modalBody = $('<div id="modalContent"></div>');
 	       var modalForm = $('<form role="form" name="modalForm" action="editquestion" method="post"></form>');
-	       $.each(columnHeadings, function(i, columnHeader) {
+	      /*$.each(columnHeadings, function(i, columnHeader) {
 	           var formGroup = $('<div class="form-group"></div>');
 	           formGroup.append('<label for="'+columnHeader+'">'+columnHeader+'</label>');
 	           formGroup.append('<input class="form-control" name="'+columnHeader+'" id="'+columnHeader+'" value="'+columnValues[i]+'" />'); 
 	           modalForm.append(formGroup);
-	      });
+	      });*/
+	       for(var i=0 ; i<6 ; i++)
+	       {
+	    	   var formGroup = $('<div class="form-group"></div>');
+	           formGroup.append('<label for="'+labels[i]+'">'+labels[i]+'</label>');
+	           formGroup.append('<input class="form-control" name="'+columnHeadings[i]+'" id="'+columnHeadings[i]+'" value="'+columnValues[i]+'" />'); 
+	           modalForm.append(formGroup);
+	       }
 	       modalForm.append('<input type="hidden" name="idq" id="idq" value="'+id+'"/>')
 	       modalBody.append(modalForm);
 	       
