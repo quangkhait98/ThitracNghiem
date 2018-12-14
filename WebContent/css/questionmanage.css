@@ -91,3 +91,6 @@ caption {
     text-align: left;
     margin-left: 50% !important;
 }
+.row.filter-search {
+    margin-left: 5px;
+}

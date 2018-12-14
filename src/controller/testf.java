@@ -45,10 +45,10 @@ public class testf extends HttpServlet {
     
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		java.util.List<ketquathi> kqthi = kqt.getketqua("SV1");
-		for (ketquathi ketquathi : kqthi) {
-			System.out.print(ketquathi.getDiem());
-		}
+	
+			response.sendError(HttpServletResponse.SC_BAD_REQUEST);//404
+		
+		
 	}
 
 

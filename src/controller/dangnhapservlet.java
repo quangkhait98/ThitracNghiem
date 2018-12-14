@@ -48,7 +48,7 @@ public class dangnhapservlet extends HttpServlet {
 				}
 
 			} else {
-				url = "login.jsp";
+				url = "WEB-INF/user/login.jsp";
 			}
 		}
 
