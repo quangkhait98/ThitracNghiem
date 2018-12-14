@@ -43,37 +43,37 @@ public class editquestion extends HttpServlet {
 		if(idquestion == null || idquestion.trim().isEmpty() )
 		{
 			err = true;
-			errors.append("Nhập chưa đầy đủ thông tin");
+			errors.append("Nháº­p chÆ°a Ä‘áº§y Ä‘á»§ thÃ´ng tin");
 		}
 		if(editnd==null||editnd.length()==0)
 		{
 			err=true;
-			errors.append("Nhập chưa đầy đủ thông tin");
+			errors.append("Nháº­p chÆ°a Ä‘áº§y Ä‘á»§ thÃ´ng tin");
 		}
 		if(editda1==null||editda1.length()==0)
 		{
 			err=true;
-			errors.append("Nhập chưa đầy đủ thông tin");
+			errors.append("Nháº­p chÆ°a Ä‘áº§y Ä‘á»§ thÃ´ng tin");
 		}
 		if(editda2==null||editda2.length()==0)
 		{
 			err=true;
-			errors.append("Nhập chưa đầy đủ thông tin");
+			errors.append("Nháº­p chÆ°a Ä‘áº§y Ä‘á»§ thÃ´ng tin");
 		}
 		if(editda3==null||editda3.length()==0)
 		{
 			err=true;
-			errors.append("Nhập chưa đầy đủ thông tin");
+			errors.append("Nháº­p chÆ°a Ä‘áº§y Ä‘á»§ thÃ´ng tin");
 		}
 		if(editda4==null||editda4.length()==0)
 		{
 			err=true;
-			errors.append("Nhập chưa đầy đủ thông tin");
+			errors.append("Nháº­p chÆ°a Ä‘áº§y Ä‘á»§ thÃ´ng tin");
 		}
 		if(editdad == null || editdad.trim().isEmpty() )
 		{
 			err = true;
-			errors.append("Nhập chưa đầy đủ thông tin");
+			errors.append("Nháº­p chÆ°a Ä‘áº§y Ä‘á»§ thÃ´ng tin");
 		}
 		int editdadung=0;
 		int idch=0;
@@ -90,15 +90,15 @@ public class editquestion extends HttpServlet {
 			if(chf.editquestion(idch, editnd, editda1, editda2, editda3, editda4, editdadung))
 			{
 				request.setAttribute("success", 
-						String.format("\u2713\u2713 Sửa câu hỏi thành công.", idch));
-				request.getRequestDispatcher("WEB-INF/Success.jsp").forward(request, response);
+						String.format("\u2713\u2713 Sá»­a cÃ¢u há»�i thÃ nh cÃ´ng.", idch));
+				request.getRequestDispatcher("Success.jsp").forward(request, response);
 				return;
 			}else {
-				errors.append(String.format(">sửa câu hỏi thất bại.<br />", idch));
+				errors.append(String.format(">sá»­a cÃ¢u há»�i tháº¥t báº¡i.<br />", idch));
 				request.setAttribute("errors", errors);
 			}
 		} else {
-			request.setAttribute("WEB-INF/errors", errors);
+			request.setAttribute("errors", errors);
 		
 				
 	}

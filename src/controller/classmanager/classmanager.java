@@ -56,7 +56,7 @@ public class classmanager extends HttpServlet {
 				}
 
 			} else {
-				url = "WEB-INF/user/login.jsp";
+				url = "login.jsp";
 			}
 		}
 		lophocf lhf = new lophocf();

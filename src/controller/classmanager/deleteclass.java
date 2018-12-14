@@ -50,7 +50,7 @@ public class deleteclass extends HttpServlet {
 			if(lhf.deleteclass(classid)>0) {
 				request.setAttribute("success", 
 						String.format("\u2713\u2713 Xóa thành công.", classid));
-				request.getRequestDispatcher("WEB-INF/Success.jsp").forward(request, response);
+				request.getRequestDispatcher("Success.jsp").forward(request, response);
 				return;
 			} else {
 				errors.append(String.format(">xóa thất bại.<br />", classid));
@@ -59,7 +59,7 @@ public class deleteclass extends HttpServlet {
 		} else {
 			request.setAttribute("errors", errors);
 		}
-		request.getRequestDispatcher("WEB-INF/Errors.jsp").forward(request, response);
+		request.getRequestDispatcher("Errors.jsp").forward(request, response);
 	}
 
 }

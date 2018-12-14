@@ -43,7 +43,7 @@ public class Loadstudent extends HttpServlet {
 				{
 					request.setAttribute("chonsv", ng);
 				}
-				request.getRequestDispatcher("WEB-INF/classmanager/studentlist.jsp").forward(request, response);
+				request.getRequestDispatcher("studentlist.jsp").forward(request, response);
 			}
 		
 	}

@@ -43,9 +43,8 @@ $(document).ready(function(){
 			if(num1 - num2 == 0)
 				$('#thi').addClass("hidden");
 			$('#exampleModal').modal('show');
+		}
 		});
-	
-
 	
 });
 

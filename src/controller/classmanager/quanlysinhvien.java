@@ -55,7 +55,7 @@ public class quanlysinhvien extends HttpServlet {
 				}
 
 			} else {
-				url = "WEB-INF/user/login.jsp";
+				url = "login.jsp";
 			}
 		}
 
@@ -74,7 +74,7 @@ public class quanlysinhvien extends HttpServlet {
 		{
 			request.setAttribute("getstdtable", getstd);
 		}
-		request.getRequestDispatcher("WEB-INF/classmanager/tablestudent.jsp").forward(request, response);
+		request.getRequestDispatcher("tablestudent.jsp").forward(request, response);
 	}
 
 }

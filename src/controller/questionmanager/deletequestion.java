@@ -35,23 +35,23 @@ public class deletequestion extends HttpServlet {
 		StringBuilder errors = new StringBuilder();
 		if(questionID == null || questionID.trim().isEmpty()) {
 			isError = true;
-			errors.append("Không tìm thấy câu hỏi");
+			errors.append("KhÃ´ng tÃ¬m tháº¥y cÃ¢u há»�i");
 		}
 		if(!isError) {
 			
 			if(chf.deletequestion(Integer.parseInt(questionID))>0) {
 				request.setAttribute("success", 
-						String.format("\u2713\u2713 Xóa thành công.", questionID));
-				request.getRequestDispatcher("WEB-INF/Success.jsp").forward(request, response);
+						String.format("\u2713\u2713 XÃ³a thÃ nh cÃ´ng.", questionID));
+				request.getRequestDispatcher("Success.jsp").forward(request, response);
 				return;
 			} else {
-				errors.append(String.format(">xóa thất bại.<br />", questionID));
+				errors.append(String.format(">xÃ³a tháº¥t báº¡i.<br />", questionID));
 				request.setAttribute("errors", errors);
 			}
 		} else {
 			request.setAttribute("errors", errors);
 		}
-		request.getRequestDispatcher("WEB-INF/Errors.jsp").forward(request, response);
+		request.getRequestDispatcher("Errors.jsp").forward(request, response);
 	}
 	
 

@@ -52,7 +52,7 @@ public class classmanage extends HttpServlet {
 				}
 
 			} else {
-				url = "WEB-INF/user/login.jsp";
+				url = "login.jsp";
 			}
 		}
 

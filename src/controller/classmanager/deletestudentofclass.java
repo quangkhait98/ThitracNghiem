@@ -44,24 +44,24 @@ public class deletestudentofclass extends HttpServlet {
 		StringBuilder errors = new StringBuilder();
 		if(studentid == null || studentid.trim().isEmpty()||classid == null || classid.trim().isEmpty()) {
 			isError = true;
-			errors.append("không tìm thấy sinh viên hoặc lớp học");
+			errors.append("khÃ´ng tÃ¬m tháº¥y sinh viÃªn hoáº·c lá»›p há»�c");
 		}
 		if(!isError)
 		{
 			if(ngf.deletestudentofclass(studentid,classid)>0) {
 				request.setAttribute("success", 
-						String.format("\u2713\u2713 xóa thành công ."));
-				request.getRequestDispatcher("WEB-INF/Success.jsp").forward(request, response);
+						String.format("\u2713\u2713 xÃ³a thÃ nh cÃ´ng ."));
+				request.getRequestDispatcher("Success.jsp").forward(request, response);
 				return;
 			} else {
-				errors.append(String.format(">xóa thất bại.<br />"));
+				errors.append(String.format(">xÃ³a tháº¥t báº¡i.<br />"));
 				request.setAttribute("errors", errors);
 			}
 		}
 		else {
 			request.setAttribute("errors", errors);
 		}
-		request.getRequestDispatcher("WEB-INF/Errors.jsp").forward(request, response);
+		request.getRequestDispatcher("Errors.jsp").forward(request, response);
 	}
 
 }

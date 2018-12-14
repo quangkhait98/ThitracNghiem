@@ -101,7 +101,7 @@ public class questionmanage extends HttpServlet {
 			ch = chf.getquestion(search, chonmon, chonloai, length, offset);
 			request.setAttribute("chonmon", ch);		
 		}
-		request.getRequestDispatcher("WEB-INF/questionmanager/tablequestion.jsp").forward(request, response);
+		request.getRequestDispatcher("tablequestion.jsp").forward(request, response);
 	}
 	
 	

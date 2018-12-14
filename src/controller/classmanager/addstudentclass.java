@@ -48,7 +48,7 @@ public class addstudentclass extends HttpServlet {
 				}
 
 			} else {
-				url = "WEB-INF/user/login.jsp";
+				url = "login.jsp";
 			}
 		}
 

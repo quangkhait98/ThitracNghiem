@@ -58,7 +58,7 @@ public class AddQuestionFromExcel extends HttpServlet {
 				}
 
 			} else {
-				url = "WEB-INF/user/login.jsp";
+				url = "login.jsp";
 			}
 		}
 
@@ -74,7 +74,7 @@ public class AddQuestionFromExcel extends HttpServlet {
 		if(excelpart==null)
 		{
 			error = true;
-			err.append("không nhận được file excel");
+			err.append("khÃ´ng nháº­n Ä‘Æ°á»£c file excel");
 		}
 		if(!error)
 		{
@@ -89,15 +89,15 @@ public class AddQuestionFromExcel extends HttpServlet {
 					{
 						if(chf.addquestionfromexcel(questions))
 						{
-							request.setAttribute("thongbao", String.format("đã thêm %d câu hỏi", leng));
+							request.setAttribute("thongbao", String.format("Ä‘Ã£ thÃªm %d cÃ¢u há»�i", leng));
 						}
 						else {
-							err.append("> Thêm các câu hỏi thất bại.<br />");
+							err.append("> ThÃªm cÃ¡c cÃ¢u há»�i tháº¥t báº¡i.<br />");
 							request.setAttribute("err", err);
 						}
 					}
 				} else {
-					err.append("> Không lấy được các câu hỏi trong file Excel.<br />");
+					err.append("> KhÃ´ng láº¥y Ä‘Æ°á»£c cÃ¡c cÃ¢u há»�i trong file Excel.<br />");
 					request.setAttribute("err", err);
 				}
 			}

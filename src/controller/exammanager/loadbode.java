@@ -40,7 +40,7 @@ public class loadbode extends HttpServlet {
 			{
 				request.setAttribute("chonbd", ng);
 			}
-			request.getRequestDispatcher("WEB-INF/exemmanager/listbodekolop.jsp").forward(request, response);
+			request.getRequestDispatcher("listbodekolop.jsp").forward(request, response);
 		}
 	}
 

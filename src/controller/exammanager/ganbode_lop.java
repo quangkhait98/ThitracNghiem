@@ -45,7 +45,7 @@ public class ganbode_lop extends HttpServlet {
 			}
 			request.setAttribute("chonlop", lh);
 			request.setAttribute("listbd", ltbdl);
-			request.getRequestDispatcher("WEB-INF/exemmanager/bodelop.jsp").forward(request, response);
+			request.getRequestDispatcher("bodelop.jsp").forward(request, response);
 		}
 	}
 

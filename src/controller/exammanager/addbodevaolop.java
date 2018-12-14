@@ -78,7 +78,7 @@ bodef bdf = new  bodef();
 			{
 				request.setAttribute("success", 
 						String.format("\u2713\u2713 thêm thành công."));
-				request.getRequestDispatcher("WEB-INF/Success.jsp").forward(request, response);
+				request.getRequestDispatcher("-Success.jsp").forward(request, response);
 				return;
 			}
 			else
@@ -90,7 +90,7 @@ bodef bdf = new  bodef();
 		else {
 			request.setAttribute("errors", errors);
 		}
-		request.getRequestDispatcher("WEB-INF/Errors.jsp").forward(request, response);
+		request.getRequestDispatcher("Errors.jsp").forward(request, response);
 	}
 
 }

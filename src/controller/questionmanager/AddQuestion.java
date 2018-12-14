@@ -45,7 +45,7 @@ public class AddQuestion extends HttpServlet {
 				}
 
 			} else {
-				url = "WEB-INF/user/login.jsp";
+				url = "login.jsp";
 			}
 		}
 
@@ -65,28 +65,28 @@ public class AddQuestion extends HttpServlet {
 		int dapandung =Integer.parseInt(request.getParameter("dapandung"));
 		String err="";
 		if(chonmon == null || chonmon.trim().length() == 0) {
-			err="chưa chọn môn !";
+			err="chÆ°a chá»�n mÃ´n !";
 		}
 		if(chonloai == null || chonloai.trim().length() == 0) {
-			err="chưa chọn loại !";
+			err="chÆ°a chá»�n loáº¡i !";
 		}
 		if(cauhoi == null || cauhoi.trim().length() == 0) {
-			err="chưa nhập câu hỏi !";
+			err="chÆ°a nháº­p cÃ¢u há»�i !";
 		}
 		if(dapan1 == null || dapan1.trim().length() == 0) {
-			err="chưa nhập đáp án đầy đủ !";
+			err="chÆ°a nháº­p Ä‘Ã¡p Ã¡n Ä‘áº§y Ä‘á»§ !";
 		}
 
 		if(dapan2 == null || dapan2.trim().length() == 0) {
-			err="chưa nhập đáp án đầy đủ !";
+			err="chÆ°a nháº­p Ä‘Ã¡p Ã¡n Ä‘áº§y Ä‘á»§ !";
 		}
 
 		if(dapan3 == null || dapan3.trim().length() == 0) {
-			err="chưa nhập đáp án đầy đủ !";
+			err="chÆ°a nháº­p Ä‘Ã¡p Ã¡n Ä‘áº§y Ä‘á»§ !";
 		}
 
 		if(dapan4 == null || dapan4.trim().length() == 0) {
-			err="chưa nhập đáp án đầy đủ !";
+			err="chÆ°a nháº­p Ä‘Ã¡p Ã¡n Ä‘áº§y Ä‘á»§ !";
 		}
 		request.setAttribute("cauhoi", cauhoi);
 		request.setAttribute("dapan1", dapan1);
@@ -107,11 +107,11 @@ public class AddQuestion extends HttpServlet {
 			int dem =chf.themcauhoi(ch);
 			if(dem>0)
 			{
-				err="thêm câu hỏi thành công";
+				err="thÃªm cÃ¢u há»�i thÃ nh cÃ´ng";
 			}
 			else
 			{
-				err="thêm câu hỏi thất bại";
+				err="thÃªm cÃ¢u há»�i tháº¥t báº¡i";
 			}
 			request.setAttribute("err", err);
 		}else

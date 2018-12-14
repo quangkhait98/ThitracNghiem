@@ -42,22 +42,22 @@ public class questionmanager extends HttpServlet {
 				String quyen = nd.getQuyen();
 				if (quyen.equals("student")) {
 
-					url = "WEB-INF/student/student-exam.jsp";
+					url = "student-exam.jsp";
 				}
 				if (quyen.equals("questionmanager")) {
 
-					url = "WEB-INF/questionmanager/addquestion.jsp";
+					url = "addquestion.jsp";
 				}
 				if (quyen.equals("exammanager")) {
 
-					url = "WEB-INF/exammanager/exammanage.jsp";
+					url = "exammanage.jsp";
 				}
 				if (quyen.equals("classmanager")) {
-					url = "WEB-INF/classmanager/classmanage.jsp";
+					url = "classmanage.jsp";
 				}
 
 			} else {
-				url = "WEB-INF/user/login.jsp";
+				url = "login.jsp";
 			}
 		}
 		monhocf mhf = new monhocf();

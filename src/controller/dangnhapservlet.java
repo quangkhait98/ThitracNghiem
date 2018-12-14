@@ -48,7 +48,7 @@ public class dangnhapservlet extends HttpServlet {
 				}
 
 			} else {
-				url = "WEB-INF/user/login.jsp";
+				url = "login.jsp";
 			}
 		}
 
@@ -86,22 +86,22 @@ public class dangnhapservlet extends HttpServlet {
 				session.setAttribute("login", nd);
 				if (t.equals("student")) {
 
-					url = "student";
+					url = "/student";
 				}
 				if (t.equals("questionmanager")) {
 
-					url = "questionmanager";
+					url = "/questionmanager";
 				}
 				if (t.equals("exammanager")) {
 
-					url = "exammanager";
+					url = "/exammanager";
 				}
 				if (t.equals("classmanager")) {
-					url = "classmanager";
+					url = "/classmanager";
 				}
 
 			} else {
-				url = "login.jsp";
+				url = "/login.jsp";
 			}
 			request.getRequestDispatcher(url).forward(request, response);
 

@@ -40,14 +40,14 @@ public class LayCauHoi extends HttpServlet {
 					url = "questionmanager";
 				}
 				if (quyen.equals("exammanager")) {
-					url = "WEB-INF/exemmanager/exampreview.jsp";
+					url = "exampreview.jsp";
 				}
 				if (quyen.equals("classmanager")) {
 					url = "classmanager";
 				}
 
 			} else {
-				url = "WEB-INF/user/login.jsp";
+				url = "login.jsp";
 			}
 		}
 

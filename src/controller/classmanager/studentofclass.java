@@ -51,7 +51,7 @@ public class studentofclass extends HttpServlet {
 				}
 
 			} else {
-				url = "WEB-INF/user/login.jsp";
+				url = "login.jsp";
 			}
 		}
 
@@ -90,7 +90,7 @@ public class studentofclass extends HttpServlet {
 			List<nguoidung> ng = ngf.getstudent(idclass);
 			request.setAttribute("student", ng);
 		}
-		request.getRequestDispatcher("WEB-INF/classmanager/studenttable.jsp").forward(request, response);
+		request.getRequestDispatcher("studenttable.jsp").forward(request, response);
 	}
 
 }
